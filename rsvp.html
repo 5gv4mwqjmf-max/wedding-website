@@ -159,8 +159,24 @@
       } catch(err) {}
       form.reset();
       toggleFields();
-      alert(msg);
+      showRsvpThanks(msg);
     });
+
+    // Elegant in-page confirmation (no alert — premium micro-interaction)
+    var thanksEl = null;
+    function showRsvpThanks(msg) {
+      if (!thanksEl) {
+        thanksEl = document.createElement('div');
+        thanksEl.className = 'rsvp-thanks';
+        thanksEl.setAttribute('role', 'status');
+        var wrap = document.querySelector('.wrap');
+        var formCard = document.querySelector('.gb-form-card');
+        formCard.parentNode.insertBefore(thanksEl, formCard.nextSibling);
+      }
+      thanksEl.textContent = msg;
+      thanksEl.classList.add('show');
+      setTimeout(function(){ thanksEl.classList.remove('show'); }, 6000);
+    }
   })();
 </script>
 <script src="js/site-motion.js"></script>
