@@ -772,16 +772,10 @@ h1, h2, h3 {
 .site-footer a { color: var(--gold-light); }
 
 /* ---------- Parallax (Kevin Powell CSS-only true parallax) ---------- */
-/* Subtle depth: hero mandala drifts slower as you scroll */
-@keyframes parallax-drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(120px); }
-}
-.hero-mark {
-  animation: parallax-drift both;
-  animation-timeline: view();
-  animation-range: entry 0% exit 30%;
-}
+/* NOTE: parallax-drift removed from hero-mark — the mandala already has
+   scroll-drawing + slow spin; three motions on one ornament is "too much
+   flare" per the luxury research (edit down). Keeping the keyframes for
+   potential use elsewhere. */
 @media (max-width: 860px) {
   .hero-mark { display: none; }
 }
