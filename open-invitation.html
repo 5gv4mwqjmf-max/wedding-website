@@ -61,6 +61,12 @@
     cursor: pointer;
     perspective: 1400px;
     perspective-origin: 50% 30%;
+  }
+  /* Inner wrapper carries the drop animation so the flex container
+     itself never transforms (prevents mobile off-center rendering) */
+  .env-drop-wrap {
+    width: 100%;
+    display: flex; justify-content: center;
     animation: env-drop 1.15s cubic-bezier(.22,1,.36,1) .8s both;
   }
   .env-shadow {
@@ -124,9 +130,9 @@
   .env-stage.open { cursor: default; }
   .env-stage.open .env-shadow { opacity: .4; }
 
-  /* Petals rising after open */
+  /* Petals rising after open — FULL SCENE, fixed overlay over everything */
   .petals {
-    position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 4;
+    position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 50;
   }
   .petal {
     position: absolute; bottom: -18px;
@@ -216,10 +222,10 @@
     <div class="top-kicker">An invitation awaits</div>
     <div class="top-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
 
-    <div class="env-stage" id="env" role="button" tabindex="0" aria-label="Open your invitation">
-      <div class="env-shadow"></div>
-      <div class="petals" id="petals" aria-hidden="true"></div>
-      <svg class="envelope" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div class="env-drop-wrap">
+      <div class="env-stage" id="env" role="button" tabindex="0" aria-label="Open your invitation">
+        <div class="env-shadow"></div>
+        <svg class="envelope" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="gBack" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#e3cda1"/><stop offset="1" stop-color="#c9a86a"/>
@@ -299,6 +305,10 @@
       </svg>
       <div class="hint" id="hint">&#8595; click to open</div>
     </div>
+    </div><!-- /env-drop-wrap -->
+
+    <!-- Petals: full-scene fixed overlay (ACT 4) -->
+    <div class="petals" id="petals" aria-hidden="true"></div>
 
     <!-- Invitation card (ACT 3) -->
     <div class="invitation" id="invitation">
