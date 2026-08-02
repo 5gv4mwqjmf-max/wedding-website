@@ -26,21 +26,42 @@
     align-items: center;
     justify-content: center;
     padding: 24px;
+    overflow-x: hidden;
   }
   .stage { text-align: center; width: 100%; max-width: 720px; }
-  .top-kicker { font-size: 13px; letter-spacing: 7px; color: var(--red); text-transform: uppercase; }
-  .top-names { font-family: 'Great Vibes', cursive; font-size: 34px; color: var(--ink); margin-top: 6px; }
-  .top-names .amp { color: var(--red); font-size: 22px; }
 
-  /* ---------- Realistic SVG envelope ---------- */
+  /* ACT 1 — ARRIVAL: kicker + names fade in, envelope drops with spring */
+  .top-kicker {
+    opacity: 0;
+    animation: fade-in 1s ease-out .3s both;
+    font-size: 13px; letter-spacing: 7px; color: var(--red); text-transform: uppercase;
+  }
+  .top-names {
+    opacity: 0;
+    animation: fade-in 1s ease-out .5s both;
+    font-family: 'Great Vibes', cursive; font-size: 34px; color: var(--ink); margin-top: 6px;
+  }
+  .top-names .amp { color: var(--red); font-size: 22px; }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* Envelope drop-in: falls from above, bounces on the table */
+  @keyframes env-drop {
+    0% { transform: translateY(-120vh); opacity: 0; }
+    55% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(-34px); }
+    82% { transform: translateY(0); }
+    90% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+  }
   .env-stage {
     display: flex; justify-content: center;
     position: relative;
     width: 100%;
-    margin: 34px auto 0;
+    margin: 30px auto 0;
     cursor: pointer;
     perspective: 1400px;
     perspective-origin: 50% 30%;
+    animation: env-drop 1.15s cubic-bezier(.22,1,.36,1) .8s both;
   }
   .env-shadow {
     position: absolute; left: 50%; top: auto; bottom: -14px;
@@ -50,7 +71,15 @@
     z-index: 0;
     transform: translateX(-50%);
     transition: opacity .6s;
+    animation: shadow-settle 1.2s ease-out .8s both;
   }
+  @keyframes shadow-settle {
+    0% { opacity: 0; transform: translateX(-50%) scale(.4); }
+    55% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+    75% { transform: translateX(-50%) scale(.95); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+
   .envelope {
     flex-shrink: 0;
     width: min(460px, 94vw);
@@ -60,12 +89,33 @@
     z-index: 1;
   }
   .env-stage:hover .envelope { transform: translateY(-5px); }
-  /* The flap lifts in 3D around its top edge */
+
+  /* Wax seal glint — sparkle passes over it */
+  @keyframes seal-glint {
+    0%, 55% { opacity: 0; }
+    60% { opacity: 1; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  #seal-glint {
+    opacity: 0;
+    animation: seal-glint 2.8s ease-in-out 2.2s infinite;
+  }
+
+  /* The flap lifts in 3D */
   #flap {
     transform-origin: 230px 12px;
     transition: transform .85s cubic-bezier(.55,-0.15,.35,1.25);
   }
   .env-stage.open #flap { transform: rotateX(-150deg); }
+
+  /* Light spill — warm glow from the opened envelope (ACT 2) */
+  #light-beam {
+    opacity: 0;
+    transition: opacity .5s ease .25s;
+  }
+  .env-stage.open #light-beam { opacity: 1; }
+
   /* The card rises out */
   #card {
     transition: transform .9s cubic-bezier(.5,-0.08,.3,1.3);
@@ -74,7 +124,25 @@
   .env-stage.open { cursor: default; }
   .env-stage.open .env-shadow { opacity: .4; }
 
-  /* ---------- Invitation card reveal ---------- */
+  /* Petals rising after open */
+  .petals {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 4;
+  }
+  .petal {
+    position: absolute; bottom: -18px;
+    border-radius: 60% 40% 55% 45%;
+    opacity: 0;
+    animation: petal-rise linear infinite;
+  }
+  @keyframes petal-rise {
+    0% { transform: translateY(0) translateX(0) rotate(0); opacity: 0; }
+    10% { opacity: .55; }
+    90% { opacity: .4; }
+    100% { transform: translateY(-105vh) translateX(30px) rotate(320deg); opacity: 0; }
+  }
+  .stage.opened .petals .petal { animation-play-state: running; }
+
+  /* ---------- Invitation card (ACT 3 — staggered reveal) ---------- */
   .invitation {
     display: none;
     margin: 30px auto 0;
@@ -90,13 +158,21 @@
     padding: 34px 30px 26px;
     text-align: center;
     box-shadow: 0 30px 60px rgba(40,25,10,.35);
-    animation: card-in .8s cubic-bezier(.5,-0.1,.3,1.3) both;
+    position: relative;
   }
-  @keyframes card-in {
-    from { opacity: 0; transform: translateY(-40px) scale(.96); }
-    to { opacity: 1; transform: none; }
-  }
-  .invitation.visible { display: block; }
+  .invitation.visible { display: block; animation: card-in .7s cubic-bezier(.5,-0.1,.3,1.3) both; }
+  @keyframes card-in { from { opacity: 0; transform: translateY(-34px) scale(.97); } to { opacity: 1; transform: none; } }
+  /* Staggered inner elements */
+  .invitation .stagger { opacity: 0; transform: translateY(14px); }
+  .invitation.visible .stagger { animation: fade-up .6s ease-out both; }
+  .invitation.visible .st1 { animation-delay: .35s; }
+  .invitation.visible .st2 { animation-delay: .55s; }
+  .invitation.visible .st3 { animation-delay: .75s; }
+  .invitation.visible .st4 { animation-delay: .95s; }
+  .invitation.visible .st5 { animation-delay: 1.15s; }
+  .invitation.visible .st6 { animation-delay: 1.35s; }
+  @keyframes fade-up { to { opacity: 1; transform: none; } }
+
   .orn-band { font-size: 15px; color: var(--gold); letter-spacing: 6px; margin-bottom: 14px; }
   .inv-kicker { font-size: 12px; letter-spacing: 5px; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
   .inv-names { font-family: 'Great Vibes', cursive; font-size: 44px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
@@ -105,59 +181,71 @@
   .inv-date { font-size: 62px; font-weight: 600; line-height: 1; color: var(--gold); text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); margin: 10px 0 4px; }
   .inv-month { font-size: 18px; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
   .inv-venue { font-family: 'Parisienne', cursive; font-size: 22px; color: var(--ink-soft); margin-bottom: 18px; }
-  .inv-cta { display: inline-block; margin-top: 8px; padding: 15px 44px; background: var(--red); border: 1px solid var(--gold); border-radius: 3px; font-family: 'Great Vibes', cursive; font-size: 23px; color: #f9f0dc; text-decoration: none; text-shadow: 0 1px 1px rgba(28,23,18,.4); transition: transform .2s; }
-  .inv-cta:hover { transform: translateY(-2px); }
+  .inv-cta {
+    display: inline-block; margin-top: 8px; padding: 15px 44px;
+    background: var(--red); border: 1px solid var(--gold); border-radius: 3px;
+    font-family: 'Great Vibes', cursive; font-size: 23px; color: #f9f0dc;
+    text-decoration: none; text-shadow: 0 1px 1px rgba(28,23,18,.4);
+    transition: transform .2s, box-shadow .2s;
+    animation: cta-pulse 2.2s ease-in-out 2s infinite;
+  }
+  @keyframes cta-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(109,26,36,.25); }
+    50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(109,26,36,.4); }
+  }
+  .inv-cta:hover { transform: scale(1.06) translateY(-2px); }
   .inv-note { font-family: 'Parisienne', cursive; font-size: 20px; color: var(--ink-soft); margin-top: 14px; }
   .inv-dress { font-family: 'Parisienne', cursive; font-size: 19px; color: var(--ink-soft); margin-top: 12px; }
   .inv-flourish { font-size: 16px; color: var(--gold); letter-spacing: 10px; margin-top: 16px; }
 
-  .hint { margin-top: 16px; font-family: 'Outfit', sans-serif; font-size: 13px; letter-spacing: 2px; color: var(--ink-soft); text-transform: uppercase; opacity: .75; }
+  .hint {
+    margin-top: 14px; font-family: 'Outfit', sans-serif; font-size: 13px;
+    letter-spacing: 2px; color: var(--ink-soft); text-transform: uppercase;
+    opacity: 0; animation: fade-in 1s ease-out 2s both;
+  }
   .hint.hidden { visibility: hidden; }
   .back-link { display: inline-block; margin-top: 22px; font-family: 'Outfit', sans-serif; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
   @media (prefers-reduced-motion: reduce) {
-    #flap, #card, .invitation { transition: none; animation: none; }
+    .env-stage, .env-shadow, #flap, #card, .invitation, .petal, #seal-glint, #light-beam, .inv-cta { animation: none !important; transition: none !important; }
+    .top-kicker, .top-names, .hint { animation: fade-in .3s both; }
   }
 </style>
 </head>
 <body>
-  <div class="stage">
+  <div class="stage" id="stage">
     <div class="top-kicker">An invitation awaits</div>
     <div class="top-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
 
     <div class="env-stage" id="env" role="button" tabindex="0" aria-label="Open your invitation">
       <div class="env-shadow"></div>
+      <div class="petals" id="petals" aria-hidden="true"></div>
       <svg class="envelope" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <!-- Warm kraft paper gradients -->
           <linearGradient id="gBack" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e3cda1"/>
-            <stop offset="1" stop-color="#c9a86a"/>
+            <stop offset="0" stop-color="#e3cda1"/><stop offset="1" stop-color="#c9a86a"/>
           </linearGradient>
           <linearGradient id="gPocketL" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#d8b87e"/>
-            <stop offset="1" stop-color="#b8935a"/>
+            <stop offset="0" stop-color="#d8b87e"/><stop offset="1" stop-color="#b8935a"/>
           </linearGradient>
           <linearGradient id="gPocketR" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#d8b87e"/>
-            <stop offset="1" stop-color="#b8935a"/>
+            <stop offset="0" stop-color="#d8b87e"/><stop offset="1" stop-color="#b8935a"/>
           </linearGradient>
           <linearGradient id="gBottom" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#c9a86a"/>
-            <stop offset="1" stop-color="#a8843f"/>
+            <stop offset="0" stop-color="#c9a86a"/><stop offset="1" stop-color="#a8843f"/>
           </linearGradient>
           <linearGradient id="gFlap" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e9d7ae"/>
-            <stop offset="1" stop-color="#d0ad6f"/>
+            <stop offset="0" stop-color="#e9d7ae"/><stop offset="1" stop-color="#d0ad6f"/>
           </linearGradient>
           <linearGradient id="gCard" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fdf8ed"/>
-            <stop offset="1" stop-color="#f0e5cd"/>
+            <stop offset="0" stop-color="#fdf8ed"/><stop offset="1" stop-color="#f0e5cd"/>
           </linearGradient>
           <radialGradient id="gSeal" cx="0.35" cy="0.3" r="0.9">
-            <stop offset="0" stop-color="#8a2733"/>
-            <stop offset="1" stop-color="#5a1420"/>
+            <stop offset="0" stop-color="#8a2733"/><stop offset="1" stop-color="#5a1420"/>
           </radialGradient>
-          <!-- Paper grain -->
+          <radialGradient id="gLight" cx="0.5" cy="0.2" r="0.8">
+            <stop offset="0" stop-color="#ffe9b8" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/>
+          </radialGradient>
           <filter id="grain" x="0" y="0" width="100%" height="100%">
             <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
             <feColorMatrix in="n" type="saturate" values="0"/>
@@ -169,12 +257,14 @@
           </filter>
         </defs>
 
-        <!-- BACK PANEL (full) -->
+        <!-- LIGHT BEAM (ACT 2 — spills out when opened) -->
+        <ellipse id="light-beam" cx="230" cy="60" rx="210" ry="120" fill="url(#gLight)"/>
+
+        <!-- BACK PANEL -->
         <rect width="460" height="300" rx="10" fill="url(#gBack)" filter="url(#grain)"/>
 
-        <!-- LEFT POCKET FOLD (triangle, apex at center) -->
+        <!-- LEFT POCKET FOLD -->
         <polygon points="0,0 230,155 0,300" fill="url(#gPocketL)" filter="url(#grain)"/>
-        <!-- crease shadow along the diagonal -->
         <polygon points="0,0 230,155 0,170" fill="rgba(120,80,30,.14)"/>
 
         <!-- RIGHT POCKET FOLD -->
@@ -185,7 +275,7 @@
         <polygon points="0,300 230,155 460,300" fill="url(#gBottom)" filter="url(#grain)"/>
         <polygon points="230,155 460,300 230,300" fill="rgba(90,55,15,.16)"/>
 
-        <!-- THE CARD (peeking from the pocket) -->
+        <!-- THE CARD -->
         <g id="card" filter="url(#softShadow)">
           <rect x="52" y="150" width="356" height="150" rx="4" fill="url(#gCard)" filter="url(#grain)"/>
           <rect x="52" y="150" width="356" height="150" rx="4" fill="none" stroke="rgba(166,124,30,.4)" stroke-width="1"/>
@@ -194,36 +284,35 @@
           <text x="230" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#5a4a3a">[Month DD, YYYY]</text>
         </g>
 
-        <!-- FRONT PANEL (covers lower part, hides card bottom) -->
-        <polygon points="0,120 230,155 460,120 460,300 0,300" fill="rgba(201,168,106,.0)"/>
-        <!-- front facing folds above the pocket: subtle horizontal band -->
+        <!-- FRONT BAND -->
         <rect x="0" y="120" width="460" height="35" fill="rgba(201,168,106,.18)"/>
 
-        <!-- FLAP (pointed triangle, rotates on open) -->
+        <!-- FLAP + WAX SEAL -->
         <g id="flap" filter="url(#softShadow)">
           <polygon points="0,0 230,150 460,0" fill="url(#gFlap)" filter="url(#grain)"/>
           <polygon points="0,0 230,150 460,0" fill="none" stroke="rgba(255,245,220,.4)" stroke-width="1.5"/>
-          <!-- wax seal at flap tip -->
           <circle cx="230" cy="143" r="26" fill="url(#gSeal)" stroke="#a67c1e" stroke-width="2" filter="url(#softShadow)"/>
           <text x="230" y="150" text-anchor="middle" font-family="Great Vibes, cursive" font-size="20" fill="#f5ecd8">K&amp;B</text>
+          <!-- glint sparkle on the seal -->
+          <path id="seal-glint" d="M230 120 L233 138 L251 141 L233 144 L230 162 L227 144 L209 141 L227 138 Z" fill="#ffe9b8" opacity=".9"/>
         </g>
       </svg>
       <div class="hint" id="hint">&#8595; click to open</div>
     </div>
 
-    <!-- Invitation card (reveals after opening) -->
+    <!-- Invitation card (ACT 3) -->
     <div class="invitation" id="invitation">
-      <div class="orn-band">&#10087; &#10086; &#10087; &#10086; &#10087;</div>
-      <div class="inv-kicker">Together with their families</div>
-      <div class="inv-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
-      <div class="inv-request">request the honour of your presence<br>at the celebration of their marriage</div>
-      <div class="inv-date">[DD]</div>
-      <div class="inv-month">[Month Year]</div>
-      <div class="inv-venue">Ceremony at [Time] &middot; [Venue Name] &middot; [City, State]</div>
-      <div class="inv-note">kindly reply on our website &rarr;</div>
-      <a class="inv-cta" href="rsvp.html">RSVP Now</a>
-      <div class="inv-dress">Festive Indian or formal &mdash; colours welcome</div>
-      <div class="inv-flourish">&#10087; &#10086; &#10087;</div>
+      <div class="stagger st1 orn-band">&#10087; &#10086; &#10087; &#10086; &#10087;</div>
+      <div class="stagger st2 inv-kicker">Together with their families</div>
+      <div class="stagger st3 inv-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
+      <div class="stagger st4 inv-request">request the honour of your presence<br>at the celebration of their marriage</div>
+      <div class="stagger st4 inv-date">[DD]</div>
+      <div class="stagger st4 inv-month">[Month Year]</div>
+      <div class="stagger st5 inv-venue">Ceremony at [Time] &middot; [Venue Name] &middot; [City, State]</div>
+      <div class="stagger st5 inv-note">kindly reply on our website &rarr;</div>
+      <div class="stagger st6"><a class="inv-cta" href="rsvp.html">RSVP Now</a></div>
+      <div class="stagger st6 inv-dress">Festive Indian or formal &mdash; colours welcome</div>
+      <div class="stagger st6 inv-flourish">&#10087; &#10086; &#10087;</div>
     </div>
 
     <a class="back-link" href="index.html">&#8592; visit the full wedding website</a>
@@ -232,16 +321,40 @@
 <script>
   (function(){
     var env = document.getElementById('env');
+    var stage = document.getElementById('stage');
     var inv = document.getElementById('invitation');
     var hint = document.getElementById('hint');
+
+    // Spawn petals (ACT 4 — only animate after open)
+    var PETAL_COLORS = ['rgba(166,124,30,.5)','rgba(109,26,36,.38)','rgba(200,150,80,.4)','rgba(28,23,18,.22)'];
+    var i, petal;
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      for (i = 0; i < 16; i++) {
+        petal = document.createElement('span');
+        petal.className = 'petal';
+        var size = 5 + Math.random() * 9;
+        petal.style.cssText =
+          'left:' + (Math.random() * 100) + '%;' +
+          'width:' + size + 'px;height:' + (size * 1.25) + 'px;' +
+          'background:' + PETAL_COLORS[i % PETAL_COLORS.length] + ';' +
+          'animation-duration:' + (10 + Math.random() * 14) + 's;' +
+          'animation-delay:' + (Math.random() * 12) + 's;' +
+          'animation-play-state:paused;';
+        document.getElementById('petals').appendChild(petal);
+      }
+    }
+
     function openIt(){
       if (env.classList.contains('open')) return;
       env.classList.add('open');
+      stage.classList.add('opened');
       hint.classList.add('hidden');
+      var petals = document.querySelectorAll('.petal');
+      for (i = 0; i < petals.length; i++) petals[i].style.animationPlayState = 'running';
       setTimeout(function(){
         inv.classList.add('visible');
         inv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 750);
+      }, 800);
     }
     env.addEventListener('click', openIt);
     env.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openIt(); } });
