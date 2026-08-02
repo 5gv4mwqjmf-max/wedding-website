@@ -32,6 +32,7 @@
 <main>
   <!-- Hero: one viewport, one thought -->
   <section class="hero">
+    <div class="petals" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="hero-kicker">Together with their families</p>
       <h1 class="hero-names">
@@ -55,9 +56,11 @@
     </div>
     <div class="hero-mark draw-scroll" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" fill="none">
-        <circle cx="200" cy="220" r="150" stroke="#a23a2f" stroke-width="1.4" opacity="0.55" pathLength="1" class="draw-path"/>
-        <circle cx="200" cy="220" r="138" stroke="#a23a2f" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 6" pathLength="1"/>
-        <circle cx="200" cy="220" r="120" stroke="#1b1b1b" stroke-width="0.9" opacity="0.5" pathLength="1" class="draw-path"/>
+        <g class="spin-ring">
+          <circle cx="200" cy="220" r="150" stroke="#a23a2f" stroke-width="1.4" opacity="0.55" pathLength="1" class="draw-path"/>
+          <circle cx="200" cy="220" r="138" stroke="#a23a2f" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 6" pathLength="1"/>
+          <circle cx="200" cy="220" r="120" stroke="#1b1b1b" stroke-width="0.9" opacity="0.5" pathLength="1" class="draw-path"/>
+        </g>
         <g stroke="#a23a2f" stroke-width="1.1" opacity="0.5">
           <g transform="rotate(0 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(30 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>

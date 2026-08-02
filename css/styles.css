@@ -761,6 +761,99 @@ hr.gold-rule { margin: var(--s4) auto; }
   .scroll-top { transition: none; }
 }
 
+/* ---------- Alive: paper grain texture (WithJoy 'textured' category) ---------- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  opacity: .55;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Alive: hero bloom breathing ---------- */
+@keyframes bloom-breathe {
+  0%, 100% { opacity: .8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+.hero::after { animation: bloom-breathe 7s ease-in-out infinite; }
+
+/* ---------- Alive: mandala slow rotation ---------- */
+@keyframes mandala-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero-mark .spin-ring {
+  transform-origin: 200px 220px;
+  animation: mandala-spin 90s linear infinite;
+}
+.hero-mark:hover .spin-ring { animation-duration: 45s; }
+
+/* ---------- Alive: floating petals ---------- */
+.petals {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.petal {
+  position: absolute; bottom: -20px;
+  border-radius: 60% 40% 55% 45%;
+  opacity: 0;
+  animation: petal-rise linear infinite;
+}
+@keyframes petal-rise {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  8% { opacity: .5; }
+  92% { opacity: .4; }
+  100% { transform: translateY(-110vh) translateX(40px) rotate(340deg); opacity: 0; }
+}
+
+/* ---------- Alive: marquee shimmer ---------- */
+.marquee { position: relative; }
+.marquee::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.14) 50%, transparent 60%);
+  transform: translateX(-120%);
+  animation: shimmer 5.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  55% { transform: translateX(120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* ---------- Alive: gallery tiles gradient shift ---------- */
+.gallery-tile {
+  animation: tile-breathe 9s ease-in-out infinite;
+}
+.gallery-tile:nth-child(2) { animation-delay: -2s; }
+.gallery-tile:nth-child(3) { animation-delay: -4s; }
+.gallery-tile:nth-child(4) { animation-delay: -6s; }
+.gallery-tile:nth-child(5) { animation-delay: -3s; }
+.gallery-tile:nth-child(6) { animation-delay: -7s; }
+@keyframes tile-breathe {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(-8deg) brightness(1.04); }
+}
+
+/* ---------- Alive: countdown tick ---------- */
+@keyframes cd-tick {
+  0% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.cd-num.ticked { animation: cd-tick .35s ease-out; }
+
+/* ---------- Alive: section ornament line shimmer ---------- */
+@keyframes line-glow {
+  0%, 100% { opacity: .6; }
+  50% { opacity: 1; }
+}
+.gold-rule { animation: line-glow 4.5s ease-in-out infinite; }
+
+/* Reduced motion: kill the decorative animation layer */
+@media (prefers-reduced-motion: reduce) {
+  .hero::after, .hero-mark .spin-ring, .petal, .marquee::after,
+  .gallery-tile, .gold-rule { animation: none !important; }
+  .petals { display: none; }
+  body::after { display: none; }
+}
+
 /* ---------- Motion ---------- */
 /* Scroll-driven reveal — Intersection Observer baseline (all browsers) */
 .reveal {

@@ -42,6 +42,25 @@
     updateDraw();
   }
 
+  // --- Alive: floating petals (subtle, wedding-appropriate) ---
+  var petalsWrap = document.querySelector(".petals");
+  if (petalsWrap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var PETAL_COLORS = ["rgba(162,58,47,.5)", "rgba(162,58,47,.32)", "rgba(200,120,90,.4)", "rgba(27,27,27,.25)"];
+    var i;
+    for (i = 0; i < 14; i++) {
+      var p = document.createElement("span");
+      p.className = "petal";
+      var size = 5 + Math.random() * 8;
+      p.style.cssText =
+        "left:" + (Math.random() * 100) + "%;" +
+        "width:" + size + "px;height:" + (size * 1.2) + "px;" +
+        "background:" + PETAL_COLORS[i % PETAL_COLORS.length] + ";" +
+        "animation-duration:" + (11 + Math.random() * 12) + "s;" +
+        "animation-delay:" + (Math.random() * 12) + "s;";
+      petalsWrap.appendChild(p);
+    }
+  }
+
   // --- Countdown timer (inviting anticipation) ---
   var WEDDING_DATE = "2026-11-14T10:00:00"; // TODO: set the real wedding date
   var cdDays = document.getElementById("cd-days");
@@ -60,9 +79,17 @@
       var m = Math.floor((dist % 3600000) / 60000);
       var s = Math.floor((dist % 60000) / 1000);
       cdDays.textContent = d;
-      document.getElementById("cd-hours").textContent = h;
-      document.getElementById("cd-mins").textContent = m;
-      document.getElementById("cd-secs").textContent = s;
+      var el;
+      el = document.getElementById("cd-hours"); el.textContent = h; pulse(el);
+      el = document.getElementById("cd-mins"); el.textContent = m; pulse(el);
+      el = document.getElementById("cd-secs"); el.textContent = s; pulse(el);
+      if (d !== lastDay) { cdDays.textContent = d; pulse(cdDays); lastDay = d; }
+    };
+    var lastDay = null;
+    var pulse = function (el) {
+      el.classList.remove("ticked");
+      void el.offsetWidth;
+      el.classList.add("ticked");
     };
     tick();
     setInterval(tick, 1000);
