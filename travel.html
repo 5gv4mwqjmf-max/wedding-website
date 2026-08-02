@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel & Accommodations — Keshava & [Bride]</title>
+<meta name="description" content="Travel and accommodation details for Keshava and [Bride]'s wedding — getting here, where to stay, and getting around.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body><header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="script">Keshava</span>&amp; <span class="script">[Bride]</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="index.html#timeline" >The Day</a>
+      <a href="travel.html" aria-current="page">Travel</a>
+      <a href="guestbook.html" >Guestbook</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="travel-hero">
+    <p class="eyebrow" style="color:var(--gold-light);">Getting Here</p>
+    <h1>Travel &amp; <span class="script">Stay</span></h1>
+    <p>Whether you&rsquo;re arriving from across town or across the world, here&rsquo;s everything you need to plan your journey.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="center"><p class="eyebrow">Arriving</p><h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Getting to the Venue</h2><hr class="gold-rule"></div>
+      <div class="grid grid-3" style="margin-top:var(--s5);">
+        <article class="card">
+          <p class="meta">By Air</p>
+          <h3>Airports</h3>
+          <ul>
+            <li>Nearest international airport — <strong>[City] International</strong> (approx. [XX] min drive)</li>
+            <li>Regional options — [Airport 2], [Airport 3]</li>
+            <li>Rideshare and rental car desks available at all terminals</li>
+          </ul>
+        </article>
+        <article class="card">
+          <p class="meta">By Road</p>
+          <h3>Driving &amp; Parking</h3>
+          <ul>
+            <li>Free on-site parking at the venue</li>
+            <li>Complimentary valet for the evening reception</li>
+            <li>Shuttle service from select hotels (see below)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <p class="meta">Venue</p>
+          <h3>The Location</h3>
+          <ul>
+            <li>[Venue Name]</li>
+            <li>[Street Address]</li>
+            <li>[City, State ZIP]</li>
+            <li>Ceremony, lunch, chai, and reception all at one venue</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--cream);">
+    <div class="wrap">
+      <div class="center"><p class="eyebrow">Where to Stay</p><h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Accommodations</h2><hr class="gold-rule"></div>
+      <div class="grid grid-2" style="margin-top:var(--s5);">
+        <article class="card">
+          <span class="hotel-tag">Recommended</span>
+          <h3>[Signature Hotel]</h3>
+          <p class="tl-desc">Steps from the venue with a block of rooms reserved for guests. Mention the wedding for the group rate.</p>
+          <ul>
+            <li>Room block rate: [$$] per night</li>
+            <li>Book by [date] to secure the rate</li>
+            <li>Complimentary breakfast</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="hotel-tag">Convenient</span>
+          <h3>[Boutique Hotel]</h3>
+          <p class="tl-desc">A short drive with a charming character — ideal for guests who want to explore the area.</p>
+          <ul>
+            <li>Approx. [XX] min from the venue</li>
+            <li>Shuttle available for the reception</li>
+            <li>Early check-in on request</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight center">
+    <div class="wrap-narrow">
+      <div class="arch">
+        <p class="eyebrow">Local Tips</p>
+        <h2 style="font-size:clamp(26px,4vw,38px);color:var(--maroon-deep);">While You&rsquo;re Here</h2>
+        <p class="intro-copy" style="font-size:16px;">[A few favourite local notes — coffee spots, evening walks, and what to pack for the season.]</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="script">Keshava &amp; [Bride]</div>
+    <p>One day · Two traditions · A lifetime together</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="travel.html">Travel</a><a href="guestbook.html">Guestbook</a>
+    </div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var t = document.querySelector('.nav-toggle');
+    if (!t) return;
+    t.addEventListener('click', function(){
+      var l = document.querySelector('.nav-links');
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
