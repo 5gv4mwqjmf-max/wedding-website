@@ -115,72 +115,105 @@
     </div>
   </section>
 
-  <!-- Welcome: glanced, not read -->
-  <section class="section-tight center">
-    <div class="wrap-narrow">
-      <div class="section-head">
-        <p class="eyebrow">Welcome</p>
-        <h2>Namaste, and <span class="script">welcome</span></h2>
-        <hr class="gold-rule">
-      </div>
-      <p class="intro-copy">
+  <!-- Welcome: glanced, not read (editorial split) -->
+  <section class="photo-tile light">
+    <div class="photo-wrap">
+      <!-- 1 photo: editorial split portrait -->
+      <picture>
+        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.webp 1600w, images/welcome-couple-2400.webp 2400w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.jpg 1600w, images/welcome-couple-2400.jpg 2400w" type="image/jpeg">
+        <img class="photo-responsive photo-fallback" src="images/welcome-couple-800.jpg" alt="Keshava and Bride at the start of their wedding day" loading="lazy" decoding="async" width="800" height="600">
+      </picture>
+    </div>
+    <div class="tile-text">
+      <p class="eyebrow">Welcome</p>
+      <h2>Namaste, and <span class="script">welcome</span></h2>
+      <p>
         One day that weaves Indian tradition with modern elegance —
         first pictures at dawn, ceremony at mid-morning, lunch on the lawn,
-        and dancing into the night.
+        and dancing into the night. We can&rsquo;t wait to celebrate with you.
       </p>
-      <p class="intro-copy">We can&rsquo;t wait to celebrate with you.</p>
-      <p style="margin-top:28px;"><a class="btn btn-maroon" href="index.html#timeline">See the Day</a></p>
+      <a class="btn btn-maroon" href="index.html#timeline">See the Day</a>
     </div>
   </section>
 
-  <!-- Timeline: the day, chapter by chapter -->
-  <section class="section" id="timeline" style="background:var(--paper);border-top:1px solid var(--line);">
-    <div class="wrap-narrow center">
-      <div class="section-head">
-        <p class="eyebrow">The Itinerary</p>
-        <h2>A Day to <span class="script">Remember</span></h2>
-        <hr class="gold-rule">
-        <p class="lede">One celebration, four chapters — from the morning&rsquo;s first frames to the evening&rsquo;s last dance.</p>
-      </div>
+  <!-- Timeline: the day, chapter by chapter (Apple-style alternating tiles) -->
+  <section class="photo-tile dark" id="timeline">
+    <div class="tile-text">
+      <p class="eyebrow">Chapter One</p>
+      <h2>Morning — <span class="script">The Procession</span></h2>
+      <p>
+        First pictures of the day, followed by the groom&rsquo;s Baroth
+        procession and arrival — Victor washes Keshava&rsquo;s feet in a
+        warm welcome.
+      </p>
+      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">9:00 AM</p>
     </div>
+    <div class="photo-wrap">
+      <picture>
+        <source media="(min-width: 761px)" srcset="images/ch1-procession-1600.webp 1600w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/ch1-procession-1600.jpg 1600w" type="image/jpeg">
+        <img class="photo-responsive photo-fallback" src="images/ch1-procession-800.jpg" alt="The Baroth procession" loading="lazy" decoding="async" width="800" height="600">
+      </picture>
+    </div>
+  </section>
 
-    <div class="timeline">
-      <article class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <div class="tl-card card">
-          <span class="tl-time">Morning · 9:00 AM</span>
-          <h3 class="tl-title">First Pictures &amp; Groom&rsquo;s Baroth Procession</h3>
-          <p class="tl-desc">First pictures of the day, followed by the groom&rsquo;s Baroth procession and arrival — Victor washes Keshava&rsquo;s feet in a warm welcome.</p>
-        </div>
-      </article>
+  <section class="photo-tile light">
+    <div class="photo-wrap">
+      <picture>
+        <source media="(min-width: 761px)" srcset="images/ch2-ceremony-1600.webp 1600w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/ch2-ceremony-1600.jpg 1600w" type="image/jpeg">
+        <img class="photo-responsive photo-fallback" src="images/ch2-ceremony-800.jpg" alt="The Indian fusion ceremony" loading="lazy" decoding="async" width="800" height="600">
+      </picture>
+    </div>
+    <div class="tile-text">
+      <p class="eyebrow">Chapter Two</p>
+      <h2>The <span class="script">Ceremony</span></h2>
+      <p>
+        The bride is seated at the dias as families offer presentations,
+        the seven sacred steps are taken, and Keshava ties the necklace
+        to seal the ceremony.
+      </p>
+      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Late Morning</p>
+    </div>
+  </section>
 
-      <article class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <div class="tl-card card">
-          <span class="tl-time">Late Morning</span>
-          <h3 class="tl-title">Indian Fusion Ceremony</h3>
-          <p class="tl-desc">The bride is seated at the dias as families offer presentations, the seven sacred steps are taken, and Keshava ties the necklace to seal the ceremony.</p>
-        </div>
-      </article>
+  <section class="photo-tile dark">
+    <div class="tile-text">
+      <p class="eyebrow">Chapter Three</p>
+      <h2>Lunch on <span class="script">the Lawn</span></h2>
+      <p>
+        A relaxed buffet of Indian food, lawn games, and flexible seating —
+        a protected window to eat, laugh, and unwind together. Then a
+        coffee &amp; chai hour outdoors with warm drinks and cooler air.
+      </p>
+      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Afternoon · 3 Hours</p>
+    </div>
+    <div class="photo-wrap">
+      <picture>
+        <source media="(min-width: 761px)" srcset="images/ch3-lunch-1600.webp 1600w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/ch3-lunch-1600.jpg 1600w" type="image/jpeg">
+        <img class="photo-responsive photo-fallback" src="images/ch3-lunch-800.jpg" alt="Lunch on the lawn with family and friends" loading="lazy" decoding="async" width="800" height="600">
+      </picture>
+    </div>
+  </section>
 
-      <article class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <div class="tl-card card">
-          <span class="tl-time">Afternoon · 3 Hours</span>
-          <h3 class="tl-title">Protected Lunch Block</h3>
-          <p class="tl-desc">A relaxed buffet of Indian food, lawn games, and flexible seating — a protected window to eat, laugh, and unwind together.</p>
-          <p class="tl-desc" style="margin-top:10px;"><strong>Coffee &amp; Chai Hour</strong> — one hour outdoors, warm drinks and cooler air.</p>
-        </div>
-      </article>
-
-      <article class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <div class="tl-card card">
-          <span class="tl-time">Evening</span>
-          <h3 class="tl-title">Wedding Reception</h3>
-          <p class="tl-desc">An evening of celebration — dinner, toasts, and dancing under the lights.</p>
-        </div>
-      </article>
+  <section class="photo-tile light">
+    <div class="photo-wrap">
+      <picture>
+        <source media="(min-width: 761px)" srcset="images/ch4-reception-1600.webp 1600w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/ch4-reception-1600.jpg 1600w" type="image/jpeg">
+        <img class="photo-responsive photo-fallback" src="images/ch4-reception-800.jpg" alt="The wedding reception under the lights" loading="lazy" decoding="async" width="800" height="600">
+      </picture>
+    </div>
+    <div class="tile-text">
+      <p class="eyebrow">Chapter Four</p>
+      <h2>The <span class="script">Reception</span></h2>
+      <p>
+        An evening of celebration — dinner, toasts, and dancing under
+        the lights. The night belongs to everyone who came.
+      </p>
+      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Evening</p>
     </div>
   </section>
 
