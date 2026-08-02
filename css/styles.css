@@ -1020,6 +1020,22 @@ body::after {
 }
 @media (max-width: 860px) { .kinetic-words { display: none; } }
 
+/* ---------- Text splitting (award-winning animation technique #5) ---------- */
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  animation: word-rise .9s cubic-bezier(.22,1,.36,1) both;
+}
+.hero-word:nth-child(1) { animation-delay: .25s; }
+.hero-word:nth-child(2) { animation-delay: .45s; }
+@keyframes word-rise {
+  from { opacity: 0; transform: translateY(0.4em); letter-spacing: 0.08em; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-word { opacity: 1; animation: none; }
+}
+
 /* ---------- Scroll-tilt hero (Seedance/Apple-style: bg shifts on tilt) ---------- */
 .hero { transform-origin: center top; }
 body.scrolled .hero { transition: transform .1s linear; }
