@@ -42,6 +42,32 @@
     updateDraw();
   }
 
+  // --- Countdown timer (inviting anticipation) ---
+  var WEDDING_DATE = "2026-11-14T10:00:00"; // TODO: set the real wedding date
+  var cdDays = document.getElementById("cd-days");
+  if (cdDays && WEDDING_DATE) {
+    var target = new Date(WEDDING_DATE).getTime();
+    var tick = function () {
+      var now = new Date().getTime();
+      var dist = target - now;
+      if (dist < 0) {
+        cdDays.textContent = "0"; cdHours.textContent = "0";
+        cdMins.textContent = "0"; cdSecs.textContent = "0";
+        return;
+      }
+      var d = Math.floor(dist / 86400000);
+      var h = Math.floor((dist % 86400000) / 3600000);
+      var m = Math.floor((dist % 3600000) / 60000);
+      var s = Math.floor((dist % 60000) / 1000);
+      cdDays.textContent = d;
+      document.getElementById("cd-hours").textContent = h;
+      document.getElementById("cd-mins").textContent = m;
+      document.getElementById("cd-secs").textContent = s;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
   // --- Scroll-to-top button ---
   var topBtn = document.querySelector(".scroll-top");
   if (topBtn) {
