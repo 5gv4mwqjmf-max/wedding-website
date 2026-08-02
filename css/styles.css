@@ -913,16 +913,53 @@ body::after {
   body::after { display: none; }
 }
 
-/* ---------- Motion ---------- */
-/* Scroll-driven reveal — Intersection Observer baseline (all browsers) */
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity .6s ease, transform .6s ease;
+/* ---------- Kinetic words (Seedance/Apple-style: words drift across) ---------- */
+.kinetic-words {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
 }
-.reveal.in {
-  opacity: 1;
-  transform: none;
+.kw {
+  position: absolute;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: rgba(27,27,27,.05);
+  white-space: nowrap;
+  animation: kw-drift linear infinite;
+}
+.kw-1 { top: 12%; font-size: 72px; animation-duration: 22s; left: -20%; }
+.kw-2 { top: 26%; font-size: 46px; animation-duration: 18s; left: -10%; color: rgba(162,58,47,.06); }
+.kw-3 { top: 40%; font-size: 88px; animation-duration: 26s; left: -25%; }
+.kw-4 { top: 55%; font-size: 40px; animation-duration: 16s; left: -15%; color: rgba(162,58,47,.05); }
+.kw-5 { top: 68%; font-size: 60px; animation-duration: 20s; left: -20%; }
+.kw-6 { top: 80%; font-size: 34px; animation-duration: 14s; left: -12%; color: rgba(162,58,47,.05); }
+.kw-7 { top: 8%; font-size: 52px; animation-duration: 30s; left: -30%; }
+.kw-8 { top: 50%; font-size: 30px; animation-duration: 24s; left: -18%; }
+.kw-9 { top: 92%; font-size: 64px; animation-duration: 28s; left: -22%; }
+.kw-10 { top: 20%; font-size: 38px; animation-duration: 32s; left: -28%; color: rgba(162,58,47,.05); }
+@keyframes kw-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 40%)); }
+}
+@media (prefers-reduced-motion: reduce) { .kw { animation: none; display: none; } }
+
+/* ---------- Scroll-tilt hero (Seedance/Apple-style: bg shifts on tilt) ---------- */
+.hero { transform-origin: center top; }
+body.scrolled .hero { transition: transform .1s linear; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero.tilt { transform: perspective(900px) rotateX(var(--tilt, 0deg)) scale(1.02); }
+}
+
+/* ---------- Pop-out reveals (elements pop up with spring) ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.pop { transform: translateY(20px) scale(.92); }
+.reveal.pop.in { animation: pop-in .55s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(20px) scale(.92); }
+  60% { transform: translateY(-3px) scale(1.02); }
+  100% { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.pop { opacity: 1; transform: none; transition: none; animation: none; }
 }
 
 /* Staggered delays for cards */

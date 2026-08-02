@@ -61,6 +61,54 @@
     }
   }
 
+  // --- Scroll-tilt hero (Seedance/Apple-style: bg shifts on tilt) ---
+  var hero = document.querySelector(".hero");
+  if (hero && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var onHeroScroll = function () {
+      var y = window.scrollY || document.documentElement.scrollTop;
+      if (y < window.innerHeight * 0.7) {
+        var tilt = Math.min(6, y / 40) * (y > 0 ? 1 : 0);
+        hero.style.setProperty("--tilt", tilt + "deg");
+        hero.classList.add("tilt");
+      } else {
+        hero.classList.remove("tilt");
+      }
+    };
+    window.addEventListener("scroll", onHeroScroll, { passive: true });
+    onHeroScroll();
+  }
+
+  // --- Pop-out reveals (Seedance: elements pop up on scroll) ---
+  var popEls = document.querySelectorAll(".reveal.pop");
+  if (popEls.length && "IntersectionObserver" in window) {
+    var popObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add("in"); });
+    }, { threshold: 0.2 });
+    popEls.forEach(function (el) { popObserver.observe(el); });
+  }
+
+  // --- Animated stat counters (Seedance: animated dashboard elements) ---
+  var counters = document.querySelectorAll(".stat-num[data-count]");
+  if (counters.length && "IntersectionObserver" in window) {
+    var counterObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        var start = 0, dur = 900, t0 = null;
+        var step = function (ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          el.textContent = Math.round(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { counterObs.observe(el); });
+  }
+
   // --- Countdown timer (inviting anticipation) ---
   var WEDDING_DATE = "2026-11-14T10:00:00"; // TODO: set the real wedding date
   var cdDays = document.getElementById("cd-days");

@@ -211,6 +211,18 @@
   }
   .hint.hidden { visibility: hidden; }
   .back-link { display: inline-block; margin-top: 22px; font-family: 'Outfit', sans-serif; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
+
+  /* Kinetic words (Seedance/Apple-style) */
+  .kinetic-words { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 60; }
+  .kw { position: absolute; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(28,23,18,.05); white-space: nowrap; animation: kw-drift linear infinite; }
+  .kw-1 { top: 10%; font-size: 64px; animation-duration: 24s; left: -20%; }
+  .kw-2 { top: 30%; font-size: 40px; animation-duration: 18s; left: -12%; color: rgba(109,26,36,.06); }
+  .kw-3 { top: 55%; font-size: 80px; animation-duration: 28s; left: -25%; }
+  .kw-4 { top: 75%; font-size: 36px; animation-duration: 20s; left: -15%; color: rgba(166,124,30,.06); }
+  .kw-5 { top: 88%; font-size: 52px; animation-duration: 32s; left: -30%; }
+  @keyframes kw-drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 40%)); } }
+  @media (prefers-reduced-motion: reduce) { .kw { animation: none; display: none; } }
+
   @media (prefers-reduced-motion: reduce) {
     .env-stage, .env-shadow, #flap, #card, .invitation, .petal, #seal-glint, #light-beam, .inv-cta { animation: none !important; transition: none !important; }
     .top-kicker, .top-names, .hint { animation: fade-in .3s both; }
@@ -219,6 +231,14 @@
 </head>
 <body>
   <div class="stage" id="stage">
+    <!-- Kinetic words drifting across (Seedance/Apple-style) -->
+    <div class="kinetic-words" aria-hidden="true">
+      <span class="kw kw-1">Keshava</span>
+      <span class="kw kw-2">&amp;</span>
+      <span class="kw kw-3">[Bride]</span>
+      <span class="kw kw-4">An Invitation</span>
+      <span class="kw kw-5">Keshava &amp; [Bride]</span>
+    </div>
     <div class="top-kicker">An invitation awaits</div>
     <div class="top-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
 
