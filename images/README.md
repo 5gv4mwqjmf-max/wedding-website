@@ -29,3 +29,22 @@ references them via `<picture>` + srcset (WebP preferred, JPEG fallback).
 ## Until photos arrive
 The `photo-fallback` class shows a warm gradient placeholder — the layout
 is fully functional with no images. Drop files in, git add, deploy.
+
+## AUTO-GRADING (do this first, not by hand)
+Run the grader so every photo shares one consistent treatment (the luxury
+research: mismatched grades read cheap):
+
+```bash
+python3 scripts/grade_photos.py --dir images/raw/ --out images/
+```
+
+The grader (scripts/grade_photos.py) applies the site's exact palette:
+- Warmth: midtones/highlights pushed toward cream #f7f4f0
+- Mute: saturation pulled ~18% (editorial, not candy)
+- Soft blacks: shadows lifted toward #1b1b1b (no crushed blacks)
+- Brick tint: warm red cast in shadows echoing #a23a2f
+- S-curve: gentle contrast for the premium print feel
+
+It outputs JPEG (q90) + WebP (q82) at 800/1600/2400 widths automatically,
+following the naming spec. Then drop the outputs into images/ (or move the
+raw folder out of the repo if you don't want it committed).
