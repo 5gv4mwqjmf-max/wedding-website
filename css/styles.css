@@ -324,6 +324,7 @@ hr.gold-rule { margin: var(--s4) auto; }
   align-items: start;
   padding: var(--s4) 0;
   border-bottom: 1px solid var(--line);
+  min-height: 118px; /* equal-height rows = the premium alignment signal */
 }
 .offer:last-child { border-bottom: 0; }
 .offer .offer-icon {
