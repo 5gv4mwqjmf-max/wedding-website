@@ -91,3 +91,69 @@ Before sending, replace: `[Bride]`, `[Month DD, YYYY]`, `[Time]`,
 python3 -m http.server 8000 --directory .
 # open http://localhost:8000
 ```
+
+## Sending the Email Invitations — Deliverability & Tools
+
+Both `save-the-date.html` and `evite.html` are ready to send. Here's what
+maximizes inbox delivery.
+
+### Recommended sender name
+
+Use **a recognizable name**, not a brand. Best results:
+- "Keshava & [Bride]" (most personal)
+- "Keshava Gali" or "[Bride's Name]"
+- Avoid: "Wedding Team", "Wedding Website", generic addresses
+
+### Subject lines that land in inbox
+
+| Purpose | Subject line | Why it works |
+|---|---|---|
+| Save-the-Date | "Save the Date — Keshava & [Bride] · [Month] [Year]" | Specific, personal, no spam triggers |
+| Save-the-Date | "We're getting married! [Month] [Year]" | Warm, familiar, personal names |
+| Invitation | "Invitation: Keshava & [Bride] — [Date]" | Clear, formal, low spam score |
+| Reminder | "Reply by [date]: Keshava & [Bride] RSVP" | Action + deadline, personal |
+
+**Avoid:** ALL CAPS, "FREE", "!!!", "You're invited!!!!!", "Win", "Act Now",
+emojis in subject (can hurt deliverability on Outlook/Gmail desktop).
+
+### Sender name (more important than subject)
+
+Spam research consistently rates sender name recognition above subject line
+cleverness. Use a name the recipient will recognize:
+- **Keshava Gali** ← best (guests know you)
+- **Keshava & [Bride]** ← good (the couple)
+- If using a service, the "From:" name should match one of these
+
+### Recommended sending tools
+
+| Tool | Cost | Works with our HTML? | RSVP tracking | Best for |
+|---|---|---|---|---|
+| **Butter** (withbutter.com) | Free starter, paid for full list | ✅ Paste HTML, send | ✅ Built-in + reminders | **Custom emails + tracking, wedding-focused** |
+| **Gmail** (select-all-copy) | Free | ✅ Copy-paste | ❌ None | Quick send ≤20 guests |
+| **Mailchimp** | Free ≤500 | ✅ HTML block | ⚠️ Campaign stats only | DIY bulk send |
+
+### Guest list template
+
+`guest-list-template.csv` has the universal columns used by Butter, Zola,
+Joy, Paperless Post, and most wedding platforms. Open it in Google Sheets or
+Excel, replace the example rows with your guests, and save as CSV.
+
+**Columns:**
+- **First Name / Last Name** — personalization tokens
+- **Email** — required for online delivery
+- **Party Size** — number in the party (for RSVP)
+- **Guest Group** — filter by "Family", "Friend", "Work" etc.
+- **RSVP Status** — auto-populated if using a platform
+- **Meal Preference / Song Request / Notes** — for import into some platforms
+
+### Sending flow (recommended)
+
+```
+1. Fill guest-list-template.csv in Google Sheets
+2. Replace placeholders in evite.html ([Bride], date, venue, RSVP date)
+3. Open evite.html in Chrome → Select All → Copy
+4. Paste into Butter (or Gmail for small sends)
+5. Send Save-the-Dates first → wait 2-3 weeks → send Invitations
+6. Monitor RSVPs on the website (/rsvp.html) — guests click through
+   from the email button
+```
