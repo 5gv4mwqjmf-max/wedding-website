@@ -9,3 +9,6 @@ Thumbs.db
 # Logs / temp
 *.log
 .DS_Store
+
+__pycache__/
+*.pyc
