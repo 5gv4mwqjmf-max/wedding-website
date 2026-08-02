@@ -10,79 +10,110 @@
   @keyframes kf-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes kf-shimmer { 0% { background-position: -120% 0; } 100% { background-position: 220% 0; } }
   @media (prefers-reduced-motion: reduce) { .anim { animation: none !important; } }
+  /* Paper: layered texture — grain + aged corners + vertical shading */
   .paper {
-    background-color: #fdf9ef;
+    background-color: #fdf8ed;
     background-image:
-      radial-gradient(ellipse at 20% 10%, rgba(176,141,62,.05), transparent 45%),
-      radial-gradient(ellipse at 85% 90%, rgba(122,31,43,.04), transparent 50%),
-      linear-gradient(180deg, #fefbf3 0%, #fdf9ef 55%, #f4ecdc 100%);
+      repeating-linear-gradient(45deg, rgba(120,90,40,.015) 0 2px, transparent 2px 4px),
+      radial-gradient(ellipse at 15% 8%, rgba(176,141,62,.07), transparent 45%),
+      radial-gradient(ellipse at 88% 92%, rgba(122,31,43,.06), transparent 50%),
+      linear-gradient(180deg, #fefaf0 0%, #fdf8ed 55%, #f2e8d4 100%);
   }
-  .ink-letterpress { text-shadow: 0 1px 0 rgba(255,255,255,.4), 0 -1px 1px rgba(43,26,16,.25); }
-  .foil-gold { color: #a8842f; text-shadow: 0 0 1px rgba(176,141,62,.4), 0 1px 1px rgba(255,255,255,.5); }
+  /* Fresh ink: glossy, near-black, wet on paper */
+  .ink {
+    color: #1c1712;
+    text-shadow: 0 1px 1px rgba(255,255,255,.55), 0 -1px 1px rgba(28,23,18,.28);
+  }
+  .ink-red { color: #6d1a24; text-shadow: 0 1px 1px rgba(255,255,255,.45), 0 -1px 1px rgba(109,26,36,.30); }
+  /* Foil gold */
+  .foil { color: #a67c1e; text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); }
 </style>
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Keshava &amp; [Bride] are getting married — save the date for [Month DD, YYYY]. Full details on the website.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 </head>
-<body style="margin:0;padding:0;background-color:#e4d9c3;font-family:Georgia,serif;">
+<body style="margin:0;padding:0;background-color:#ddcfb2;font-family:Georgia,serif;">
   <center role="article" aria-label="Save the Date" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#e4d9c3;">
-      <tr><td align="center" style="padding:28px 16px;">
-        <!-- Paper card: warm cream, subtle texture, soft edge -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" class="paper" style="max-width:600px;width:100%;border-collapse:collapse;background-color:#fdf9ef;">
-          <tr><td style="padding:14px;">
-            <!-- Deckled inner edge (handmade paper feel) -->
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid rgba(176,141,62,.35);">
-              <tr><td style="padding:30px 32px 24px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ddcfb2;">
+      <tr><td align="center" style="padding:34px 16px;">
+        <!-- CARD STACK: three cream layers peek out (paper suite) -->
+        <table role="presentation" width="612" cellpadding="0" cellspacing="0" style="max-width:612px;width:100%;border-collapse:collapse;background-color:#efe4cb;">
+          <tr><td style="padding:5px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background-color:#f6ecd5;">
+              <tr><td style="padding:5px;">
+                <!-- The actual card -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="paper" style="border-collapse:collapse;background-color:#fdf8ed;">
+                  <tr><td style="padding:0;">
+                    <!-- Deckled edge: soft double border -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid rgba(166,124,30,.4);">
+                      <tr><td style="padding:8px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px dashed rgba(166,124,30,.35);">
+                          <tr><td style="padding:34px 34px 26px;">
 
-                <!-- Handwritten header: ink on paper -->
-                <tr><td align="center" style="padding:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:6px;color:#7a1f2b;text-transform:uppercase;">Together with their families</td></tr>
+                            <!-- Corner ornaments (4 corners of the inner panel) -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+                              <td width="18" align="left" style="font-family:Georgia,serif;font-size:16px;color:#a67c1e;line-height:12px;">&#10086;</td>
+                              <td></td>
+                              <td width="18" align="right" style="font-family:Georgia,serif;font-size:16px;color:#a67c1e;line-height:12px;">&#10086;</td>
+                            </tr></table>
 
-                <!-- Handwriting names -->
-                <tr><td align="center" style="padding:2px 0;">
-                  <div class="anim ink-letterpress" style="font-family:'Great Vibes','Brush Script MT','Segoe Script',cursive;font-size:58px;line-height:1.15;color:#2b1a10;animation:kf-rise 1s ease-out both;">Keshava <span style="font-size:32px;color:#7a1f2b;">&amp;</span> [Bride]</div>
-                </td></tr>
+                            <!-- Ornamental band -->
+                            <tr><td align="center" style="padding:10px 0 2px;font-family:Georgia,serif;font-size:14px;color:#a67c1e;letter-spacing:6px;">&#10087; &#10086; &#10087; &#10086; &#10087;</td></tr>
 
-                <!-- Handwritten 'Save the Date' -->
-                <tr><td align="center" style="padding:4px 0 0;">
-                  <div class="ink-letterpress" style="font-family:'Parisienne','Great Vibes','Snell Roundhand',cursive;font-size:28px;color:#5a4a3a;line-height:1.4;">save the date</div>
-                </td></tr>
+                            <!-- Kicker -->
+                            <tr><td align="center" style="padding:12px 24px 2px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:6px;color:#6d1a24;text-transform:uppercase;">Together with their families</td></tr>
 
-                <!-- Gold-foil date (the Joy foil trend) -->
-                <tr><td align="center" style="padding:18px 0 0;">
-                  <div class="foil-gold" style="font-family:Georgia,serif;font-size:66px;font-weight:bold;line-height:1;letter-spacing:2px;">[DD]</div>
-                </td></tr>
-                <tr><td align="center" style="padding:8px 0 2px;">
-                  <div class="foil-gold" style="font-family:Georgia,serif;font-size:19px;letter-spacing:7px;text-transform:uppercase;">[Month Year]</div>
-                </td></tr>
+                            <!-- Names: rich calligraphy -->
+                            <tr><td align="center" style="padding:4px 24px 2px;">
+                              <div class="anim ink" style="font-family:'Great Vibes','Brush Script MT','Segoe Script',cursive;font-size:58px;line-height:1.2;animation:kf-rise 1s ease-out both;">Keshava <span class="ink-red" style="font-size:32px;">&amp;</span> [Bride]</div>
+                            </td></tr>
 
-                <!-- Handwritten arrow to CTA -->
-                <tr><td align="center" style="padding:14px 0 0;">
-                  <div class="anim ink-letterpress" style="font-family:'Parisienne','Great Vibes',cursive;font-size:24px;color:#7a1f2b;line-height:1.3;animation:kf-rise 1.2s ease-out both;">see the whole day &rarr;</div>
-                </td></tr>
+                            <!-- Save the date (Parisienne) -->
+                            <tr><td align="center" style="padding:6px 24px 0;">
+                              <div class="ink-red" style="font-family:'Parisienne','Great Vibes','Snell Roundhand',cursive;font-size:30px;line-height:1.3;">save the date</div>
+                            </td></tr>
 
-                <!-- CTA: ink-on-paper button -->
-                <tr><td align="center" style="padding:6px 0 0;">
-                  <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-                    <tr>
-                      <td align="center" bgcolor="#7a1f2b" class="anim" style="border-radius:2px;mso-padding-alt:15px 42px;background-image:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);background-size:220% 100%;animation:kf-shimmer 4.5s ease-in-out infinite;">
-                        <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="display:inline-block;padding:15px 42px;font-family:'Great Vibes','Brush Script MT',cursive;font-size:22px;letter-spacing:1px;color:#f5ecd8;text-decoration:none;">View Our Website</a>
-                      </td>
-                    </tr>
-                  </table>
-                </td></tr>
+                            <!-- Gold-foil date -->
+                            <tr><td align="center" style="padding:16px 24px 0;">
+                              <div class="foil" style="font-family:Georgia,serif;font-size:68px;font-weight:bold;line-height:1;letter-spacing:3px;">[DD]</div>
+                            </td></tr>
+                            <tr><td align="center" style="padding:8px 24px 2px;">
+                              <div class="foil" style="font-family:Georgia,serif;font-size:20px;letter-spacing:8px;text-transform:uppercase;">[Month Year]</div>
+                            </td></tr>
 
-                <!-- Handwritten note -->
-                <tr><td align="center" style="padding:16px 36px 0;">
-                  <div style="font-family:'Parisienne','Great Vibes',cursive;font-size:19px;color:#5a4a3a;line-height:1.5;">A formal invitation will follow &mdash; we hope you can join us for the whole day.</div>
-                </td></tr>
+                            <!-- Handwritten arrow -->
+                            <tr><td align="center" style="padding:14px 24px 0;">
+                              <div class="anim ink-red" style="font-family:'Parisienne','Great Vibes',cursive;font-size:25px;line-height:1.3;animation:kf-rise 1.2s ease-out both;">see the whole day &rarr;</div>
+                            </td></tr>
 
-                <!-- Small botanical flourish (Joy botanicals, via Unicode) -->
-                <tr><td align="center" style="padding:14px 0 0;font-family:Georgia,serif;font-size:18px;color:#a8842f;letter-spacing:8px;">&#10087; &#10086; &#10087;</div></td></tr>
+                            <!-- CTA: glossy ink button -->
+                            <tr><td align="center" style="padding:8px 24px 0;">
+                              <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                <tr>
+                                  <td align="center" bgcolor="#6d1a24" class="anim" style="border-radius:3px;mso-padding-alt:15px 44px;border:1px solid #a67c1e;background-image:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 45%),linear-gradient(110deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);background-size:100% 100%,220% 100%;animation:kf-shimmer 4.5s ease-in-out infinite;">
+                                    <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="display:inline-block;padding:15px 44px;font-family:'Great Vibes','Brush Script MT',cursive;font-size:23px;letter-spacing:1px;color:#f9f0dc;text-decoration:none;text-shadow:0 1px 1px rgba(28,23,18,.4);">View Our Website</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td></tr>
+
+                            <!-- Handwritten note -->
+                            <tr><td align="center" style="padding:16px 36px 0;">
+                              <div class="ink" style="font-family:'Parisienne','Great Vibes',cursive;font-size:21px;line-height:1.5;">A formal invitation will follow &mdash; we hope you can join us for the whole day.</div>
+                            </td></tr>
+
+                            <!-- Floral flourish -->
+                            <tr><td align="center" style="padding:14px 0 0;font-family:Georgia,serif;font-size:16px;color:#a67c1e;letter-spacing:10px;">&#10087; &#10086; &#10087;</td></tr>
+                          </td></tr>
+                        </table>
+                      </td></tr>
+                    </table>
+                  </td></tr>
+                </table>
               </td></tr>
             </table>
           </td></tr>
         </table>
-        <div style="max-width:600px;margin:14px auto 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#5a4a3a;">
-          Keshava &amp; [Bride] &middot; <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="color:#7a1f2b;">Wedding Website</a>
+        <div style="max-width:600px;margin:16px auto 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#5a4a3a;">
+          Keshava &amp; [Bride] &middot; <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="color:#6d1a24;">Wedding Website</a>
         </div>
       </td></tr>
     </table>
