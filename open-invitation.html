@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Invitation — Keshava & [Bride]</title>
+<meta name="description" content="Open your invitation from Keshava and [Bride].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fdf8ed;
+    --paper-deep: #f2e8d4;
+    --ink: #1c1712;
+    --ink-soft: #5a4a3a;
+    --red: #6d1a24;
+    --gold: #a67c1e;
+    --env-back: #c9a86a;
+    --env-front: #b8935a;
+    --env-flap: #d4b476;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: linear-gradient(180deg, #e4d9c3 0%, #d9c9a8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-x: hidden;
+  }
+  .stage { text-align: center; width: 100%; max-width: 720px; }
+
+  /* ---------- Envelope ---------- */
+  .envelope-wrap {
+    position: relative;
+    width: min(420px, 92vw);
+    margin: 40px auto 0;
+    cursor: pointer;
+    perspective: 1200px;
+  }
+  .envelope {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.45 / 1;
+    filter: drop-shadow(0 24px 30px rgba(40,25,10,.35));
+    transition: transform .3s ease;
+  }
+  .envelope:hover { transform: translateY(-4px); }
+  .env-back {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, var(--env-back), var(--env-front));
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  /* Envelope pocket folds (bottom-left/right triangles) */
+  .env-pocket-l, .env-pocket-r {
+    position: absolute; bottom: 0; width: 50%; height: 55%;
+    background: linear-gradient(160deg, var(--env-front), var(--env-back));
+  }
+  .env-pocket-l { left: 0; clip-path: polygon(0 0, 100% 100%, 0 100%); }
+  .env-pocket-r { right: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+  /* Front panel */
+  .env-front {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, var(--env-front), var(--env-back));
+    border-radius: 10px;
+    clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 100%, 0 100%);
+  }
+  /* Flap (opens up on click) */
+  .env-flap {
+    position: absolute; top: 0; left: 0; right: 0; height: 62%;
+    background: linear-gradient(180deg, var(--env-flap), var(--env-back));
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform .7s cubic-bezier(.6,-0.2,.3,1.2);
+    z-index: 5;
+  }
+  /* Card peeking out */
+  .card-peek {
+    position: absolute; left: 8%; right: 8%; top: 42%;
+    height: 46%;
+    background: var(--paper);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(40,25,10,.25);
+    z-index: 3;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .8s cubic-bezier(.5,-0.1,.3,1.3);
+    transform: translateY(12px);
+  }
+  .card-peek .peek-script {
+    font-family: 'Parisienne', cursive;
+    font-size: 22px; color: var(--red);
+  }
+
+  /* Open state */
+  .envelope-wrap.open .env-flap {
+    transform: rotateX(-160deg);
+    z-index: 2;
+  }
+  .envelope-wrap.open .card-peek {
+    transform: translateY(-52%);
+  }
+  .envelope-wrap.open { cursor: default; }
+
+  /* ---------- Card reveal ---------- */
+  .invitation {
+    display: none;
+    margin: 28px auto 0;
+    max-width: 600px;
+    background: var(--paper);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(120,90,40,.015) 0 2px, transparent 2px 4px),
+      radial-gradient(ellipse at 15% 8%, rgba(176,141,62,.07), transparent 45%),
+      radial-gradient(ellipse at 88% 92%, rgba(109,26,36,.06), transparent 50%),
+      linear-gradient(180deg, #fefaf0 0%, var(--paper) 55%, var(--paper-deep) 100%);
+    border: 1px solid rgba(166,124,30,.4);
+    border-radius: 4px;
+    padding: 34px 30px 26px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(40,25,10,.35);
+    animation: card-in .8s cubic-bezier(.5,-0.1,.3,1.3) both;
+  }
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(-40px) scale(.96); }
+    to { opacity: 1; transform: none; }
+  }
+  .invitation.visible { display: block; }
+  .orn-band { font-size: 15px; color: var(--gold); letter-spacing: 6px; margin-bottom: 14px; }
+  .inv-kicker { font-size: 12px; letter-spacing: 5px; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+  .inv-names { font-family: 'Great Vibes', cursive; font-size: 44px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+  .inv-names .amp { color: var(--red); font-size: 26px; }
+  .inv-request { font-style: italic; font-size: 17px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 16px; }
+  .inv-date { font-size: 62px; font-weight: 600; line-height: 1; color: var(--gold); text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); margin: 10px 0 4px; }
+  .inv-month { font-size: 18px; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+  .inv-venue { font-family: 'Parisienne', cursive; font-size: 22px; color: var(--ink-soft); margin-bottom: 18px; }
+  .inv-cta { display: inline-block; margin-top: 8px; padding: 15px 44px; background: var(--red); border: 1px solid var(--gold); border-radius: 3px; font-family: 'Great Vibes', cursive; font-size: 23px; color: #f9f0dc; text-decoration: none; text-shadow: 0 1px 1px rgba(28,23,18,.4); transition: transform .2s; }
+  .inv-cta:hover { transform: translateY(-2px); }
+  .inv-note { font-family: 'Parisienne', cursive; font-size: 20px; color: var(--ink-soft); margin-top: 14px; }
+  .inv-dress { font-family: 'Parisienne', cursive; font-size: 19px; color: var(--ink-soft); margin-top: 12px; }
+  .inv-flourish { font-size: 16px; color: var(--gold); letter-spacing: 10px; margin-top: 16px; }
+
+  .hint { margin-top: 18px; font-family: 'Outfit', sans-serif; font-size: 14px; letter-spacing: 2px; color: var(--ink-soft); text-transform: uppercase; opacity: .8; }
+  .hint.hidden { visibility: hidden; }
+  .back-link { display: inline-block; margin-top: 22px; font-family: 'Outfit', sans-serif; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) {
+    .env-flap, .card-peek, .invitation { transition: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="inv-kicker" style="font-size:14px;letter-spacing:7px;color:var(--red);text-transform:uppercase;">An invitation awaits</div>
+    <div class="inv-names" style="font-size:34px;margin-top:8px;">Keshava <span class="amp">&amp;</span> [Bride]</div>
+
+    <!-- Envelope -->
+    <div class="envelope-wrap" id="envelope" role="button" tabindex="0" aria-label="Open your invitation">
+      <div class="envelope">
+        <div class="env-back"></div>
+        <div class="env-pocket-l"></div>
+        <div class="env-pocket-r"></div>
+        <div class="card-peek"><span class="peek-script">Keshava &amp; [Bride]</span></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+      </div>
+      <div class="hint" id="hint">&#8595; click to open</div>
+    </div>
+
+    <!-- Invitation card (reveals after opening) -->
+    <div class="invitation" id="invitation">
+      <div class="orn-band">&#10087; &#10086; &#10087; &#10086; &#10087;</div>
+      <div class="inv-kicker">Together with their families</div>
+      <div class="inv-names">Keshava <span class="amp">&amp;</span> [Bride]</div>
+      <div class="inv-request">request the honour of your presence<br>at the celebration of their marriage</div>
+      <div class="inv-date">[DD]</div>
+      <div class="inv-month">[Month Year]</div>
+      <div class="inv-venue">Ceremony at [Time] &middot; [Venue Name] &middot; [City, State]</div>
+      <div class="inv-note">kindly reply on our website &rarr;</div>
+      <a class="inv-cta" href="rsvp.html">RSVP Now</a>
+      <div class="inv-dress">Festive Indian or formal &mdash; colours welcome</div>
+      <div class="inv-flourish">&#10087; &#10086; &#10087;</div>
+    </div>
+
+    <a class="back-link" href="index.html">&#8592; visit the full wedding website</a>
+  </div>
+
+<script>
+  (function(){
+    var env = document.getElementById('envelope');
+    var inv = document.getElementById('invitation');
+    var hint = document.getElementById('hint');
+    function openIt(){
+      if (env.classList.contains('open')) return;
+      env.classList.add('open');
+      hint.classList.add('hidden');
+      setTimeout(function(){
+        inv.classList.add('visible');
+        inv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 650);
+    }
+    env.addEventListener('click', openIt);
+    env.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openIt(); } });
+  })();
+</script>
+</body>
+</html>
