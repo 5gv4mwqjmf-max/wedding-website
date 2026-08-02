@@ -30,7 +30,7 @@
 var CONFIG = {
   TO_EMAIL: 'keshavagali@gmail.com',
   // Auto-detect spreadsheet; set explicitly if you prefer a specific sheet:
-  SHEET_ID: '' // e.g. '1AbC...xyz'
+  SHEET_ID: '10jlU1JsTb-2cieYwGtEDzlztcpyrEgG-hSE_fnD_m_Q' // e.g. '1AbC...xyz'
 };
 
 function getSpreadsheet_() {

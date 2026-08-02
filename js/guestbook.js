@@ -158,7 +158,7 @@
       renderWall();
       if (screenActive()) renderScreen();
       // Send to backend (Google Apps Script → Sheet)
-      var SCRIPT_URL = "https://script.google.com/macros/s/PASTE_YOUR_URL/exec";
+      var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQo4e2dttD7ECNMbnusFTad8kHBqDv_ndM1ue9JFA0UvLbxgUvCZmQBkCLw_sUYkQLDQ/exec";
       if (SCRIPT_URL.indexOf("PASTE_YOUR_URL") === -1) {
         fetch(SCRIPT_URL, {
           method: "POST",
