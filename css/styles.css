@@ -203,26 +203,12 @@ hr.gold-rule { margin: var(--s4) auto; }
 
 /* Hero right-side ornament (composition, not decoration slop) */
 .hero-mark {
-  position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
-  width: 260px; height: 260px;
-  border-radius: 50%;
-  border: 1px solid var(--line-gold);
-  display: flex; align-items: center; justify-content: center;
-  opacity: .9;
+  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+  width: 300px; max-width: 38vw;
+  opacity: .95;
   pointer-events: none;
 }
-.hero-mark::before {
-  content: ""; position: absolute; inset: 26px;
-  border-radius: 50%;
-  border: 1px dashed rgba(162,58,47,.4);
-}
-.hero-mark .script {
-  font-size: 30px;
-  color: var(--maroon);
-  text-align: center;
-  line-height: 1.2;
-  padding: 0 20px;
-}
+.hero-mark svg { width: 100%; height: auto; display: block; }
 @media (max-width: 860px) {
   .hero { min-height: auto; padding-top: var(--s8); text-align: center; }
   .hero-inner { margin: 0 auto; }
