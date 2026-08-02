@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — Keshava & [Bride]</title>
+<meta name="description" content="How Keshava and [Bride] met, fell in love, and came to celebrate two traditions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="script">Keshava</span>&amp; <span class="script">[Bride]</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="index.html#timeline" >The Day</a>
+      <a href="travel.html" >Travel</a>
+      <a href="story.html" aria-current="page">Our Story</a>
+      <a href="faq.html" >FAQ</a>
+      <a href="rsvp.html" >RSVP</a>
+      <a href="guestbook.html" >Guestbook</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="section" style="padding-top:var(--s8);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">The Couple</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Our <span class="script" style="color:var(--maroon);">Story</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Two families, two traditions, one story we can&rsquo;t wait to share with you.</p>
+    </div>
+
+    <div class="wrap-narrow" style="margin-top:var(--s5);">
+      <div class="story-block reveal">
+        <span class="tl-time">Chapter One</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">How We Met</h3>
+        <p class="tl-desc">[Tell the story of how you met — the first hello, the moment you knew. Keep it warm, specific, and short enough that guests glance at it and smile.]</p>
+      </div>
+
+      <hr class="gold-rule">
+
+      <div class="story-block reveal">
+        <span class="tl-time">Chapter Two</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">The Proposal</h3>
+        <p class="tl-desc">[The story of the proposal — the place, the words, the yes. This is the moment everyone wants to hear about.]</p>
+      </div>
+
+      <hr class="gold-rule">
+
+      <div class="story-block reveal">
+        <span class="tl-time">Chapter Three</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">Two Traditions, One Day</h3>
+        <p class="tl-desc">Keshava&rsquo;s Indian heritage and [Bride]&rsquo;s [tradition] come together in a single day — a Baroth procession at dawn, a fusion ceremony at midday, and a celebration that belongs to everyone who loves us.</p>
+      </div>
+
+      <hr class="gold-rule">
+
+      <div class="center" style="margin-top:var(--s6);">
+        <p class="eyebrow">Now what?</p>
+        <h3 style="font-family:var(--font-display);font-size:26px;color:var(--ink);">Be part of the next chapter</h3>
+        <p style="margin-top:20px;">
+          <a class="btn btn-maroon" href="rsvp.html">RSVP</a>
+          <a class="btn btn-outline" href="guestbook.html" style="margin-left:10px;">Leave a Message</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="script">Keshava &amp; [Bride]</div>
+    <p>One day · Two traditions · A lifetime together</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="travel.html">Travel</a><a href="faq.html">FAQ</a><a href="rsvp.html">RSVP</a><a href="guestbook.html">Guestbook</a>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+  (function(){
+    var t = document.querySelector('.nav-toggle');
+    if (t) {
+      t.addEventListener('click', function(){
+        var l = document.querySelector('.nav-links');
+        var open = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    var revealEls = document.querySelectorAll('.reveal');
+    for (var i = 0; i < revealEls.length; i++) io.observe(revealEls[i]);
+    window.addEventListener('load', function(){
+      revealEls.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) el.classList.add('in');
+      });
+    });
+  })();
+</script>
+<script src="js/site-motion.js"></script>
+</body>
+</html>

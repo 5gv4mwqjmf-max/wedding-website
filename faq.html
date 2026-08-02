@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Keshava & [Bride]</title>
+<meta name="description" content="Frequently asked questions for Keshava and [Bride]'s wedding — dress code, kids, parking, gifts, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="script">Keshava</span>&amp; <span class="script">[Bride]</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="index.html#timeline" >The Day</a>
+      <a href="travel.html" >Travel</a>
+      <a href="story.html" >Our Story</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="rsvp.html" >RSVP</a>
+      <a href="guestbook.html" >Guestbook</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="section" style="padding-top:var(--s8);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Good to Know</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">FAQ</h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Everything our guests ask us most — answered in one place.</p>
+    </div>
+
+    <div class="wrap-narrow" style="margin-top:var(--s5);">
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>What should I wear? Is there a dress code?</summary>
+          <p>The dress code is <strong>festive Indian or formal</strong> — think cocktail dresses, suits, or traditional Indian attire. Colours are very welcome; the palette of the day is warm, rich, and celebratory.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are kids welcome?</summary>
+          <p>Absolutely — children are part of the celebration. There will be lawn games and flexible seating during the lunch block, and the reception is family-friendly.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where are the ceremony and reception?</summary>
+          <p>Everything happens at one venue — ceremony, lunch, chai, and reception. Full address and directions are on the <a href="travel.html">Travel</a> page.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there parking?</summary>
+          <p>Yes — free on-site parking, plus valet for the evening reception. See <a href="travel.html">Travel</a> for details.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will there be food? What about dietary needs?</summary>
+          <p>A full Indian buffet is served during the protected lunch block. Vegetarian options are plentiful, and we&rsquo;ll do our best to accommodate allergies — please note them on your <a href="rsvp.html">RSVP</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I bring a plus-one?</summary>
+          <p>We&rsquo;d love to celebrate with everyone you love — please include your party size on the <a href="rsvp.html">RSVP</a> so we can plan seating and food.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What will the weather be like?</summary>
+          <p>[Season]-appropriate: warm through the day, cooler by evening. The chai hour is outdoors, so bring a light layer if you run cool.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where should I stay?</summary>
+          <p>We&rsquo;ve reserved room blocks at [Signature Hotel] and [Boutique Hotel] — details and booking links on the <a href="travel.html">Travel</a> page.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there gifts / a registry?</summary>
+          <p>Your presence is the only present we need. If you&rsquo;d like to contribute to our future together, a small contribution toward our [honeymoon fund / home fund] would mean the world.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I take photos and share them?</summary>
+          <p>Please do! Use our hashtag <strong>[#Hashtag]</strong> and leave your favourite shots in the <a href="guestbook.html">Digital Guestbook</a> so we can relive the day through your eyes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="script">Keshava &amp; [Bride]</div>
+    <p>One day · Two traditions · A lifetime together</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="travel.html">Travel</a><a href="faq.html">FAQ</a><a href="rsvp.html">RSVP</a><a href="guestbook.html">Guestbook</a>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+  (function(){
+    var t = document.querySelector('.nav-toggle');
+    if (t) {
+      t.addEventListener('click', function(){
+        var l = document.querySelector('.nav-links');
+        var open = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    var revealEls = document.querySelectorAll('.reveal');
+    for (var i = 0; i < revealEls.length; i++) io.observe(revealEls[i]);
+    window.addEventListener('load', function(){
+      revealEls.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) el.classList.add('in');
+      });
+    });
+  })();
+</script>
+<script src="js/site-motion.js"></script>
+</body>
+</html>
