@@ -9,6 +9,14 @@
     if (!Array.isArray(messages)) messages = [];
   } catch (e) { messages = []; }
 
+  // Live message count (animated stat)
+  var countEl = document.getElementById("gb-count");
+  function updateCount() {
+    if (!countEl) return;
+    countEl.textContent = messages.length;
+  }
+  updateCount();
+
   function save() {
     try { localStorage.setItem(KEY, JSON.stringify(messages)); } catch (e) { /* storage full or blocked */ }
   }
@@ -146,6 +154,7 @@
         liked: false
       });
       save();
+      updateCount();
       renderWall();
       if (screenActive()) renderScreen();
       form.reset();

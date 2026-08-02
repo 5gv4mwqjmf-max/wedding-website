@@ -549,6 +549,25 @@ hr.gold-rule { margin: var(--s4) auto; }
   .share-row { flex-direction: column; }
 }
 
+/* ---------- Guestbook count stat (animated dashboard element) ---------- */
+.gb-count-stat {
+  margin-bottom: var(--s4);
+  font-family: var(--font-display);
+}
+.gb-count-stat .stat-num {
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--maroon);
+  display: inline-block;
+  min-width: 1ch;
+}
+.gb-count-stat .stat-label {
+  font-size: 15px;
+  color: var(--ink-soft);
+  letter-spacing: .04em;
+  margin-left: 8px;
+}
+
 /* ---------- Contact ---------- */
 .contact-card { max-width: 640px; margin: 0 auto; }
 .contact-note { text-align: center; font-size: 14px; color: var(--ink-soft); margin-top: var(--s2); }
