@@ -18,9 +18,16 @@
     --gold: #a67c1e;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ---------- Living background (the 'full-screen looping video' feel) ---------- */
   body {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    background: linear-gradient(180deg, #e4d9c3 0%, #d9c9a8 100%);
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(255,235,184,.18), transparent 45%),
+      radial-gradient(ellipse at 80% 85%, rgba(166,124,30,.10), transparent 50%),
+      radial-gradient(ellipse at 65% 25%, rgba(109,26,36,.08), transparent 45%),
+      linear-gradient(180deg, #e4d9c3 0%, #d9c9a8 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    animation: bg-breathe 9s ease-in-out infinite;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -28,7 +35,26 @@
     padding: 24px;
     overflow-x: hidden;
   }
-  .stage { text-align: center; width: 100%; max-width: 720px; }
+  @keyframes bg-breathe {
+    0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0; }
+    50% { background-position: -2% -1%, 2% 1%, -1% 2%, 0 0; }
+  }
+  /* Warm candle-flicker overlay — subtle light variation like a flame */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle at 50% 45%, rgba(255,240,200,.10), transparent 60%);
+    animation: flicker 3.2s ease-in-out infinite;
+  }
+  @keyframes flicker {
+    0%, 100% { opacity: .35; transform: scale(1); }
+    25% { opacity: .55; transform: scale(1.03); }
+    60% { opacity: .28; transform: scale(.98); }
+    80% { opacity: .5; transform: scale(1.02); }
+  }
+  .stage { position: relative; z-index: 1; text-align: center; width: 100%; max-width: 720px; }
+  @media (prefers-reduced-motion: reduce) {
+    body, body::before { animation: none !important; }
+  }
 
   /* ACT 1 — ARRIVAL: kicker + names fade in, envelope drops with spring */
   .top-kicker {
