@@ -25,10 +25,18 @@
 </header>
 <main>
   <section class="travel-hero">
-    <p class="eyebrow" style="color:var(--gold-light);">Getting Here</p>
+    <p class="eyebrow" style="color:var(--maroon-soft);">Getting Here</p>
     <h1>Travel &amp; <span class="script">Stay</span></h1>
     <p>Whether you&rsquo;re arriving from across town or across the world, here&rsquo;s everything you need to plan your journey.</p>
   </section>
+
+  <!-- Marquee strip -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Fly <em>&middot;</em> Drive <em>&middot;</em> Stay <em>&middot;</em> Celebrate <em>&middot;</em></span>
+      <span>Fly <em>&middot;</em> Drive <em>&middot;</em> Stay <em>&middot;</em> Celebrate <em>&middot;</em></span>
+    </div>
+  </div>
 
   <section class="section">
     <div class="wrap">
@@ -116,16 +124,24 @@
 <script>
   (function(){
     var t = document.querySelector('.nav-toggle');
-    if (!t) return;
-    t.addEventListener('click', function(){
-      var l = document.querySelector('.nav-links');
-      var open = l.classList.toggle('open');
-      t.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    if (t) {
+      t.addEventListener('click', function(){
+        var l = document.querySelector('.nav-links');
+        var open = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    var revealEls = document.querySelectorAll('.reveal');
+    for (var i = 0; i < revealEls.length; i++) io.observe(revealEls[i]);
+    window.addEventListener('load', function(){
+      revealEls.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) el.classList.add('in');
+      });
+    });
   })();
 </script>
 </body>

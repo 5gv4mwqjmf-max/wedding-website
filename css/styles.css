@@ -431,6 +431,63 @@ hr.gold-rule { margin: var(--s4) auto; }
 .site-footer .footer-links { display: flex; gap: var(--s4); justify-content: center; margin-top: var(--s3); flex-wrap: wrap; }
 .site-footer a { color: var(--gold-light); }
 
+/* ---------- Parallax (Kevin Powell CSS-only true parallax) ---------- */
+/* Subtle depth: hero mandala drifts slower as you scroll */
+@keyframes parallax-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(120px); }
+}
+.hero-mark {
+  animation: parallax-drift both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 30%;
+}
+@media (max-width: 860px) {
+  .hero-mark { display: none; }
+}
+
+/* ---------- Marquee (infinite scroll strip) ---------- */
+.marquee {
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 18px 0;
+  border-top: 1px solid rgba(162,58,47,.4);
+  border-bottom: 1px solid rgba(162,58,47,.4);
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-scroll 26s linear infinite;
+  will-change: transform;
+}
+.marquee span {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  padding: 0 28px;
+}
+.marquee span em {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-size: 24px;
+  color: var(--maroon-soft);
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 0 6px;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; white-space: normal; }
+  .marquee { white-space: normal; }
+}
+
 /* ---------- Motion ---------- */
 /* Scroll-driven reveal — Intersection Observer baseline (all browsers) */
 .reveal {
