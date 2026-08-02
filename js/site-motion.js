@@ -110,7 +110,7 @@
   }
 
   // --- Countdown timer (inviting anticipation) ---
-  var WEDDING_DATE = "2026-11-14T10:00:00"; // TODO: set the real wedding date
+  var WEDDING_DATE = "2027-12-11T10:00:00";
   var cdDays = document.getElementById("cd-days");
   if (cdDays && WEDDING_DATE) {
     var target = new Date(WEDDING_DATE).getTime();
