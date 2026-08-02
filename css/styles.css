@@ -214,6 +214,14 @@ hr.gold-rule { margin: var(--s4) auto; }
     radial-gradient(circle at 82% 22%, rgba(162,58,47,.10), transparent 42%),
     radial-gradient(circle at 90% 80%, rgba(27,27,27,.05), transparent 40%);
 }
+/* Dreamy atmosphere: soft light bloom + faint texture (Dribbble 'dreamy digital experience') */
+.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,.18), transparent 55%),
+    radial-gradient(circle at 30% 85%, rgba(162,58,47,.05), transparent 50%);
+  mix-blend-mode: soft-light;
+}
 .hero-inner {
   position: relative;
   max-width: 560px;
@@ -449,12 +457,21 @@ hr.gold-rule { margin: var(--s4) auto; }
   background: linear-gradient(160deg, rgba(162,58,47,.10), rgba(27,27,27,.06));
   display: flex; align-items: flex-end;
   padding: var(--s3);
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.gallery-tile::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,.14), transparent 50%),
+    radial-gradient(circle at 85% 90%, rgba(162,58,47,.12), transparent 55%);
+  mix-blend-mode: soft-light;
+  transition: transform .5s ease;
 }
 .gallery-tile:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-2);
 }
+.gallery-tile:hover::before { transform: scale(1.06); }
 .tile-1 { grid-column: span 2; grid-row: span 2; }
 .tile-2 { grid-column: span 1; grid-row: span 1; }
 .tile-3 { grid-column: span 1; grid-row: span 2; }
@@ -478,6 +495,26 @@ hr.gold-rule { margin: var(--s4) auto; }
 }
 
 /* ---------- Sections ---------- */
+.section-head {
+  text-align: center;
+  margin-bottom: var(--s5);
+}
+.section-head h2 {
+  font-size: clamp(30px, 5vw, 46px);
+  color: var(--ink);
+}
+.section-head h2 .script {
+  color: var(--maroon);
+  font-size: 1.25em;
+  line-height: 1;
+}
+.section-head .lede {
+  max-width: 560px;
+  margin: var(--s2) auto 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.7;
+}
 .intro-copy { font-size: 19px; line-height: 1.8; color: var(--ink-soft); max-width: 640px; margin: 0 auto; }
 .card {
   background: var(--paper);
