@@ -10,7 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body><header class="site-nav">
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<header class="site-nav">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="script">Keshava</span>&amp; <span class="script">[Bride]</span></a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -53,7 +55,7 @@
   </section>
 
   <!-- Welcome: glanced, not read -->
-  <section class="section-tight center">
+  <section class="section-tight center reveal">
     <div class="wrap-narrow">
       <p class="eyebrow">Welcome</p>
       <h2 style="font-size:clamp(30px,5vw,46px);color:var(--ink);">Namaste, and welcome</h2>
@@ -78,7 +80,7 @@
     </div>
 
     <div class="timeline">
-      <article class="tl-item">
+      <article class="tl-item reveal">
         <span class="tl-dot" aria-hidden="true"></span>
         <div class="tl-card card">
           <span class="tl-time">Morning · 9:00 AM</span>
@@ -87,7 +89,7 @@
         </div>
       </article>
 
-      <article class="tl-item">
+      <article class="tl-item reveal">
         <span class="tl-dot" aria-hidden="true"></span>
         <div class="tl-card card">
           <span class="tl-time">Late Morning</span>
@@ -96,7 +98,7 @@
         </div>
       </article>
 
-      <article class="tl-item">
+      <article class="tl-item reveal">
         <span class="tl-dot" aria-hidden="true"></span>
         <div class="tl-card card">
           <span class="tl-time">Afternoon · 3 Hours</span>
@@ -106,7 +108,7 @@
         </div>
       </article>
 
-      <article class="tl-item">
+      <article class="tl-item reveal">
         <span class="tl-dot" aria-hidden="true"></span>
         <div class="tl-card card">
           <span class="tl-time">Evening</span>
@@ -124,19 +126,19 @@
       <h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--ink);text-align:center;margin-bottom:var(--s4);">Every Moment, Taken Care Of</h2>
       <hr class="gold-rule">
       <div class="offer-stack" style="margin-top:var(--s4);">
-        <div class="offer">
+        <div class="offer reveal">
           <span class="offer-icon" aria-hidden="true">01</span>
           <div><h3>The Ceremony</h3><p>Baroth procession, the seven steps, and the necklace — a full Indian fusion ceremony, seated and unhurried.</p></div>
         </div>
-        <div class="offer">
+        <div class="offer reveal">
           <span class="offer-icon" aria-hidden="true">02</span>
           <div><h3>A Protected Lunch</h3><p>A three-hour window of buffet Indian food, lawn games, and flexible seating — no rushing, no schedule.</p></div>
         </div>
-        <div class="offer">
+        <div class="offer reveal">
           <span class="offer-icon" aria-hidden="true">03</span>
           <div><h3>Chai &amp; Coffee Hour</h3><p>One hour outdoors with warm drinks and cooler air between lunch and the evening celebration.</p></div>
         </div>
-        <div class="offer">
+        <div class="offer reveal">
           <span class="offer-icon" aria-hidden="true">04</span>
           <div><h3>The Reception</h3><p>Dinner, toasts, and dancing under the lights — the night belongs to everyone who came.</p></div>
         </div>
@@ -145,7 +147,7 @@
   </section>
 
   <!-- Final CTA -->
-  <section class="section-tight center">
+  <section class="section-tight center reveal">
     <div class="wrap-narrow">
       <div class="arch">
         <p class="eyebrow">Join us</p>
@@ -171,16 +173,26 @@
 <script>
   (function(){
     var t = document.querySelector('.nav-toggle');
-    if (!t) return;
-    t.addEventListener('click', function(){
-      var l = document.querySelector('.nav-links');
-      var open = l.classList.toggle('open');
-      t.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    if (t) {
+      t.addEventListener('click', function(){
+        var l = document.querySelector('.nav-links');
+        var open = l.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    // Scroll reveal — Intersection Observer baseline
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    var revealEls = document.querySelectorAll('.reveal');
+    for (var i = 0; i < revealEls.length; i++) io.observe(revealEls[i]);
+    // No-JS safety: if anything already in viewport on load, reveal immediately
+    window.addEventListener('load', function(){
+      revealEls.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) el.classList.add('in');
+      });
+    });
   })();
 </script>
 </body>
