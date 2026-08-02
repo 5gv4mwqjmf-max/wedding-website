@@ -139,12 +139,12 @@
       e.preventDefault();
       var name = document.getElementById('rsvp-name').value.trim();
       var email = document.getElementById('rsvp-email').value.trim();
-      if (!name || !email) { alert('Please add your name and email.'); return; }
+      if (!name || !email) { showRsvpThanks('Please add your name and email.'); return; }
       var attendingVal = document.querySelector('input[name=attending]:checked').value;
       var msg = attendingVal === 'yes'
         ? 'Thank you! We can\u2019t wait to celebrate with you.'
         : 'Thank you for letting us know. You\u2019ll be missed!';
-      // Store locally (demo; wire to a form service or backend when live)
+      // Store locally (offline safety net)
       try {
         var list = JSON.parse(localStorage.getItem('wedding-rsvps') || '[]');
         list.push({
@@ -157,6 +157,23 @@
         });
         localStorage.setItem('wedding-rsvps', JSON.stringify(list));
       } catch(err) {}
+      // Send to backend (Google Apps Script → Sheet + email)
+      var SCRIPT_URL = 'https://script.google.com/macros/s/PASTE_YOUR_URL/exec';
+      if (SCRIPT_URL.indexOf('PASTE_YOUR_URL') === -1) {
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'rsvp',
+            name: name, email: email, attending: attendingVal,
+            guests: document.getElementById('rsvp-guests').value,
+            meal: document.getElementById('rsvp-meal').value,
+            song: document.getElementById('rsvp-song').value.trim(),
+            notes: document.getElementById('rsvp-notes').value.trim()
+          })
+        }).catch(function(){});
+      }
       form.reset();
       toggleFields();
       showRsvpThanks(msg);

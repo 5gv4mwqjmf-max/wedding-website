@@ -96,7 +96,7 @@
     // Contact form — sends to Google Apps Script web app (see setup notes in README)
     var form = document.getElementById('contact-form');
     var statusEl = document.getElementById('contact-status');
-    var SCRIPT_URL = ''; // TODO: paste your deployed Apps Script URL here
+    var SCRIPT_URL = 'https://script.google.com/macros/s/PASTE_YOUR_URL/exec';
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -108,7 +108,7 @@
         statusEl.style.color = 'var(--maroon)';
         return;
       }
-      if (!SCRIPT_URL) {
+      if (SCRIPT_URL.indexOf('PASTE_YOUR_URL') !== -1) {
         // No backend configured yet — fall back to a mailto draft
         var mailto = 'mailto:[wedding]@[domain].com?subject=' + encodeURIComponent('Wedding website message from ' + name) +
           '&body=' + encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
@@ -123,7 +123,7 @@
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ name: name, email: email, message: message })
+        body: JSON.stringify({ action: 'contact', name: name, email: email, message: message })
       }).then(function(){
         statusEl.textContent = 'Thank you! Your message is on its way.';
         statusEl.style.color = 'var(--maroon)';

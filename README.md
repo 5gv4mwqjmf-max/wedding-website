@@ -46,14 +46,36 @@ static wedding website with full guest interactivity.
 | `js/guestbook.js` | Guestbook logic (localStorage, hearts, screen mode) |
 | `js/site-motion.js` | Motion: scroll-draw, petals, countdown, scroll-top |
 
-## Activating the contact email (2 min, one-time)
+## Activating the backend — RSVP + Guestbook + Contact (5 min, one-time)
 
-1. Go to https://script.google.com → new project → paste `appsscript/Code.gs`
-   into Code.gs (set `TO_EMAIL` to your inbox).
-2. Deploy → New deployment → Web app → *Execute as: Me*,
-   *Who has access: Anyone* → copy the URL.
-3. In `contact.html`, paste it at `var SCRIPT_URL = '...'`.
-4. Commit + push. The contact form now emails you — no backend server.
+The whole site runs on **one Google Apps Script** (`appsscript/Code.gs`) —
+the WithJoy-style DIY stack: every form writes to a Google Sheet (your
+guest-list manager) and RSVPs/contact messages email you.
+
+1. Create a spreadsheet: go to **sheets.new** → copy its ID from the URL
+   (`docs.google.com/spreadsheets/d/<ID>/edit`).
+2. Go to https://script.google.com → new project → paste
+   `appsscript/Code.gs` into Code.gs. Set `CONFIG.SHEET_ID` to the ID
+   from step 1 (or leave blank to auto-create).
+3. Deploy → New deployment → Web app → *Execute as: Me*,
+   *Who has access: Anyone* → copy the URL (looks like
+   `https://script.google.com/macros/s/.../exec`).
+4. Paste that URL into **three places** (replace `PASTE_YOUR_URL`):
+   - `rsvp.html` → `var SCRIPT_URL = '...'`
+   - `js/guestbook.js` → `var SCRIPT_URL = "..."` (guestbook section)
+   - `contact.html` → `var SCRIPT_URL = '...'`
+5. (Optional) Run the `setupSheets()` function in the editor to pre-create
+   the RSVPs/Guestbook/Contact tabs.
+6. Commit + push. Done — RSVPs land in your Sheet and inbox, guestbook
+   messages in the Sheet, contact messages in your email.
+
+**Every RSVP emails you immediately** — name, attending, party size, meal,
+song, notes. The Sheet is your living guest list.
+
+### Exporting the guest list
+- **No-code**: open the spreadsheet → File → Download → CSV.
+- **Script**: `python3 scripts/export_guest_list.py --spreadsheet-id <ID>`
+  (needs a service account; the no-code path is easier for most use).
 
 ## Sending the email invitations
 

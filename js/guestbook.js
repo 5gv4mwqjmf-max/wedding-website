@@ -157,6 +157,16 @@
       updateCount();
       renderWall();
       if (screenActive()) renderScreen();
+      // Send to backend (Google Apps Script → Sheet)
+      var SCRIPT_URL = "https://script.google.com/macros/s/PASTE_YOUR_URL/exec";
+      if (SCRIPT_URL.indexOf("PASTE_YOUR_URL") === -1) {
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ action: "guestbook", name: name, city: city, message: msg })
+        }).catch(function(){});
+      }
       form.reset();
       updateHint();
       toast("Thank you! Your message is on the wall.");
