@@ -5,22 +5,23 @@
    ============================================================ */
 
 :root {
-  /* Palette — muted black / white / red */
-  --ivory: #f6f4ef;        /* page background (warm parchment) */
-  --cream: #efeae1;        /* alternating section background (warm sand mist) */
-  --paper: #fbfaf6;        /* cards */
-  --maroon: #4a6f5c;       /* warm sage green — primary accent (photo greens) */
+  /* Palette — sunset-warmed (Round 46: match golden-hour hero video)
+     Warm creams + warm near-black ink + sage photo-accent + sand-gold */
+  --ivory: #f7f1e4;        /* page background (warm parchment) */
+  --cream: #f1e7d5;        /* alternating section background (warm sand) */
+  --paper: #fcf8ef;        /* cards */
+  --maroon: #4a6f5c;       /* warm sage green — photo-accent (photo greens) */
   --maroon-deep: #37513f;  /* deep forest sage */
   --maroon-soft: #6b8f7c;  /* lighter sage */
   --gold: #b3a07c;         /* warm sand-gold (from photo golds) */
-  --gold-light: #d8ccb0;   /* light sand on dark */
+  --gold-light: #e3d5b4;   /* light sand on dark */
   --saffron: #967a52;      /* warm tan accent */
   --terracotta: #8a734f;   /* script accent */
-  --forest: #262a26;       /* charcoal-green */
-  --ink: #22251f;          /* soft black-green */
-  --ink-soft: #62645c;     /* muted gray-green text */
-  --line: rgba(34, 37, 31, 0.12);
-  --line-gold: rgba(74, 111, 92, 0.35);
+  --forest: #2b251b;       /* warm charcoal */
+  --ink: #2a2317;          /* warm near-black (sunset-cohesive) */
+  --ink-soft: #6c6248;     /* warm muted brown text */
+  --line: rgba(42, 35, 23, 0.12);
+  --line-gold: rgba(150, 122, 82, 0.35);
 
   /* Type */
   --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
@@ -282,18 +283,19 @@ hr.gold-rule { margin: var(--s4) auto; }
   background: rgba(74,111,92,.06);
 }
 .hero-names {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1.02;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(48px, 8vw, 104px);
+  line-height: 1.2;
   color: var(--ink);
   margin: 0 0 var(--s3);
 }
 .hero-names .script {
   display: block;
-  font-size: clamp(34px, 5.5vw, 60px);
-  color: var(--maroon);
-  line-height: 1.15;
+  font-size: 1em;          /* all words same size (Round 46) */
+  font-family: var(--font-script);
+  color: var(--ink);
+  line-height: 1.2;
 }
 .hero-date {
   font-size: 14px;
@@ -334,7 +336,7 @@ hr.gold-rule { margin: var(--s4) auto; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(246,244,239,.78) 0%, rgba(239,234,225,.66) 55%, rgba(246,244,239,.8) 100%);
+  background: linear-gradient(180deg, rgba(255,236,214,.80) 0%, rgba(250,222,192,.64) 50%, rgba(246,232,214,.84) 100%);
 }
 .hero-inner,
 .hero-mark { position: relative; z-index: 2; }
@@ -1092,7 +1094,10 @@ html, body {
   max-width: 100%;
 }
 .marquee-track {
+  display: flex;
   min-width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+  will-change: transform;
 }
 .hero {
   overflow: hidden;  /* petals/tilt can't push past viewport */
@@ -1155,10 +1160,47 @@ html, body {
   font-family: var(--font-script);
   font-style: normal;
   font-size: 24px;
-  color: var(--maroon-soft);
+  color: var(--gold-light);
   text-transform: none;
   letter-spacing: 0;
   padding: 0 6px;
+}
+/* Countdown inside the marquee (Round 46): compact, warm, inline */
+.marquee .countdown {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0;
+  flex-wrap: nowrap;
+  vertical-align: baseline;
+}
+.marquee .cd-unit {
+  min-width: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.marquee .cd-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ivory);
+  line-height: 1;
+  display: inline;
+}
+.marquee .cd-label {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin: 0;
+  display: inline;
 }
 @keyframes marquee-scroll {
   from { transform: translateX(0); }

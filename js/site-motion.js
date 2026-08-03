@@ -115,35 +115,30 @@
     counters.forEach(function (el) { counterObs.observe(el); });
   }
 
-  // --- Countdown timer (inviting anticipation) ---
+  // --- Countdown timer (inviting anticipation; Round 46: lives in marquee) ---
   var WEDDING_DATE = "2027-12-11T10:00:00";
-  var cdDays = document.getElementById("cd-days");
-  if (cdDays && WEDDING_DATE) {
+  var cdNums = document.querySelectorAll(".cd-num[data-unit]");
+  if (cdNums.length && WEDDING_DATE) {
     var target = new Date(WEDDING_DATE).getTime();
-    var tick = function () {
-      var now = new Date().getTime();
-      var dist = target - now;
-      if (dist < 0) {
-        cdDays.textContent = "0"; cdHours.textContent = "0";
-        cdMins.textContent = "0"; cdSecs.textContent = "0";
-        return;
-      }
-      var d = Math.floor(dist / 86400000);
-      var h = Math.floor((dist % 86400000) / 3600000);
-      var m = Math.floor((dist % 3600000) / 60000);
-      var s = Math.floor((dist % 60000) / 1000);
-      cdDays.textContent = d;
-      var el;
-      el = document.getElementById("cd-hours"); el.textContent = h; pulse(el);
-      el = document.getElementById("cd-mins"); el.textContent = m; pulse(el);
-      el = document.getElementById("cd-secs"); el.textContent = s; pulse(el);
-      if (d !== lastDay) { cdDays.textContent = d; pulse(cdDays); lastDay = d; }
-    };
-    var lastDay = null;
+    var byUnit = {};
+    cdNums.forEach(function (el) {
+      var u = el.getAttribute("data-unit");
+      (byUnit[u] = byUnit[u] || []).push(el);
+    });
     var pulse = function (el) {
       el.classList.remove("ticked");
       void el.offsetWidth;
       el.classList.add("ticked");
+    };
+    var setAll = function (unit, val) {
+      (byUnit[unit] || []).forEach(function (el) { el.textContent = val; pulse(el); });
+    };
+    var tick = function () {
+      var dist = Math.max(0, target - new Date().getTime());
+      setAll("days", Math.floor(dist / 86400000));
+      setAll("hours", Math.floor((dist % 86400000) / 3600000));
+      setAll("mins", Math.floor((dist % 3600000) / 60000));
+      setAll("secs", Math.floor((dist % 60000) / 1000));
     };
     tick();
     setInterval(tick, 1000);
