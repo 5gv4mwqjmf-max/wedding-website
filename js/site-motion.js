@@ -3,6 +3,12 @@
 (function () {
   "use strict";
 
+  // Pause the hero video under prefers-reduced-motion (Round 44)
+  var heroVideo = document.querySelector(".hero-video");
+  if (heroVideo && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.pause();
+  }
+
   // --- Scroll-drawn SVG paths (SuperHi/Lusion technique) ---
   // Any path with class "draw-path" draws itself as the page scrolls past
   // its container, and reverses when scrolling back up.
