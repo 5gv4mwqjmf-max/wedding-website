@@ -272,9 +272,9 @@ hr.gold-rule { margin: var(--s4) auto; }
 }
 .hero-kicker {
   display: inline-block;
-  font-size: 12px; font-weight: 600;
+  font-size: 13px; font-weight: 600;
   letter-spacing: .3em; text-transform: uppercase;
-  color: var(--maroon);
+  color: var(--maroon-deep);
   border: 1px solid var(--line-gold);
   border-radius: var(--r-pill);
   padding: 6px 16px;
@@ -1457,7 +1457,7 @@ body.scrolled .hero { transition: transform .1s linear; }
   font-size: 15px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--maroon-deep);
   animation: fade-up 800ms 340ms ease both;
 }
 
