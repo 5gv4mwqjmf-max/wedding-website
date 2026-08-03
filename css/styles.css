@@ -196,7 +196,7 @@ hr.gold-rule { margin: var(--s4) auto; }
     border-bottom: 1px solid var(--line); padding: var(--s2) 0;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: var(--s3) var(--s4); width: 100%; }
+  .nav-links a { padding: var(--s3) var(--s4); width: 100%; min-height: 48px; display: flex; align-items: center; }
 }
 
 /* ---------- Hero (Jack Roberts anatomy: one viewport, one thought, off-center) ---------- */
@@ -1013,6 +1013,54 @@ h1, h2, h3 {
 }
 
 /* ---------- Marquee (infinite scroll strip) ---------- */
+/* ---------- Mobile polish: prevent horizontal overflow ---------- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.marquee-track {
+  min-width: max-content;
+}
+.hero {
+  overflow: hidden;  /* petals/tilt can't push past viewport */
+}
+@media (max-width: 760px) {
+  .hero-tilt-wrap, .hero-mark { display: none !important; }
+  .marquee { padding: 14px 0; }
+  .marquee span { font-size: 17px; padding: 0 20px; }
+}
+
+/* ---------- Mobile UX polish (2026 research: thumb zones, touch targets) ---------- */
+@media (max-width: 760px) {
+  /* Form inputs need 48px+ touch targets */
+  .gb-field input, .gb-field textarea, .gb-field select {
+    min-height: 48px;
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+  /* Buttons big enough for thumbs */
+  .btn { min-height: 48px; }
+  /* Sticky RSVP/primary CTA in thumb zone on key pages */
+  .sticky-mobile-cta {
+    display: flex;
+    position: fixed;
+    bottom: 12px; left: 50%; transform: translateX(-50%);
+    z-index: 90;
+    width: calc(100% - 32px); max-width: 360px;
+  }
+  /* Countdown compact for small screens */
+  .countdown { gap: var(--s2); }
+  .cd-unit { padding: 10px 12px; }
+  .cd-num { font-size: 26px; }
+  /* Section spacing breathes on mobile */
+  .section { padding: var(--s6) 0; }
+  .photo-tile .tile-text h2 { font-size: clamp(28px, 7vw, 40px); }
+  /* FAQ summary bigger tap area */
+  .faq-item summary { padding: var(--s4); min-height: 56px; }
+  /* Guestbook count stat readable */
+  .gb-count-stat .stat-num { font-size: 36px; }
+}
+
+/* ---------- Marquee (kinetic strip) ---------- */
 .marquee {
   overflow: hidden;
   background: var(--ink);
@@ -1021,12 +1069,6 @@ h1, h2, h3 {
   border-top: 1px solid rgba(74,111,92,.4);
   border-bottom: 1px solid rgba(74,111,92,.4);
   white-space: nowrap;
-}
-.marquee-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee-scroll 26s linear infinite;
-  will-change: transform;
 }
 .marquee span {
   font-family: var(--font-display);

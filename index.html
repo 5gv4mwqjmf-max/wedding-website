@@ -260,7 +260,7 @@
   </section>
 
   <!-- Final CTA -->
-  <section class="section-tight center reveal">
+  <section class="section-tight center reveal" id="final-cta">
     <div class="wrap-narrow">
       <div class="arch">
         <p class="eyebrow">Join us</p>
@@ -274,6 +274,26 @@
     </div>
   </section>
 </main>
+
+<!-- Mobile sticky CTA (thumb zone — the single most important action) -->
+<div class="sticky-mobile-cta" style="display:none;">
+  <a class="btn btn-maroon btn-block" href="rsvp.html" style="width:100%;">RSVP Now</a>
+</div>
+<script>
+  (function() {
+    var cta = document.querySelector('.sticky-mobile-cta');
+    if (!cta || window.innerWidth > 760) return;
+    cta.style.display = 'flex';
+    // Hide when the RSVP/CTA section is on screen (don't double-up)
+    var heroCta = document.getElementById('final-cta');
+    if (heroCta) {
+      var io = new IntersectionObserver(function(entries) {
+        cta.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+      }, {rootMargin: '-80px 0px 0px 0px'});
+      io.observe(heroCta);
+    }
+  })();
+</script>
 <footer class="site-footer">
   <div class="wrap">
     <div class="script">Keshava &amp; Cayla</div>
