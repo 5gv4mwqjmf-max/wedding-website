@@ -182,4 +182,23 @@
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     scrollBtn.style.display = "none";
   }
+  // --- Continuous-scroll parallax: photo tiles drift subtly on scroll ---
+  if (window.innerWidth > 760 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var parallaxEls = document.querySelectorAll(".photo-tile .photo-wrap");
+    var updateParallax = function() {
+      var vh = window.innerHeight;
+      parallaxEls.forEach(function(wrap) {
+        var r = wrap.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var progress = (r.top + r.height / 2 - vh / 2) / (vh / 2); // -1..1
+        var drift = Math.max(-14, Math.min(14, progress * 14));
+        wrap.style.setProperty("--parallax", drift + "px");
+        wrap.classList.add("is-parallax");
+      });
+    };
+    window.addEventListener("scroll", updateParallax, { passive: true });
+    window.addEventListener("resize", updateParallax);
+    window.addEventListener("load", function() { setTimeout(updateParallax, 150); });
+  }
+
 })();

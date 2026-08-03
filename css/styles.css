@@ -183,7 +183,7 @@ hr.gold-rule { margin: var(--s4) auto; }
 .brand .script { color: var(--terracotta); font-size: 27px; margin-right: 6px; }
 .nav-links { display: flex; gap: var(--s4); align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 8px 2px; }
-.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--maroon); box-shadow: inset 0 -2px 0 var(--gold); }
+.nav-links a:hover, .nav-links a[aria-current="page"], .nav-links a.is-active { color: var(--maroon); box-shadow: inset 0 -2px 0 var(--gold); }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; width: 44px; height: 44px; }
 .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--maroon); margin: 5px auto; transition: transform .2s; }
@@ -1331,4 +1331,64 @@ body.scrolled .hero { transition: transform .1s linear; }
   .site-nav, .site-footer, .btn, .nav-toggle { display: none !important; }
   body { background: #fff; }
   .card, .arch { box-shadow: none; }
+}
+
+/* ---------- Continuous-scroll site: new sections + scroll effects ---------- */
+.btn-ghost-light {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(255,255,255,.5);
+}
+.btn-ghost-light:hover { background: rgba(255,255,255,.12); color: var(--ivory); }
+
+.hero-date {
+  margin: 14px 0 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: fade-up 800ms 340ms ease both;
+}
+
+.tile-time {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 18px;
+}
+
+/* Weekend section */
+.weekend-day { max-width: 640px; margin: 0 auto; text-align: center; }
+.weekend-day h3 { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 32px); color: var(--ink); margin: 10px 0 12px; }
+.weekend-day .tile-time { margin-bottom: 4px; color: var(--maroon); }
+.weekend-day .tl-desc { max-width: 46ch; margin: 0 auto; }
+
+/* Scroll effects */
+@media (min-width: 761px) {
+  /* Subtle parallax on photo tiles: image drifts as you scroll */
+  .photo-tile .photo-wrap {
+    overflow: hidden;
+  }
+  .photo-tile .photo-wrap img {
+    transform: scale(1.06);
+    will-change: transform;
+    transition: transform .6s ease-out;
+  }
+  .photo-tile .photo-wrap.is-parallax img {
+    transform: scale(1.06) translateY(var(--parallax, 0px));
+  }
+  /* Gentle rise when a section enters viewport */
+  section { animation: none; }
+  .reveal.in { animation: sectionIn .7s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes sectionIn {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-tile .photo-wrap img { transform: none !important; transition: none !important; }
+  .reveal.in { animation: none !important; }
 }

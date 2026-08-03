@@ -9,9 +9,8 @@
 <link rel="icon" href="favicon-64.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="192x192">
 
-
-<title>Keshava & Cayla — Save the Date</title>
-<meta name="description" content="Keshava and Cayla's Indian fusion wedding — one day, two traditions. Welcome, itinerary, travel, and guestbook.">
+<title>Keshava & Cayla — December 11, 2027</title>
+<meta name="description" content="Keshava and Cayla's Indian fusion wedding — one day, two traditions. The full weekend, travel, story, gallery, FAQ, RSVP, and guestbook — all in one place.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,39 +19,39 @@
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"></div>
-<header class="site-nav">
+<header class="site-nav" id="top">
   <div class="wrap">
-    <a class="brand" href="index.html"><span class="script">Keshava</span>&amp; <span class="script">Cayla</span></a>
+    <a class="brand" href="#top"><span class="script">Keshava</span>&amp; <span class="script">Cayla</span></a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="index.html#timeline" >The Day</a>
-      <a href="travel.html" >Travel</a>
-            <a href="story.html" >Our Story</a>
-      <a href="faq.html" >FAQ</a>
-      <a href="rsvp.html" >RSVP</a>
-<a href="gallery.html" >Gallery</a>
-      <a href="contact.html" >Contact</a>
-
-
-<a href="guestbook.html" >Guestbook</a>
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#timeline" class="nav-link">The Day</a>
+      <a href="#weekend" class="nav-link">Weekend</a>
+      <a href="#travel" class="nav-link">Travel</a>
+      <a href="#story" class="nav-link">Story</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#rsvp" class="nav-link nav-cta">RSVP</a>
+      <a href="#guestbook" class="nav-link">Guestbook</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </div>
 </header>
 <main>
-  <!-- Hero: one viewport, one thought -->
-  <section class="hero">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
     <div class="petals" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="hero-kicker">Together with their families</p>
-      <h1 class="hero-names" aria-label="Keshava and Bride">
+      <h1 class="hero-names" aria-label="Keshava and Cayla">
         <span class="hero-word">Keshava</span>
         <span class="hero-word script">&amp; Cayla</span>
       </h1>
+      <p class="hero-date">Saturday, December 11, 2027 · Hilton Garden Inn · Manhattan, KS</p>
       <div class="hero-actions">
         <a class="btn btn-maroon" href="open-invitation.html">Open the Invitation</a>
+        <a class="btn btn-ghost-light" href="#rsvp">RSVP</a>
       </div>
-      <!-- Countdown (set WEDDING_DATE below to your date) -->
       <div class="countdown" id="countdown" role="timer" aria-live="polite">
         <div class="cd-unit"><span class="cd-num" id="cd-days">–</span><span class="cd-label">Days</span></div>
         <div class="cd-unit"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">Hours</span></div>
@@ -64,11 +63,11 @@
     <div class="hero-mark draw-scroll" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" fill="none">
         <g class="spin-ring">
-          <circle cx="200" cy="220" r="150" stroke="#a23a2f" stroke-width="1.4" opacity="0.55" pathLength="1" class="draw-path"/>
-          <circle cx="200" cy="220" r="138" stroke="#a23a2f" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 6" pathLength="1"/>
-          <circle cx="200" cy="220" r="120" stroke="#1b1b1b" stroke-width="0.9" opacity="0.5" pathLength="1" class="draw-path"/>
+          <circle cx="200" cy="220" r="150" stroke="#4a6f5c" stroke-width="1.4" opacity="0.55" pathLength="1" class="draw-path"/>
+          <circle cx="200" cy="220" r="138" stroke="#4a6f5c" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 6" pathLength="1"/>
+          <circle cx="200" cy="220" r="120" stroke="#22251f" stroke-width="0.9" opacity="0.5" pathLength="1" class="draw-path"/>
         </g>
-        <g stroke="#a23a2f" stroke-width="1.1" opacity="0.5">
+        <g stroke="#4a6f5c" stroke-width="1.1" opacity="0.5">
           <g transform="rotate(0 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(30 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(60 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
@@ -82,7 +81,7 @@
           <g transform="rotate(300 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(330 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
         </g>
-        <g stroke="#1b1b1b" stroke-width="1" opacity="0.45">
+        <g stroke="#22251f" stroke-width="1" opacity="0.45">
           <g transform="rotate(0 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
           <g transform="rotate(45 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
           <g transform="rotate(90 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
@@ -92,16 +91,12 @@
           <g transform="rotate(270 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
           <g transform="rotate(315 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
         </g>
-        <path d="M120 380 L120 300 Q120 220 200 220 Q280 220 280 300 L280 380" stroke="#a23a2f" stroke-width="1.6" opacity="0.7" pathLength="1" class="draw-path"/>
-        <path d="M132 380 L132 304 Q132 232 200 232 Q268 232 268 304 L268 380" stroke="#1b1b1b" stroke-width="0.8" opacity="0.4" pathLength="1"/>
-        <text x="200" y="330" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="44" fill="#1b1b1b" opacity="0.85">K</text>
-        <text x="200" y="356" text-anchor="middle" font-family="Great Vibes, cursive" font-size="30" fill="#a23a2f" opacity="0.85">&amp;</text>
-        <text x="200" y="384" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="40" fill="#1b1b1b" opacity="0.85">B</text>
-        <path d="M96 380 L304 380" stroke="#a23a2f" stroke-width="1.2" opacity="0.55"/>
-        <g stroke="#a23a2f" stroke-width="1" opacity="0.45">
-          <path d="M70 210 Q84 198 92 214 Q78 222 70 210Z"/>
-          <path d="M330 210 Q316 198 308 214 Q322 222 330 210Z"/>
-        </g>
+        <path d="M120 380 L120 300 Q120 220 200 220 Q280 220 280 300 L280 380" stroke="#4a6f5c" stroke-width="1.6" opacity="0.7" pathLength="1" class="draw-path"/>
+        <path d="M132 380 L132 304 Q132 232 200 232 Q268 232 268 304 L268 380" stroke="#22251f" stroke-width="0.8" opacity="0.4" pathLength="1"/>
+        <text x="200" y="330" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="44" fill="#22251f" opacity="0.85">K</text>
+        <text x="200" y="356" text-anchor="middle" font-family="Great Vibes, cursive" font-size="30" fill="#4a6f5c" opacity="0.85">&amp;</text>
+        <text x="200" y="384" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="40" fill="#22251f" opacity="0.85">C</text>
+        <path d="M96 380 L304 380" stroke="#4a6f5c" stroke-width="1.2" opacity="0.55"/>
       </svg>
     </div>
   </section>
@@ -114,7 +109,7 @@
     </div>
   </div>
 
-  <!-- Stats strip: at-a-glance credibility -->
+  <!-- Stats strip -->
   <section class="stats" aria-label="At a glance">
     <div class="wrap">
       <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label">Day of Celebration</span></div>
@@ -123,13 +118,12 @@
     </div>
   </section>
 
-  <!-- Welcome: glanced, not read (editorial split) -->
-  <section class="photo-tile light">
+  <!-- Welcome -->
+  <section class="photo-tile light" id="welcome">
     <div class="photo-wrap">
-      <!-- 1 photo: editorial split portrait -->
       <picture>
-        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.webp 1600w, images/welcome-couple-2400.webp 2400w" type="image/webp">
-        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.jpg 1600w, images/welcome-couple-2400.jpg 2400w" type="image/jpeg">
+        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.webp 1600w" type="image/webp">
+        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.jpg 1600w" type="image/jpeg">
         <img class="photo-responsive" src="images/welcome-couple-800.jpg" alt="Keshava and Cayla" loading="lazy" decoding="async" width="800" height="600">
       </picture>
     </div>
@@ -142,11 +136,11 @@
         a Western ceremony, and dancing into the night.
         We can&rsquo;t wait to celebrate with you.
       </p>
-      <a class="btn btn-maroon" href="index.html#timeline">See the Day</a>
+      <a class="btn btn-maroon" href="#timeline">See the Day</a>
     </div>
   </section>
 
-  <!-- Timeline: the day, chapter by chapter (Apple-style alternating tiles) -->
+  <!-- ============ THE DAY ============ -->
   <section class="photo-tile dark" id="timeline">
     <div class="tile-text">
       <p class="eyebrow">Chapter One</p>
@@ -156,7 +150,7 @@
         family and friends bring Keshava to the wedding hall with music
         and dancing, thirty minutes before the ceremony begins.
       </p>
-      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Morning</p>
+      <p class="tile-time">Morning</p>
     </div>
     <div class="photo-wrap">
       <picture>
@@ -183,7 +177,7 @@
         explains each step of the ceremony, the bride and groom thank
         their guests, and everyone throws rice as the couple leaves.
       </p>
-      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Two Hours</p>
+      <p class="tile-time">Two Hours</p>
     </div>
   </section>
 
@@ -196,7 +190,7 @@
         lawn games, a photo booth, a digital guest book, and time
         to simply be together.
       </p>
-      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Afternoon</p>
+      <p class="tile-time">Afternoon</p>
     </div>
     <div class="photo-wrap">
       <picture>
@@ -223,120 +217,560 @@
         a cocktail hour, then dinner, toasts, the first dance, and
         dancing under the lights.
       </p>
-      <p style="font-family:var(--font-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Evening</p>
+      <p class="tile-time">Evening</p>
     </div>
   </section>
 
-  <!-- Offer stack: what guests get, clearly -->
-  <section class="section-tight">
-    <div class="wrap-narrow">
-      <div class="section-head">
-        <p class="eyebrow">What Your Day Includes</p>
-        <h2>Every Moment, <span class="script">Taken Care Of</span></h2>
-        <hr class="gold-rule">
+  <!-- ============ THE WEEKEND ============ -->
+  <section class="section" id="weekend" style="background:var(--cream);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">The Full Weekend</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Four Days of <span class="script" style="color:var(--maroon);">Celebration</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">The wedding is one day — the celebration is a whole weekend. Here&rsquo;s how it unfolds.</p>
+    </div>
+    <div class="wrap" style="margin-top:var(--s5);">
+      <div class="weekend-day reveal pop">
+        <p class="tile-time">Thursday · Dec 9</p>
+        <h3>Henna / Mehndi <span class="script">at Home</span></h3>
+        <p class="tl-desc">An intimate evening of henna for the bride and close family — Cayla, Sheri, Stephanie, Sangeetha, Seetha, and maybe a few more hands.</p>
       </div>
-      <div class="bento" style="margin-top:var(--s4);">
-        <div class="bento-tile bento-1 reveal pop">
-          <span class="bento-script" aria-hidden="true">The Day</span>
-          <span class="bento-num">01</span>
-          <h3>The Ceremony</h3>
-          <p>Baroth procession, the seven steps, and the necklace — a full Indian fusion ceremony, seated and unhurried.</p>
-        </div>
-        <div class="bento-tile bento-2 reveal pop">
-          <span class="bento-num">02</span>
-          <h3>Protected Lunch</h3>
-          <p>Three hours of buffet Indian food, lawn games, flexible seating.</p>
-        </div>
-        <div class="bento-tile bento-3 reveal pop">
-          <span class="bento-num">03</span>
-          <h3>Chai &amp; Coffee</h3>
-          <p>One hour outdoors between lunch and the evening celebration.</p>
-        </div>
-        <div class="bento-tile bento-4 reveal pop">
-          <span class="bento-script" aria-hidden="true">The Night</span>
-          <span class="bento-num">04</span>
-          <h3>The Reception</h3>
-          <p>Dinner, toasts, and dancing under the lights — the night belongs to everyone who came.</p>
-        </div>
-        <div class="bento-tile bento-5 reveal pop">
-          <span class="bento-num">05</span>
-          <h3>Every Moment, Taken Care Of</h3>
-          <p>One venue, one flowing day — from the morning&rsquo;s first frames to the evening&rsquo;s last dance.</p>
-        </div>
+      <hr class="gold-rule">
+      <div class="weekend-day reveal pop">
+        <p class="tile-time">Friday · Dec 10</p>
+        <h3>Haldi, Lunch &amp; the <span class="script">Welcome Party</span></h3>
+        <p class="tl-desc">10am Haldi puja at home (family + a few friends), lunch at noon, and from 2pm friends decorate the Hilton Garden Inn ballroom. Henna for anyone who wants it at 4pm (two artists), then the Welcome Party 6–8pm — an open-house with beer, wine, heavy appetizers, and maybe live music.</p>
+      </div>
+      <hr class="gold-rule">
+      <div class="weekend-day reveal pop">
+        <p class="tile-time">Saturday · Dec 11</p>
+        <h3>The <span class="script">Wedding Day</span></h3>
+        <p class="tl-desc">Indian ceremony pictures first, the Barat, the puja, an Indian vegetarian lunch, chai in the courtyard with games and the photo booth, the Western ceremony outside with bubbles, cocktail hour, then reception — first dance, cake, toasts, father-daughter and mother-groom dances, and dancing into the night.</p>
+      </div>
+      <hr class="gold-rule">
+      <div class="weekend-day reveal pop">
+        <p class="tile-time">Sunday · Dec 12</p>
+        <h3>Farewell <span class="script">Breakfast</span></h3>
+        <p class="tl-desc">9am at the hotel for guests staying over — a last warm hello before everyone heads home.</p>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- ============ TRAVEL ============ -->
+  <section class="section" id="travel">
+    <div class="center"><p class="eyebrow">Getting Here</p><h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Travel &amp; <span class="script">Stay</span></h2><hr class="gold-rule"></div>
+    <div class="grid grid-3 reveal" style="margin-top:var(--s5);">
+      <article class="card reveal pop">
+        <p class="meta">By Air</p>
+        <h3>Airports</h3>
+        <ul>
+          <li>Nearest international airport — <strong>[City] International</strong> (approx. [XX] min drive)</li>
+          <li>Regional options — [Airport 2], [Airport 3]</li>
+          <li>Rideshare and rental car desks available at all terminals</li>
+        </ul>
+      </article>
+      <article class="card reveal pop">
+        <p class="meta">By Road</p>
+        <h3>Driving &amp; Parking</h3>
+        <ul>
+          <li>Free on-site parking at the venue</li>
+          <li>Complimentary valet for the evening reception</li>
+          <li>Shuttle service from select hotels (see below)</li>
+        </ul>
+      </article>
+      <article class="card reveal pop">
+        <p class="meta">Venue</p>
+        <h3>The Location</h3>
+        <ul>
+          <li>Hilton Garden Inn</li>
+          <li>[Address — confirm]</li>
+          <li>Manhattan, KS 66502</li>
+          <li>Ceremony, lunch, chai, and reception all at one venue</li>
+        </ul>
+      </article>
+    </div>
+    <div class="grid grid-2 reveal" style="margin-top:var(--s4);">
+      <div class="gp-item"><img src="images/travel-venue-600.jpg" alt="The venue garden" loading="lazy" decoding="async" width="600" height="600"></div>
+      <div class="gp-item"><img src="images/travel-hotel-600.jpg" alt="Hotel balcony" loading="lazy" decoding="async" width="600" height="600"></div>
+    </div>
+  </section>
+
+  <section class="section" id="stay" style="background:var(--cream);">
+    <div class="wrap">
+      <div class="center"><p class="eyebrow">Where to Stay</p><h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Accommodations</h2><hr class="gold-rule"></div>
+      <div class="grid grid-2 reveal" style="margin-top:var(--s5);">
+        <article class="card reveal pop">
+          <span class="hotel-tag">Recommended</span>
+          <h3>[Signature Hotel]</h3>
+          <p class="tl-desc">Steps from the venue with a block of rooms reserved for guests. Mention the wedding for the group rate.</p>
+          <ul>
+            <li>Room block rate: [$$] per night</li>
+            <li>Book by [date] to secure the rate</li>
+            <li>Complimentary breakfast</li>
+          </ul>
+        </article>
+        <article class="card reveal pop">
+          <span class="hotel-tag">Convenient</span>
+          <h3>[Boutique Hotel]</h3>
+          <p class="tl-desc">A short drive with a charming character — ideal for guests who want to explore the area.</p>
+          <ul>
+            <li>Approx. [XX] min from the venue</li>
+            <li>Shuttle available for the reception</li>
+            <li>Early check-in on request</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="section" id="story" style="padding-top:var(--s8);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">The Couple</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Our <span class="script" style="color:var(--maroon);">Story</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Two families, two traditions, one story we can&rsquo;t wait to share with you.</p>
+    </div>
+    <div class="wrap-narrow" style="margin-top:var(--s5);">
+      <div class="story-block reveal pop">
+        <span class="tl-time">Chapter One</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">How We Met</h3>
+        <img src="images/story-met-600.jpg" alt="How we met" loading="lazy" decoding="async" style="width:100%;height:240px;object-fit:cover;border-radius:18px;margin:16px 0 4px;">
+        <p class="tl-desc">[Tell the story of how you met — the first hello, the moment you knew. Keep it warm, specific, and short enough that guests glance at it and smile.]</p>
+      </div>
+      <hr class="gold-rule">
+      <div class="story-block reveal pop">
+        <span class="tl-time">Chapter Two</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">The Proposal</h3>
+        <img src="images/story-proposal-600.jpg" alt="The proposal" loading="lazy" decoding="async" style="width:100%;height:240px;object-fit:cover;border-radius:18px;margin:16px 0 4px;">
+        <p class="tl-desc">[The story of the proposal — the place, the words, the yes. This is the moment everyone wants to hear about.]</p>
+      </div>
+      <hr class="gold-rule">
+      <div class="story-block reveal pop">
+        <span class="tl-time">Chapter Three</span>
+        <h3 style="font-family:var(--font-display);font-size:28px;color:var(--ink);margin-top:12px;">Two Traditions, One Day</h3>
+        <img src="images/story-day-600.jpg" alt="The day" loading="lazy" decoding="async" style="width:100%;height:240px;object-fit:cover;border-radius:18px;margin:16px 0 4px;">
+        <p class="tl-desc">Keshava&rsquo;s Indian heritage and Cayla&rsquo;s [tradition] come together in a single day — a Baroth procession at dawn, a fusion ceremony at midday, and a celebration that belongs to everyone who loves us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section" id="gallery" style="background:var(--cream);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Through Our Eyes</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">The <span class="script" style="color:var(--maroon);">Gallery</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Share your photos with our hashtag <strong style="color:var(--maroon);">[#Hashtag]</strong> — we&rsquo;ll add the best ones here as the day unfolds.</p>
+    </div>
+    <div class="wrap" style="margin-top:var(--s5);">
+      <div class="gallery-photo-grid reveal pop" id="gallery-grid">
+        <div class="gp-item"><span class="gp-label">In the Garden</span><img src="images/gallery-1-800.jpg" alt="In the Garden" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="gp-item"><span class="gp-label">At Home</span><img src="images/gallery-2-800.jpg" alt="At Home" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="gp-item"><span class="gp-label">By the Water</span><img src="images/gallery-3-800.jpg" alt="By the Water" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="gp-item"><span class="gp-label">The Garden Embrace</span><img src="images/gallery-4-800.jpg" alt="The Garden Embrace" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="gp-item"><span class="gp-label">Reception</span><img src="images/gallery-5-800.jpg" alt="Reception" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="gp-item"><span class="gp-label">At Home Together</span><img src="images/gallery-6-800.jpg" alt="At Home Together" loading="lazy" decoding="async" width="600" height="600"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Good to Know</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">FAQ</h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Everything our guests ask us most — answered in one place.</p>
+    </div>
+    <div class="wrap-narrow" style="margin-top:var(--s5);">
+      <div class="faq-list reveal pop">
+        <details class="faq-item" open>
+          <summary>What should I wear? Is there a dress code?</summary>
+          <p>The dress code is <strong>festive Indian or formal</strong> — think cocktail dresses, suits, or traditional Indian attire. Colours are very welcome; the palette of the day is warm, rich, and celebratory.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are kids welcome?</summary>
+          <p>Absolutely — children are part of the celebration. There will be lawn games and flexible seating during the lunch block, and the reception is family-friendly.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where are the ceremony and reception?</summary>
+          <p>Everything happens at one venue — ceremony, lunch, chai, and reception. Full address and directions are in the <a href="#travel">Travel</a> section above.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there parking?</summary>
+          <p>Yes — free on-site parking, plus valet for the evening reception. See <a href="#travel">Travel</a> for details.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will there be food? What about dietary needs?</summary>
+          <p>A full Indian buffet is served during the protected lunch block. Vegetarian options are plentiful, and we&rsquo;ll do our best to accommodate allergies — please note them on your <a href="#rsvp">RSVP</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I bring a plus-one?</summary>
+          <p>We&rsquo;d love to celebrate with everyone you love — please include your party size on the <a href="#rsvp">RSVP</a> so we can plan seating and food.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What will the weather be like?</summary>
+          <p>December in Manhattan, KS is crisp — warm through the day, cooler by evening. The chai hour is outdoors, so bring a light layer if you run cool.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where should I stay?</summary>
+          <p>We&rsquo;ve reserved room blocks at [Signature Hotel] and [Boutique Hotel] — details and booking links in the <a href="#stay">Accommodations</a> section.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there gifts / a registry?</summary>
+          <p>Your presence is the only present we need. If you&rsquo;d like to contribute to our future together, a small contribution toward our [honeymoon fund / home fund] would mean the world.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I take photos and share them?</summary>
+          <p>Please do! Use our hashtag <strong>[#Hashtag]</strong> and leave your favourite shots in the <a href="#guestbook">Digital Guestbook</a> so we can relive the day through your eyes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RSVP ============ -->
+  <section class="section" id="rsvp" style="background:var(--cream);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Will you join us?</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">RSVP</h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Please let us know by <strong style="color:var(--maroon);">[RSVP date]</strong> so we can plan the celebration around you.</p>
+    </div>
+    <div class="gb-form-card card reveal pop" style="margin-top:var(--s5);">
+      <form id="rsvp-form" novalidate>
+        <div class="gb-field">
+          <label for="rsvp-name">Full name(s)</label>
+          <input id="rsvp-name" name="name" type="text" maxlength="100" required autocomplete="name" placeholder="Jane Smith">
+        </div>
+        <div class="gb-field">
+          <label for="rsvp-email">Email</label>
+          <input id="rsvp-email" name="email" type="email" required autocomplete="email" placeholder="jane@example.com">
+        </div>
+        <div class="gb-field">
+          <label>Will you attend?</label>
+          <div class="rsvp-choice" role="radiogroup" aria-label="Will you attend?">
+            <label class="rsvp-option"><input type="radio" name="attending" value="yes" checked><span>Joyfully accept</span></label>
+            <label class="rsvp-option"><input type="radio" name="attending" value="no"><span>Regretfully decline</span></label>
+          </div>
+        </div>
+        <div class="gb-field" id="guest-count-field">
+          <label for="rsvp-guests">Number in your party</label>
+          <select id="rsvp-guests" name="guests">
+            <option value="1">1 — just me</option>
+            <option value="2" selected>2 — me + one</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+        <div class="gb-field" id="meal-field">
+          <label for="rsvp-meal">Meal preference</label>
+          <select id="rsvp-meal" name="meal">
+            <option value="vegetarian">Vegetarian (Indian)</option>
+            <option value="chicken">Chicken (Indian)</option>
+            <option value="lamb">Lamb (Indian)</option>
+            <option value="kids">Kids' plate</option>
+            <option value="none">No meal needed</option>
+          </select>
+        </div>
+        <div class="gb-field">
+          <label for="rsvp-song">Song request for the reception <span style="text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input id="rsvp-song" name="song" type="text" maxlength="120" placeholder="Anything you want to hear on the dance floor!">
+        </div>
+        <div class="gb-field">
+          <label for="rsvp-notes">Dietary needs or notes <span style="text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="rsvp-notes" name="notes" rows="3" maxlength="500" placeholder="Allergies, accessibility, anything we should know…"></textarea>
+        </div>
+        <button class="btn btn-maroon btn-block" type="submit">Send RSVP</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ GUESTBOOK ============ -->
+  <section class="section" id="guestbook" style="padding-bottom:var(--s6);">
+    <div class="marquee" aria-hidden="true" style="margin-bottom:var(--s6);">
+      <div class="marquee-track">
+        <span>Leave a Wish <em>&middot;</em> Write to the Couple <em>&middot;</em> Be Part of the Story <em>&middot;</em></span>
+        <span>Leave a Wish <em>&middot;</em> Write to the Couple <em>&middot;</em> Be Part of the Story <em>&middot;</em></span>
+      </div>
+    </div>
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Digital Guestbook</p>
+      <h2 style="font-size:clamp(30px,5vw,46px);color:var(--maroon-deep);">Write to Keshava &amp; <span class="script">Cayla</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Share a wish, a memory, or a little advice for the happy couple. Your message will appear on the guestbook wall at the reception.</p>
+    </div>
+    <div class="gb-form-card card reveal pop" style="margin-top:var(--s5);">
+      <form id="gb-form" novalidate>
+        <div class="gb-field">
+          <label for="gb-name">Your name</label>
+          <input id="gb-name" name="name" type="text" maxlength="60" required autocomplete="name" placeholder="Jane Smith">
+        </div>
+        <div class="gb-field">
+          <label for="gb-city">Where you&rsquo;re from <span style="text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input id="gb-city" name="city" type="text" maxlength="60" placeholder="Austin, TX">
+        </div>
+        <div class="gb-field">
+          <label for="gb-message">Your message</label>
+          <textarea id="gb-message" name="message" rows="4" maxlength="500" required placeholder="Wishing you both a lifetime of joy…"></textarea>
+          <div class="hint" id="gb-count-hint">0 / 500</div>
+        </div>
+        <button class="btn btn-maroon btn-block" type="submit">Post Message</button>
+      </form>
+    </div>
+    <div class="wrap-narrow center" style="margin-top:var(--s5);">
+      <p class="eyebrow">Guestbook Wall</p>
+      <p class="gb-count" id="gb-count" role="status">Loading messages…</p>
+    </div>
+    <div class="wrap">
+      <div class="gb-wall reveal pop" id="gb-wall" aria-live="polite"></div>
+      <p class="gb-empty" id="gb-empty" hidden>No messages yet — be the first to write to the couple!</p>
+    </div>
+    <div class="center reveal pop" style="margin-top:var(--s6);">
+      <button class="btn btn-outline" id="gb-screen-btn">Open Big Screen Mode</button>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:10px;">For the reception display — press <kbd>D</kbd> anytime to toggle.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact" style="background:var(--cream);">
+    <div class="wrap-narrow center">
+      <p class="eyebrow">Get in Touch</p>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Say <span class="script" style="color:var(--maroon);">Hello</span></h2>
+      <hr class="gold-rule">
+      <p class="intro-copy">Questions, well-wishes, or anything in between — send us a note and we&rsquo;ll get back to you.</p>
+    </div>
+    <div class="wrap-narrow" style="margin-top:var(--s5);">
+      <div class="card contact-card reveal pop">
+        <form id="contact-form" novalidate>
+          <div class="gb-field">
+            <label for="c-name">Your name</label>
+            <input id="c-name" name="name" type="text" maxlength="80" required autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="gb-field">
+            <label for="c-email">Your email</label>
+            <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="gb-field">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="5" maxlength="2000" required placeholder="Write your message here…"></textarea>
+          </div>
+          <button class="btn btn-maroon btn-block" type="submit">Send Message</button>
+          <p class="contact-note" id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="contact-note" style="margin-top:var(--s3);">Prefer email? Write to us at <strong style="color:var(--maroon);">[wedding]@[domain].com</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
   <section class="section-tight center reveal" id="final-cta">
     <div class="wrap-narrow">
       <div class="arch">
         <p class="eyebrow">Join us</p>
         <h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--ink);">Be part of our story</h2>
-        <p class="intro-copy" style="font-size:17px;">Find your way to us with travel details and hotels, then leave a message in our digital guestbook.</p>
+        <p class="intro-copy" style="font-size:17px;">A weekend of henna, haldi, ceremony, chai, and dancing — we can&rsquo;t wait to celebrate with you.</p>
         <p style="margin-top:24px;">
-          <a class="btn btn-gold" href="travel.html">Travel &amp; Stay</a>
-          <a class="btn btn-outline" href="guestbook.html" style="margin-left:10px;">Guestbook</a>
+          <a class="btn btn-maroon" href="#rsvp">RSVP</a>
+          <a class="btn btn-gold" href="#travel" style="margin-left:10px;">Travel &amp; Stay</a>
+          <a class="btn btn-outline" href="#guestbook" style="margin-left:10px;">Guestbook</a>
         </p>
       </div>
     </div>
   </section>
 </main>
 
-<!-- Mobile sticky CTA (thumb zone — the single most important action) -->
+<!-- Mobile sticky CTA -->
 <div class="sticky-mobile-cta" style="display:none;">
-  <a class="btn btn-maroon btn-block" href="rsvp.html" style="width:100%;">RSVP Now</a>
+  <a class="btn btn-maroon btn-block" href="#rsvp" style="width:100%;">RSVP Now</a>
 </div>
-<script>
-  (function() {
-    var cta = document.querySelector('.sticky-mobile-cta');
-    if (!cta || window.innerWidth > 760) return;
-    cta.style.display = 'flex';
-    // Hide when the RSVP/CTA section is on screen (don't double-up)
-    var heroCta = document.getElementById('final-cta');
-    if (heroCta) {
-      var io = new IntersectionObserver(function(entries) {
-        cta.style.display = entries[0].isIntersecting ? 'none' : 'flex';
-      }, {rootMargin: '-80px 0px 0px 0px'});
-      io.observe(heroCta);
-    }
-  })();
-</script>
+
+<!-- Big screen guestbook overlay -->
+<div class="gb-screen" id="gb-screen" aria-hidden="true">
+  <button class="gb-close" id="gb-screen-close">Close</button>
+  <div class="gb-screen-head">
+    <div class="script">With love, from our guests</div>
+    <h2>Keshava &amp; Cayla</h2>
+  </div>
+  <div class="gb-screen-wall" id="gb-screen-wall"></div>
+</div>
+<div class="gb-toast" id="gb-toast" role="status"></div>
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="script">Keshava &amp; Cayla</div>
     <p>One day · Two traditions · A lifetime together</p>
     <div class="footer-links">
-      <a href="index.html">Home</a><a href="travel.html">Travel</a><a href="story.html">Our Story</a><a href="faq.html">FAQ</a><a href="rsvp.html">RSVP</a><a href="guestbook.html">Guestbook</a>
+      <a href="#top">Home</a><a href="#timeline">The Day</a><a href="#weekend">Weekend</a><a href="#travel">Travel</a><a href="#story">Story</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#rsvp">RSVP</a><a href="#guestbook">Guestbook</a><a href="#contact">Contact</a>
     </div>
   </div>
 </footer>
-<script>
-  (function(){
-    var t = document.querySelector('.nav-toggle');
-    if (t) {
-      t.addEventListener('click', function(){
-        var l = document.querySelector('.nav-links');
-        var open = l.classList.toggle('open');
-        t.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-    // Scroll reveal — Intersection Observer baseline
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12 });
-    var revealEls = document.querySelectorAll('.reveal');
-    for (var i = 0; i < revealEls.length; i++) io.observe(revealEls[i]);
-    // No-JS safety: if anything already in viewport on load, reveal immediately
-    window.addEventListener('load', function(){
-      revealEls.forEach(function(el){
-        var r = el.getBoundingClientRect();
-        if (r.top < window.innerHeight * 0.9) el.classList.add('in');
-      });
-    });
-  })();
-</script>
+<script src="js/guestbook.js"></script>
 <button class="scroll-top" aria-label="Back to top" title="Back to top">↑</button>
 <script src="js/site-motion.js"></script>
+<script>
+(function(){
+  // Nav toggle
+  var t = document.querySelector('.nav-toggle');
+  if (t) {
+    t.addEventListener('click', function(){
+      var l = document.querySelector('.nav-links');
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // close on link tap (mobile)
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        document.querySelector('.nav-links').classList.remove('open');
+        t.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  var revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(function(el){ io.observe(el); });
+  window.addEventListener('load', function(){
+    revealEls.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9) el.classList.add('in');
+    });
+  });
+
+  // Active nav highlight (scrollspy)
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.nav-links .nav-link');
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var id = '#' + entry.target.id;
+        navLinks.forEach(function(l){
+          l.classList.toggle('is-active', l.getAttribute('href') === id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(function(s){ spy.observe(s); });
+
+  // Mobile sticky CTA (thumb zone)
+  var cta = document.querySelector('.sticky-mobile-cta');
+  if (cta && window.innerWidth <= 760) {
+    cta.style.display = 'flex';
+    var finalCta = document.getElementById('final-cta');
+    if (finalCta) {
+      var io2 = new IntersectionObserver(function(entries){
+        cta.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+      }, { rootMargin: '-80px 0px 0px 0px' });
+      io2.observe(finalCta);
+    }
+  }
+
+  // RSVP form
+  var form = document.getElementById('rsvp-form');
+  if (form) {
+    var attending = document.querySelectorAll('input[name=attending]');
+    var guestCount = document.getElementById('guest-count-field');
+    var mealField = document.getElementById('meal-field');
+    var toggleFields = function(){
+      var yes = document.querySelector('input[name=attending]:checked').value === 'yes';
+      guestCount.style.display = yes ? '' : 'none';
+      mealField.style.display = yes ? '' : 'none';
+    };
+    attending.forEach(function(r){ r.addEventListener('change', toggleFields); });
+    toggleFields();
+    var thanksEl = null;
+    function showRsvpThanks(msg){
+      if (!thanksEl) {
+        thanksEl = document.createElement('div');
+        thanksEl.className = 'rsvp-thanks';
+        thanksEl.setAttribute('role', 'status');
+        var formCard = document.querySelector('.gb-form-card');
+        formCard.parentNode.insertBefore(thanksEl, formCard.nextSibling);
+      }
+      thanksEl.textContent = msg;
+      thanksEl.classList.add('show');
+      setTimeout(function(){ thanksEl.classList.remove('show'); }, 6000);
+    }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('rsvp-name').value.trim();
+      var email = document.getElementById('rsvp-email').value.trim();
+      if (!name || !email) { showRsvpThanks('Please add your name and email.'); return; }
+      var attendingVal = document.querySelector('input[name=attending]:checked').value;
+      var msg = attendingVal === 'yes'
+        ? 'Thank you! We can\u2019t wait to celebrate with you.'
+        : 'Thank you for letting us know. You\u2019ll be missed!';
+      try {
+        var list = JSON.parse(localStorage.getItem('wedding-rsvps') || '[]');
+        list.push({
+          name: name, email: email, attending: attendingVal,
+          guests: document.getElementById('rsvp-guests').value,
+          meal: document.getElementById('rsvp-meal').value,
+          song: document.getElementById('rsvp-song').value.trim(),
+          notes: document.getElementById('rsvp-notes').value.trim(),
+          ts: Date.now()
+        });
+        localStorage.setItem('wedding-rsvps', JSON.stringify(list));
+      } catch(err) {}
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQo4e2dttD7ECNMbnusFTad8kHBqDv_ndM1ue9JFA0UvLbxgUvCZmQBkCLw_sUYkQLDQ/exec';
+      if (SCRIPT_URL.indexOf('PASTE_YOUR_URL') === -1) {
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'rsvp',
+            name: name, email: email, attending: attendingVal,
+            guests: document.getElementById('rsvp-guests').value,
+            meal: document.getElementById('rsvp-meal').value,
+            song: document.getElementById('rsvp-song').value.trim(),
+            notes: document.getElementById('rsvp-notes').value.trim()
+          })
+        }).catch(function(){});
+      }
+      form.reset();
+      toggleFields();
+      showRsvpThanks(msg);
+    });
+  }
+
+  // Contact form
+  var cform = document.getElementById('contact-form');
+  if (cform) {
+    var statusEl = document.getElementById('contact-status');
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQo4e2dttD7ECNMbnusFTad8kHBqDv_ndM1ue9JFA0UvLbxgUvCZmQBkCLw_sUYkQLDQ/exec';
+    cform.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('c-name').value.trim();
+      var email = document.getElementById('c-email').value.trim();
+      var message = document.getElementById('c-message').value.trim();
+      if (!name || !email || !message) {
+        statusEl.textContent = 'Please fill in all fields.';
+        statusEl.style.color = 'var(--maroon)';
+        return;
+      }
+      statusEl.textContent = 'Sending…';
+      statusEl.style.color = 'var(--ink-soft)';
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'contact', name: name, email: email, message: message })
+      }).then(function(){
+        statusEl.textContent = 'Thank you! Your message is on its way.';
+        statusEl.style.color = 'var(--maroon)';
+        cform.reset();
+      }).catch(function(){
+        statusEl.textContent = 'Something went wrong — please email us directly at [wedding]@[domain].com';
+        statusEl.style.color = 'var(--maroon)';
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>
