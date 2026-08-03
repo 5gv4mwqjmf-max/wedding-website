@@ -8,6 +8,21 @@
   if (heroVideo && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     heroVideo.pause();
   }
+  // Chromium pauses offscreen autoplay videos (battery saver) — resume the
+  // sky when it scrolls back into view (Round 47; never under reduced motion)
+  if (heroVideo && "IntersectionObserver" in window) {
+    var vidIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (heroVideo.paused && !document.hidden) {
+          var pr = heroVideo.play();
+          if (pr && pr.catch) pr.catch(function () {});
+        }
+      });
+    }, { threshold: 0.1 });
+    vidIO.observe(heroVideo);
+  }
 
   // --- Scroll-drawn SVG paths (SuperHi/Lusion technique) ---
   // Any path with class "draw-path" draws itself as the page scrolls past
