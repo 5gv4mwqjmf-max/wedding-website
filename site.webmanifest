@@ -1,0 +1,12 @@
+{
+  "name": "Keshava & Cayla — Wedding",
+  "short_name": "K&C Wedding",
+  "description": "December 11, 2027 · Hilton Garden Inn · Manhattan, KS",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#4a6f5c",
+  "icons": [
+    {"src": "apple-touch-icon.png", "sizes": "192x192", "type": "image/png"}
+  ]
+}
