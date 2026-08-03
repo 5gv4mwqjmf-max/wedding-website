@@ -1392,3 +1392,27 @@ body.scrolled .hero { transition: transform .1s linear; }
   .photo-tile .photo-wrap img { transform: none !important; transition: none !important; }
   .reveal.in { animation: none !important; }
 }
+
+/* ---------- Travel photos: fixed formatting (not stretched, spaced) ---------- */
+.travel-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+  margin-top: var(--s4);
+}
+.travel-photos .gp-item {
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(74,111,92,.10), rgba(27,27,27,.06));
+}
+.travel-photos .gp-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+@media (max-width: 640px) {
+  .travel-photos { grid-template-columns: 1fr; gap: var(--s3); }
+}
