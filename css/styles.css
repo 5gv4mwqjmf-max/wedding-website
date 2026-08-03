@@ -1504,6 +1504,15 @@ body.scrolled .hero { transition: transform .1s linear; }
   margin-top: 18px;
 }
 
+/* Final CTA button row — flex + gap, no inline margin hacks (Round 49) */
+.final-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
 /* Weekend section */
 .weekend-day { max-width: 640px; margin: 0 auto; text-align: center; }
 .weekend-day h3 { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 32px); color: var(--ink); margin: 10px 0 12px; }
