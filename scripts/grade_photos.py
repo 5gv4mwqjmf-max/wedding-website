@@ -26,10 +26,10 @@ import sys
 import numpy as np
 from PIL import Image, ImageEnhance
 
-# Site tokens (from css/styles.css)
-CREAM = np.array([247, 244, 240])   # #f7f4f0 warm off-white
-SOFT_BLACK = np.array([27, 27, 27]) # #1b1b1b
-BRICK = np.array([162, 58, 47])     # #a23a2f
+# Site tokens (from css/styles.css — photo-driven sage/sand palette)
+CREAM = np.array([244, 243, 239])   # #f4f3ef cool-tinted parchment
+SOFT_BLACK = np.array([30, 36, 33]) # #1e2421 soft black-green
+BRICK = np.array([62, 107, 94])     # #3e6b5e muted sage green
 
 SIZES = [800, 1600, 2400]
 
@@ -61,7 +61,7 @@ def grade(arr):
     arr = arr + lift * (SOFT_BLACK / 255.0 - arr) * low_mask
 
     # 4. Brick tint: warm red cast in shadows (echoes #a23a2f)
-    brick_shift = np.array([0.028, 0.006, -0.012], dtype=np.float32)
+    brick_shift = np.array([-0.010, 0.020, 0.006], dtype=np.float32)  # sage tint in shadows
     arr = arr + brick_shift[None, None, :] * low_mask
 
     # 5. Gentle S-curve contrast
