@@ -25,6 +25,11 @@
  *   {action:'rsvp',     name,email,attending,guests,meal,song,notes}
  *   {action:'guestbook',name,city,message}
  *   {action:'contact',  name,email,message}
+ *
+ * PRIVACY — consent copy is shown on each site form; keep in sync:
+ *   - RSVP/Contact emails: used only to plan the wedding / reply back.
+ *   - Guestbook name + message: displayed on the reception wall.
+ *   - Nothing is shared or sold. Removal requests -> the couple's email.
  */
 
 var CONFIG = {

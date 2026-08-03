@@ -63,6 +63,48 @@ p { margin: 0 0 1em; }
 
 :focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
 
+/* Explicit focus ring for controls that set their own box-shadow
+   (buttons/glow, nav, FAQ summary, close, scroll-top) — outline-based
+   so it can't be overridden by hover transitions. WCAG 2.2 min 2px. */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.brand:focus-visible,
+.nav-toggle:focus-visible,
+.faq-item summary:focus-visible,
+.gb-close:focus-visible,
+.scroll-top:focus-visible,
+.skip-link:focus-visible {
+  box-shadow: var(--focus);
+  outline: 2px solid var(--maroon-deep);
+  outline-offset: 2px;
+}
+
+/* Skip link — visually hidden until keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  padding: 12px 20px;
+  background: var(--maroon-deep);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 0 0 10px 0;
+}
+.skip-link:focus-visible { left: 0; box-shadow: var(--focus); }
+
+/* Form privacy/consent small print */
+.form-consent {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 /* ---------- Utilities ---------- */
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--s4); }
 .wrap-narrow { max-width: 820px; margin: 0 auto; padding: 0 var(--s4); }

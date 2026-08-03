@@ -18,6 +18,7 @@
 <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="scroll-progress" aria-hidden="true"></div>
 <header class="site-nav" id="top">
   <div class="wrap">
@@ -37,7 +38,7 @@
     </nav>
   </div>
 </header>
-<main>
+<main id="main" tabindex="-1">
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
     <div class="petals" aria-hidden="true"></div>
@@ -523,6 +524,7 @@
           <textarea id="rsvp-notes" name="notes" rows="3" maxlength="500" placeholder="Allergies, accessibility, anything we should know…"></textarea>
         </div>
         <button class="btn btn-maroon btn-block" type="submit">Send RSVP</button>
+        <p class="form-consent">Your details are used only to plan our wedding — never shared. Email us anytime to update or remove them.</p>
       </form>
     </div>
   </section>
@@ -557,6 +559,7 @@
           <div class="hint" id="gb-count-hint">0 / 500</div>
         </div>
         <button class="btn btn-maroon btn-block" type="submit">Post Message</button>
+        <p class="form-consent">Your name and message appear on the guestbook wall at the reception. Email us anytime to have a message removed.</p>
       </form>
     </div>
     <div class="wrap-narrow center" style="margin-top:var(--s5);">
@@ -598,6 +601,7 @@
           </div>
           <button class="btn btn-maroon btn-block" type="submit">Send Message</button>
           <p class="contact-note" id="contact-status" role="status" aria-live="polite"></p>
+          <p class="form-consent">Your name and email are used only to reply to you — never shared. Email us anytime to have messages removed.</p>
         </form>
         <p class="contact-note" style="margin-top:var(--s3);">Prefer email? Write to us at <strong style="color:var(--maroon);">[wedding]@[domain].com</strong></p>
       </div>
