@@ -27,9 +27,9 @@ import numpy as np
 from PIL import Image, ImageEnhance
 
 # Site tokens (from css/styles.css — photo-driven sage/sand palette)
-CREAM = np.array([244, 243, 239])   # #f4f3ef cool-tinted parchment
-SOFT_BLACK = np.array([30, 36, 33]) # #1e2421 soft black-green
-BRICK = np.array([62, 107, 94])     # #3e6b5e muted sage green
+CREAM = np.array([246, 244, 239])   # #f6f4ef warm parchment
+SOFT_BLACK = np.array([34, 37, 31]) # #22251f soft black-green
+BRICK = np.array([74, 111, 92])     # #4a6f5c warm sage green
 
 SIZES = [800, 1600, 2400]
 
