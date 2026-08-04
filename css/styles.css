@@ -1414,12 +1414,16 @@ body.scrolled .hero { transition: transform .1s linear; }
   /* Fallback: no animation in non-supporting browsers (harmless) */
 }
 
-/* CSS view() timeline reveal — progressive enhancement for Chrome */
+/* CSS view() timeline reveal — progressive enhancement for Chrome.
+   NOTE (Round 56): .section removed from this selector — walk-camera.js
+   owns section entry motion now; the two systems fought (CSS animations
+   override inline transforms). Inner accents (.arch, .offer-stack) keep
+   their view-timeline entrance. */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(26px); }
   to { opacity: 1; transform: none; }
 }
-.section, .arch, .offer-stack {
+.arch, .offer-stack {
   animation: fade-in-up .6s both;
   animation-timeline: view();
   animation-range: entry 0% entry 80%;

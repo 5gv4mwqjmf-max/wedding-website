@@ -66,7 +66,7 @@
   // --- Alive: floating petals (subtle, wedding-appropriate) ---
   var petalsWrap = document.querySelector(".petals");
   if (petalsWrap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var PETAL_COLORS = ["rgba(162,58,47,.5)", "rgba(162,58,47,.32)", "rgba(200,120,90,.4)", "rgba(27,27,27,.25)"];
+    var PETAL_COLORS = ["rgba(179,160,124,.5)", "rgba(74,111,92,.38)", "rgba(227,213,180,.4)", "rgba(42,35,23,.22)"]; // Round 56: sunset-sage palette
     var i;
     for (i = 0; i < 14; i++) {
       var p = document.createElement("span");
