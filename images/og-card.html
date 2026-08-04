@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Keshava &amp; Cayla — December 11, 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: #f1e7d5;
+  }
+  .sky {
+    position: absolute; inset: 0;
+    background: url('hero-sky-poster.jpg') center/cover no-repeat;
+  }
+  /* Peach sunset overlay — same as the site hero */
+  .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(255,236,214,.82) 0%,
+      rgba(250,222,192,.66) 50%,
+      rgba(246,232,214,.86) 100%);
+  }
+  .frame {
+    position: absolute; inset: 22px;
+    border: 1px solid rgba(179,160,124,.55);
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .kicker {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px; font-weight: 500;
+    letter-spacing: 8px; text-transform: uppercase;
+    color: #37513f;
+    margin-bottom: 26px;
+  }
+  .names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 96px; line-height: 1.1;
+    color: #2a2317;
+  }
+  .rule {
+    width: 96px; height: 1px;
+    background: #b3a07c;
+    margin: 30px auto 26px;
+  }
+  .date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: #37513f;
+  }
+  .venue {
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: #2a2317;
+    margin-top: 18px;
+  }
+  .tagline {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px; color: #37513f;
+    margin-top: 26px;
+  }
+  .monogram {
+    position: absolute; bottom: 38px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px; color: #b3a07c;
+  }
+</style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="frame">
+    <div class="kicker">Together with their families</div>
+    <div class="names">Keshava &amp; Cayla</div>
+    <div class="rule"></div>
+    <div class="date">Saturday, December 11, 2027</div>
+    <div class="venue">Hilton Garden Inn &middot; Manhattan, KS</div>
+    <div class="tagline">One day, two traditions</div>
+  </div>
+</body>
+</html>
