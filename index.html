@@ -685,9 +685,16 @@
     });
     // close on link tap (mobile)
     document.querySelectorAll('.nav-links a').forEach(function(a){
-      a.addEventListener('click', function(){
+      a.addEventListener('click', function(ev){
         document.querySelector('.nav-links').classList.remove('open');
         t.setAttribute('aria-expanded', 'false');
+        // Round 62: Home (#top) targets the STICKY header — it's already at
+        // the viewport top when scrolled, so the browser computes "nothing
+        // to scroll" and Home silently does nothing. Force scroll-to-top.
+        if (a.getAttribute('href') === '#top') {
+          ev.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
   }
