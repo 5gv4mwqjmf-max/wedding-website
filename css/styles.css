@@ -777,6 +777,13 @@ h1, h2, h3 {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+h1, h2, h3, h4 {
+  text-wrap: balance; /* Round 52: no orphaned words in headings */
+}
+p, li, .intro-copy, .tl-desc, .faq-body, .gb-quote, .story-block p {
+  text-wrap: pretty;  /* Round 52: no orphaned words in body copy */
+}
+
 .eyebrow {
   letter-spacing: 0.22em;
 }

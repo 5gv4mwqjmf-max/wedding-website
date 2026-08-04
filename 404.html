@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Keshava &amp; Cayla</title>
+<style>
+  :root {
+    --ivory: #f7f1e4;
+    --ink: #2a2317;
+    --maroon: #4a6f5c;
+    --maroon-deep: #37513f;
+    --gold: #b3a07c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: "Outfit", "Segoe UI", system-ui, sans-serif;
+    text-align: center; padding: 24px;
+  }
+  .wrap { max-width: 480px; }
+  .ornament {
+    font-family: "Great Vibes", "Segoe Script", cursive;
+    font-size: 42px; color: var(--maroon);
+    margin: 0 0 8px;
+  }
+  h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600; font-size: clamp(40px, 8vw, 64px);
+    margin: 0 0 12px; line-height: 1.05;
+  }
+  p { color: var(--maroon-deep); font-size: 16px; line-height: 1.6; margin: 0 0 24px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  a.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 28px;
+    border-radius: 999px; text-decoration: none;
+    font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    transition: transform .13s ease;
+  }
+  a.btn:active { transform: scale(.97); }
+  a.primary { background: var(--ink); color: var(--ivory); }
+  a.secondary { border: 1px solid var(--maroon); color: var(--maroon-deep); }
+  a.btn:hover { box-shadow: 0 10px 28px rgba(42,35,23,.18); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="ornament">Keshava &amp; Cayla</p>
+    <h1>This page took a detour.</h1>
+    <p>The address doesn&rsquo;t exist — but the celebration does.<br>December 11, 2027 · Hilton Garden Inn · Manhattan, KS</p>
+    <div class="actions">
+      <a class="btn primary" href="/wedding-website/">Back to the Invitation</a>
+      <a class="btn secondary" href="/wedding-website/#rsvp">RSVP</a>
+    </div>
+  </div>
+</body>
+</html>
