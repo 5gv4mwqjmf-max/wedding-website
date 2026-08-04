@@ -72,9 +72,10 @@
         scale = 1 - 0.14 * Math.abs(p - 0.5) * 2;
         tilt = (0.5 - p) * 22; // +11deg approaching (look up at the room), -11deg receding
         // Cinematic depth-of-field (Round 60): rooms blur as they recede,
-        // sharp at eye height — the "movie" depth cue
+        // sharp at eye height. Round 62: much subtler (max 1.2px, starts
+        // later so mid-approach stays crisp).
         var blurAmt = Math.abs(p - 0.5) * 2; // 0 center -> 1 at edges
-        blur = blurAmt > 0.04 ? Math.min(4, blurAmt * 4) : 0;
+        blur = blurAmt > 0.1 ? Math.min(1.2, (blurAmt - 0.1) * 1.6) : 0;
       }
 
       var transform = "perspective(1100px) rotateX(" + tilt.toFixed(2) + "deg) scale(" + scale.toFixed(4) + ")";
