@@ -1584,3 +1584,59 @@ body.scrolled .hero { transition: transform .1s linear; }
 @media (max-width: 640px) {
   .travel-photos { grid-template-columns: 1fr; gap: var(--s3); }
 }
+
+/* ===== Premium graphics + motion (Round 57 — Viktor Oddy award-site language, translated on-brand) ===== */
+
+/* Film grain — fixed, subtle, above everything (award-site texture; 4.5% opacity, no contrast impact) */
+.grain {
+  position: fixed; inset: -50%; width: 200%; height: 200%;
+  z-index: 2000; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: .045;
+}
+
+/* Floating chips (award-site floating badges, on-brand gold hairline) */
+.floating-chip {
+  position: absolute; z-index: 3;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--paper); border: 1px solid var(--gold); border-radius: 999px;
+  padding: 8px 16px; font-family: var(--font-body); font-size: 11px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--maroon-deep);
+  box-shadow: 0 10px 30px rgba(42,35,23,.14);
+  animation: chip-bob 5.5s ease-in-out infinite;
+}
+.floating-chip .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+@keyframes chip-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.hero-chip { right: 5%; bottom: 24%; }
+.manifesto-chip { left: 7%; top: 14%; }
+
+/* Foil catch-light on hero names — gold glint sweeps through, resting ink (contrast preserved) */
+.hero-names { animation: hero-foil 5.5s ease-in-out 1.2s infinite; }
+@keyframes hero-foil {
+  0%, 100% { text-shadow: 0 2px 14px rgba(42,35,23,.10), 0 0 0 rgba(179,160,124,0); }
+  10% { text-shadow: 0 2px 14px rgba(42,35,23,.10), 0 0 22px rgba(179,160,124,.40), 0 0 5px rgba(227,213,180,.55); }
+  20% { text-shadow: 0 2px 14px rgba(42,35,23,.10), 0 0 0 rgba(179,160,124,0); }
+}
+
+/* Manifesto word reveal — dim state only when JS is ready (progressive enhancement) */
+html.pm-ready .manifesto-type .mw { opacity: .12; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
+
+/* Magnetic buttons + photo-tile 3D tilt (desktop pointer only, JS sets state) */
+.mag { transition: transform .18s ease-out; }
+.tilt-stage { perspective: 900px; }
+.tilt-stage .tilt { transform-style: preserve-3d; transition: transform .2s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .grain, .floating-chip { animation: none !important; }
+  .floating-chip, .hero-names { transition: none !important; }
+  .hero-names { animation: none !important; text-shadow: none; }
+  html.pm-ready .manifesto-type .mw { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+@media (max-width: 760px) {
+  .hero-chip, .manifesto-chip { display: none; }
+}
+
+/* Chips anchor to their sections */
+.hero { }
+.manifesto { position: relative; }
