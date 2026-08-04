@@ -108,6 +108,34 @@
     });
   }
 
+  // ---------- 4. Movie-title clip-path reveal on section heads ----------
+  // (Round 60 — desktop pointer only; h2s wipe in like a film title card)
+  if (mqFine.matches && !mqReduced.matches && !mqNarrow.matches && "IntersectionObserver" in window) {
+    var heads = document.querySelectorAll(".section-head h2, .photo-tile .tile-text h2");
+    heads.forEach(function (h) {
+      h.classList.add("head-reveal");
+    });
+    if (heads.length) document.documentElement.classList.add("pm-ready");
+    var headIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        // Observe the PARENT: the h2 itself is clip-path-clipped to 0
+        // visible area, so an IO on it reports ratio 0 and never fires
+        // (Round 60 catch-22). Reveal the h2 when its container enters.
+        if (!e.target._heads) return;
+        e.target._heads.forEach(function (h) {
+          if (e.isIntersecting) h.classList.add("in");
+          else h.classList.remove("in");
+        });
+      });
+    }, { threshold: 0.25 });
+    heads.forEach(function (h) {
+      var host = h.closest(".tile-text, .center, .wrap, .wrap-narrow") || h.parentElement;
+      if (!host._heads) host._heads = [];
+      host._heads.push(h);
+      headIO.observe(host);
+    });
+  }
+
   // ---------- 3. Photo-tile 3D tilt (desktop pointer only) ----------
   if (mqFine.matches && !mqReduced.matches && !mqNarrow.matches) {
     var tiles = document.querySelectorAll(".photo-tile");

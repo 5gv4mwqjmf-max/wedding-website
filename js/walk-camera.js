@@ -53,6 +53,7 @@
         if (sec._wc) {
           sec.style.transform = "";
           sec.style.opacity = "";
+          sec.style.filter = "";
           sec._wc = false;
         }
         continue;
@@ -63,17 +64,22 @@
       var dist = (center - vh / 2) / (vh + rect.height); // -0.5..0.5, + = below center
       var p = Math.min(1, Math.max(0, 0.5 - dist)); // 0 approaching, 0.5 center, 1 leaving
 
-      var scale, tilt;
+      var scale, tilt, blur = 0;
       if (light) {
         scale = 1 - 0.06 * Math.abs(p - 0.5) * 2;
         tilt = 0;
       } else {
         scale = 1 - 0.14 * Math.abs(p - 0.5) * 2;
         tilt = (0.5 - p) * 22; // +11deg approaching (look up at the room), -11deg receding
+        // Cinematic depth-of-field (Round 60): rooms blur as they recede,
+        // sharp at eye height — the "movie" depth cue
+        var blurAmt = Math.abs(p - 0.5) * 2; // 0 center -> 1 at edges
+        blur = blurAmt > 0.04 ? Math.min(4, blurAmt * 4) : 0;
       }
 
       var transform = "perspective(1100px) rotateX(" + tilt.toFixed(2) + "deg) scale(" + scale.toFixed(4) + ")";
       sec.style.transform = (scale === 1 && tilt === 0) ? "" : transform;
+      sec.style.filter = blur ? "blur(" + blur.toFixed(2) + "px)" : "";
 
       var opacity = 1;
       if (p < 0.04) opacity = p / 0.04;

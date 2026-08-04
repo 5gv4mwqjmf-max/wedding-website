@@ -1640,3 +1640,29 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
 /* Chips anchor to their sections */
 .hero { }
 .manifesto { position: relative; }
+
+/* ===== Round 60 — cinematic effects (Viktor Oddy catalog: 3D + movie feel) ===== */
+
+/* Movie-title clip-path wipe on section heads (desktop; JS adds .in) */
+html.pm-ready .head-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.22,1,.36,1);
+}
+html.pm-ready .head-reveal.in {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Ken Burns slow zoom on photo-tile images (premium hover) */
+.photo-tile .photo-wrap img {
+  transition: transform 8s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
+}
+.photo-tile .photo-wrap:hover img {
+  transform: scale(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.pm-ready .head-reveal { clip-path: none !important; transition: none !important; }
+  .photo-tile .photo-wrap img { transition: none !important; }
+  .photo-tile .photo-wrap:hover img { transform: none !important; }
+}
