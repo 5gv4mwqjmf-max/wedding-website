@@ -8,9 +8,13 @@ new must resolve through this file before it touches pixels.**
 ## 1. The feeling (the brief everything hangs on)
 
 **Warm golden-hour welcome.** Guests should feel like they've arrived at
-dusk on a Kansas autumn evening: held, unhurried, family-lit. Two families
-and two traditions becoming one story — the whole site is the invitation
-opening, not an information terminal.
+dusk on a Texas estate — pecan and oak trees, golden light, held and
+unhurried. Two families and two traditions becoming one story — the whole
+site is the invitation opening, not an information terminal.
+
+- The wedding: **Briscoe Manor, 5251 FM 723, Richmond, TX 77406**
+- The welcome party: **Holiday Inn Houston SW – Sugar Land Area,
+  11160 Southwest Fwy, Houston, TX 77031**
 
 - Adjectives: warm, editorial, layered, generous, grounded
 - Not: cold, techy, busy, generic-template, Pinterest-replica
