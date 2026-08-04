@@ -17,12 +17,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Parisienne&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #fdf8ed;
-    --paper-deep: #f2e8d4;
-    --ink: #1c1712;
-    --ink-soft: #5a4a3a;
-    --red: #6d1a24;
-    --gold: #a67c1e;
+    --paper: #fcf8ef;
+    --paper-deep: #f1e7d5;
+    --ink: #2a2317;
+    --ink-soft: #6c6248;
+    --maroon-deep: #37513f;   /* Round 53: replaced the old burgundy --red */
+    --gold: #b3a07c;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   /* ---------- Living background (the 'full-screen looping video' feel) ---------- */
@@ -30,8 +30,8 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     background:
       radial-gradient(ellipse at 20% 15%, rgba(255,235,184,.18), transparent 45%),
-      radial-gradient(ellipse at 80% 85%, rgba(166,124,30,.10), transparent 50%),
-      radial-gradient(ellipse at 65% 25%, rgba(109,26,36,.08), transparent 45%),
+      radial-gradient(ellipse at 80% 85%, rgba(179,160,124,.10), transparent 50%),
+      radial-gradient(ellipse at 65% 25%, rgba(74,111,92,.08), transparent 45%),
       linear-gradient(180deg, #e4d9c3 0%, #d9c9a8 100%);
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
     animation: bg-breathe 9s ease-in-out infinite;
@@ -70,14 +70,14 @@
   .top-kicker {
     opacity: 0;
     animation: fade-in 1s ease-out .3s both;
-    font-size: 13px; letter-spacing: 7px; color: var(--red); text-transform: uppercase;
+    font-size: 13px; letter-spacing: 7px; color: var(--maroon-deep); text-transform: uppercase;
   }
   .top-names {
     opacity: 0;
     animation: fade-in 1s ease-out .5s both;
     font-family: 'Great Vibes', cursive; font-size: 34px; color: var(--ink); margin-top: 6px;
   }
-  .top-names .amp { color: var(--red); font-size: 22px; }
+  .top-names .amp { color: var(--maroon-deep); font-size: 22px; }
   @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
   /* Envelope drop-in: falls from above, bounces on the table */
@@ -192,10 +192,10 @@
     background: var(--paper);
     background-image:
       repeating-linear-gradient(45deg, rgba(120,90,40,.015) 0 2px, transparent 2px 4px),
-      radial-gradient(ellipse at 15% 8%, rgba(176,141,62,.07), transparent 45%),
-      radial-gradient(ellipse at 88% 92%, rgba(109,26,36,.06), transparent 50%),
+      radial-gradient(ellipse at 15% 8%, rgba(179,160,124,.07), transparent 45%),
+      radial-gradient(ellipse at 88% 92%, rgba(74,111,92,.06), transparent 50%),
       linear-gradient(180deg, #fefaf0 0%, var(--paper) 55%, var(--paper-deep) 100%);
-    border: 1px solid rgba(166,124,30,.4);
+    border: 1px solid rgba(179,160,124,.4);
     border-radius: 4px;
     padding: 34px 30px 26px;
     text-align: center;
@@ -216,24 +216,24 @@
   @keyframes fade-up { to { opacity: 1; transform: none; } }
 
   .orn-band { font-size: 15px; color: var(--gold); letter-spacing: 6px; margin-bottom: 14px; }
-  .inv-kicker { font-size: 12px; letter-spacing: 5px; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+  .inv-kicker { font-size: 12px; letter-spacing: 5px; color: var(--maroon-deep); text-transform: uppercase; margin-bottom: 10px; }
   .inv-names { font-family: 'Great Vibes', cursive; font-size: 44px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
-  .inv-names .amp { color: var(--red); font-size: 26px; }
+  .inv-names .amp { color: var(--maroon-deep); font-size: 26px; }
   .inv-request { font-style: italic; font-size: 17px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 16px; }
-  .inv-date { font-size: 62px; font-weight: 600; line-height: 1; color: var(--gold); text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); margin: 10px 0 4px; }
+  .inv-date { font-size: 62px; font-weight: 600; line-height: 1; color: var(--gold); text-shadow: 0 0 2px rgba(179,160,124,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(120,95,50,.3); margin: 10px 0 4px; }
   .inv-month { font-size: 18px; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
   .inv-venue { font-family: 'Parisienne', cursive; font-size: 22px; color: var(--ink-soft); margin-bottom: 18px; }
   .inv-cta {
     display: inline-block; margin-top: 8px; padding: 15px 44px;
-    background: var(--red); border: 1px solid var(--gold); border-radius: 3px;
+    background: var(--ink); border: 1px solid var(--gold); border-radius: 999px;  /* Round 53: ink pill button */
     font-family: 'Great Vibes', cursive; font-size: 23px; color: #f9f0dc;
     text-decoration: none; text-shadow: 0 1px 1px rgba(28,23,18,.4);
     transition: transform .2s, box-shadow .2s;
     animation: cta-pulse 2.2s ease-in-out 2s infinite;
   }
   @keyframes cta-pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(109,26,36,.25); }
-    50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(109,26,36,.4); }
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(42,35,23,.25); }
+    50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(42,35,23,.4); }
   }
   .inv-cta:hover { transform: scale(1.06) translateY(-2px); }
   .inv-note { font-family: 'Parisienne', cursive; font-size: 20px; color: var(--ink-soft); margin-top: 14px; }
@@ -252,9 +252,9 @@
   .kinetic-words { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 60; }
   .kw { position: absolute; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(28,23,18,.05); white-space: nowrap; animation: kw-drift linear infinite; }
   .kw-1 { top: 10%; font-size: 64px; animation-duration: 24s; left: -20%; }
-  .kw-2 { top: 30%; font-size: 40px; animation-duration: 18s; left: -12%; color: rgba(109,26,36,.06); }
+  .kw-2 { top: 30%; font-size: 40px; animation-duration: 18s; left: -12%; color: rgba(74,111,92,.06); }
   .kw-3 { top: 55%; font-size: 80px; animation-duration: 28s; left: -25%; }
-  .kw-4 { top: 75%; font-size: 36px; animation-duration: 20s; left: -15%; color: rgba(166,124,30,.06); }
+  .kw-4 { top: 75%; font-size: 36px; animation-duration: 20s; left: -15%; color: rgba(179,160,124,.06); }
   .kw-5 { top: 88%; font-size: 52px; animation-duration: 32s; left: -30%; }
   @keyframes kw-drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 40%)); } }
   @media (prefers-reduced-motion: reduce) { .kw { animation: none; display: none; } }
@@ -300,10 +300,10 @@
             <stop offset="0" stop-color="#e9d7ae"/><stop offset="1" stop-color="#d0ad6f"/>
           </linearGradient>
           <linearGradient id="gCard" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fdf8ed"/><stop offset="1" stop-color="#f0e5cd"/>
+            <stop offset="0" stop-color="#fcf8ef"/><stop offset="1" stop-color="#f1e7d5"/>
           </linearGradient>
           <radialGradient id="gSeal" cx="0.35" cy="0.3" r="0.9">
-            <stop offset="0" stop-color="#8a2733"/><stop offset="1" stop-color="#5a1420"/>
+            <stop offset="0" stop-color="#4a6f5c"/><stop offset="1" stop-color="#2f4a3c"/>
           </radialGradient>
           <radialGradient id="gLight" cx="0.5" cy="0.2" r="0.8">
             <stop offset="0" stop-color="#ffe9b8" stop-opacity=".85"/>
@@ -341,10 +341,10 @@
         <!-- THE CARD -->
         <g id="card" filter="url(#softShadow)">
           <rect x="52" y="150" width="356" height="150" rx="4" fill="url(#gCard)" filter="url(#grain)"/>
-          <rect x="52" y="150" width="356" height="150" rx="4" fill="none" stroke="rgba(166,124,30,.4)" stroke-width="1"/>
-          <text x="230" y="205" text-anchor="middle" font-family="Parisienne, cursive" font-size="24" fill="#6d1a24">Keshava &amp; Cayla</text>
-          <text x="230" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="3" fill="#a67c1e">SAVE THE DATE</text>
-          <text x="230" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#5a4a3a">December 11, 2027</text>
+          <rect x="52" y="150" width="356" height="150" rx="4" fill="none" stroke="rgba(179,160,124,.4)" stroke-width="1"/>
+          <text x="230" y="205" text-anchor="middle" font-family="Parisienne, cursive" font-size="24" fill="#37513f">Keshava &amp; Cayla</text>
+          <text x="230" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="3" fill="#b3a07c">SAVE THE DATE</text>
+          <text x="230" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#6c6248">December 11, 2027</text>
         </g>
 
         <!-- FRONT BAND -->
@@ -354,7 +354,7 @@
         <g id="flap" filter="url(#softShadow)">
           <polygon points="0,0 230,150 460,0" fill="url(#gFlap)" filter="url(#grain)"/>
           <polygon points="0,0 230,150 460,0" fill="none" stroke="rgba(255,245,220,.4)" stroke-width="1.5"/>
-          <circle cx="230" cy="143" r="26" fill="url(#gSeal)" stroke="#a67c1e" stroke-width="2" filter="url(#softShadow)"/>
+          <circle cx="230" cy="143" r="26" fill="url(#gSeal)" stroke="#b3a07c" stroke-width="2" filter="url(#softShadow)"/>
           <text x="230" y="150" text-anchor="middle" font-family="Great Vibes, cursive" font-size="20" fill="#f5ecd8">K&amp;B</text>
           <!-- glint sparkle on the seal -->
           <path id="seal-glint" d="M230 120 L233 138 L251 141 L233 144 L230 162 L227 144 L209 141 L227 138 Z" fill="#ffe9b8" opacity=".9"/>
@@ -394,7 +394,7 @@
     var hint = document.getElementById('hint');
 
     // Spawn petals (ACT 4 — only animate after open)
-    var PETAL_COLORS = ['rgba(166,124,30,.5)','rgba(109,26,36,.38)','rgba(200,150,80,.4)','rgba(28,23,18,.22)'];
+    var PETAL_COLORS = ['rgba(179,160,124,.5)','rgba(74,111,92,.38)','rgba(227,213,180,.4)','rgba(42,35,23,.22)'];
     var i, petal;
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       for (i = 0; i < 16; i++) {

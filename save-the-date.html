@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="theme-color" content="#4a6f5c">
+<meta name="theme-color" content="#f7f1e4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" href="favicon-64.png" sizes="64x64">
@@ -16,28 +16,28 @@
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap');
   @keyframes kf-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes kf-shimmer { 0% { background-position: -120% 0; } 100% { background-position: 220% 0; } }
-  @keyframes kf-foil { 0% { text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); } 50% { text-shadow: 0 0 6px rgba(166,124,30,.65), 0 1px 2px rgba(255,255,255,.8), 0 -1px 1px rgba(90,60,10,.35); } 100% { text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); } }
+  @keyframes kf-foil { 0% { text-shadow: 0 0 2px rgba(179,160,124,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(120,95,50,.3); } 50% { text-shadow: 0 0 6px rgba(179,160,124,.65), 0 1px 2px rgba(255,255,255,.8), 0 -1px 1px rgba(120,95,50,.35); } 100% { text-shadow: 0 0 2px rgba(179,160,124,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(120,95,50,.3); } }
   @keyframes kf-breathe { 0%, 100% { opacity: 1; } 50% { opacity: .85; } }
   @keyframes kf-glint { 0%, 78% { opacity: 0; } 82% { opacity: 1; } 92% { opacity: 0; } 100% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .anim, .anim2, .anim3, .paper, .foil-glow { animation: none !important; } }
   /* Paper: layered texture — grain + aged corners + vertical shading (breathes) */
   .paper {
-    background-color: #fdf8ed;
+    background-color: #fcf8ef;
     background-image:
       repeating-linear-gradient(45deg, rgba(120,90,40,.015) 0 2px, transparent 2px 4px),
-      radial-gradient(ellipse at 15% 8%, rgba(176,141,62,.07), transparent 45%),
-      radial-gradient(ellipse at 88% 92%, rgba(122,31,43,.06), transparent 50%),
-      linear-gradient(180deg, #fefaf0 0%, #fdf8ed 55%, #f2e8d4 100%);
+      radial-gradient(ellipse at 15% 8%, rgba(179,160,124,.07), transparent 45%),
+      radial-gradient(ellipse at 88% 92%, rgba(74,111,92,.06), transparent 50%),
+      linear-gradient(180deg, #fefaf0 0%, #fcf8ef 55%, #f1e7d5 100%);
     animation: kf-breathe 6s ease-in-out infinite;
   }
   /* Fresh ink: glossy, near-black, wet on paper */
   .ink {
-    color: #1c1712;
-    text-shadow: 0 1px 1px rgba(255,255,255,.55), 0 -1px 1px rgba(28,23,18,.28);
+    color: #2a2317;
+    text-shadow: 0 1px 1px rgba(255,255,255,.55), 0 -1px 1px rgba(42,35,23,.28);
   }
-  .ink-red { color: #6d1a24; text-shadow: 0 1px 1px rgba(255,255,255,.45), 0 -1px 1px rgba(109,26,36,.30); }
+  .ink-deep { color: #37513f; text-shadow: 0 1px 1px rgba(255,255,255,.45), 0 -1px 1px rgba(55,81,63,.30); }
   /* Foil gold: glows gently (foil catching light) */
-  .foil { color: #a67c1e; text-shadow: 0 0 2px rgba(166,124,30,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(90,60,10,.3); }
+  .foil { color: #b3a07c; text-shadow: 0 0 2px rgba(179,160,124,.35), 0 1px 1px rgba(255,255,255,.6), 0 -1px 1px rgba(120,95,50,.3); }
   .foil-glow { animation: kf-foil 4s ease-in-out infinite; }
   /* Staggered entrance */
   .anim { animation: kf-rise .8s ease-out both; }
@@ -49,54 +49,54 @@
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Keshava &amp; Cayla are getting married — save the date for [Month DD, YYYY]. Full details on the website.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 <link rel="manifest" href="site.webmanifest">
 </head>
-<body style="margin:0;padding:0;background-color:#ddcfb2;font-family:Georgia,serif;">
+<body style="margin:0;padding:0;background-color:#e5d9bf;font-family:Georgia,serif;">
   <center role="article" aria-label="Save the Date" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ddcfb2;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#e5d9bf;">
       <tr><td align="center" style="padding:34px 16px;">
         <!-- CARD STACK: three cream layers peek out (paper suite) -->
         <!-- PHOTO (progressive enhancement): Gmail blocks images until
              'display images' — the card must look complete without it.
              Host at the GitHub Pages URL once live. -->
-        <table role="presentation" width="612" cellpadding="0" cellspacing="0" style="max-width:612px;width:100%;border-collapse:collapse;background-color:#efe4cb;">
+        <table role="presentation" width="612" cellpadding="0" cellspacing="0" style="max-width:612px;width:100%;border-collapse:collapse;background-color:#f1e7d5;">
           <tr><td align="center" style="padding:5px 5px 0;">
-            <img src="https://5gv4mwqjmf-max.github.io/wedding-website/images/email-hero-800.jpg" width="600" alt="Keshava and Cayla" style="display:block;width:100%;max-width:600px;border-radius:4px 4px 0 0;font-family:Georgia,serif;color:#a67c1e;font-size:14px;background-color:#f6ecd5;">
+            <img src="https://5gv4mwqjmf-max.github.io/wedding-website/images/email-hero-800.jpg" width="600" alt="Keshava and Cayla" style="display:block;width:100%;max-width:600px;border-radius:4px 4px 0 0;font-family:Georgia,serif;color:#b3a07c;font-size:14px;background-color:#f7f1e4;">
           </td></tr>
           <tr><td align="center" style="padding:5px;">
             
           </td></tr>
           <tr><td style="padding:5px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background-color:#f6ecd5;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background-color:#f7f1e4;">
               <tr><td style="padding:5px;">
                 <!-- The actual card -->
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="paper" style="border-collapse:collapse;background-color:#fdf8ed;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="paper" style="border-collapse:collapse;background-color:#fcf8ef;">
                   <tr><td style="padding:0;">
                     <!-- Deckled edge: soft double border -->
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid rgba(166,124,30,.4);">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid rgba(179,160,124,.4);">
                       <tr><td style="padding:8px;">
-                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px dashed rgba(166,124,30,.35);">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px dashed rgba(179,160,124,.35);">
                           <tr><td style="padding:34px 34px 26px;">
 
                             <!-- Corner ornaments (4 corners of the inner panel) -->
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-                              <td width="18" align="left" style="font-family:Georgia,serif;font-size:16px;color:#a67c1e;line-height:12px;">&#10086;</td>
+                              <td width="18" align="left" style="font-family:Georgia,serif;font-size:16px;color:#b3a07c;line-height:12px;">&#10086;</td>
                               <td></td>
-                              <td width="18" align="right" style="font-family:Georgia,serif;font-size:16px;color:#a67c1e;line-height:12px;">&#10086;</td>
+                              <td width="18" align="right" style="font-family:Georgia,serif;font-size:16px;color:#b3a07c;line-height:12px;">&#10086;</td>
                             </tr></table>
 
                             <!-- Ornamental band -->
-                            <tr><td align="center" style="padding:10px 0 2px;font-family:Georgia,serif;font-size:14px;color:#a67c1e;letter-spacing:6px;">&#10087; &#10086; &#10087; &#10086; &#10087;</td></tr>
+                            <tr><td align="center" style="padding:10px 0 2px;font-family:Georgia,serif;font-size:14px;color:#b3a07c;letter-spacing:6px;">&#10087; &#10086; &#10087; &#10086; &#10087;</td></tr>
 
                             <!-- Kicker -->
-                            <tr><td align="center" style="padding:12px 24px 2px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:6px;color:#6d1a24;text-transform:uppercase;">Together with their families</td></tr>
+                            <tr><td align="center" style="padding:12px 24px 2px;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:6px;color:#37513f;text-transform:uppercase;">Together with their families</td></tr>
 
                             <!-- Names: rich calligraphy -->
                             <tr><td align="center" style="padding:4px 24px 2px;">
-                              <div class="anim ink" style="font-family:'Great Vibes','Brush Script MT','Segoe Script',cursive;font-size:58px;line-height:1.2;animation:kf-rise 1s ease-out both;">Keshava <span class="ink-red" style="font-size:32px;">&amp;</span> Cayla</div>
+                              <div class="anim ink" style="font-family:'Great Vibes','Brush Script MT','Segoe Script',cursive;font-size:58px;line-height:1.2;animation:kf-rise 1s ease-out both;">Keshava <span class="ink-deep" style="font-size:32px;">&amp;</span> Cayla</div>
                             </td></tr>
 
                             <!-- Save the date (Parisienne) -->
                             <tr><td align="center" style="padding:6px 24px 0;">
-                              <div class="ink-red" style="font-family:'Parisienne','Great Vibes','Snell Roundhand',cursive;font-size:30px;line-height:1.3;animation:kf-rise .8s ease-out .15s both;">save the date</div>
+                              <div class="ink-deep" style="font-family:'Parisienne','Great Vibes','Snell Roundhand',cursive;font-size:30px;line-height:1.3;animation:kf-rise .8s ease-out .15s both;">save the date</div>
                             </td></tr>
 
                             <!-- Gold-foil date (glows) -->
@@ -109,14 +109,14 @@
 
                             <!-- Handwritten arrow -->
                             <tr><td align="center" style="padding:14px 24px 0;">
-                              <div class="anim ink-red" style="font-family:'Parisienne','Great Vibes',cursive;font-size:25px;line-height:1.3;animation:kf-rise 1.2s ease-out both;">see the whole day &rarr;</div>
+                              <div class="anim ink-deep" style="font-family:'Parisienne','Great Vibes',cursive;font-size:25px;line-height:1.3;animation:kf-rise 1.2s ease-out both;">see the whole day &rarr;</div>
                             </td></tr>
 
-                            <!-- CTA: glossy ink button -->
+                            <!-- CTA: glossy ink pill button -->
                             <tr><td align="center" style="padding:8px 24px 0;">
                               <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                                 <tr>
-                                  <td align="center" bgcolor="#6d1a24" class="anim" style="border-radius:3px;mso-padding-alt:15px 44px;border:1px solid #a67c1e;background-image:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 45%),linear-gradient(110deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);background-size:100% 100%,220% 100%;animation:kf-shimmer 4.5s ease-in-out infinite;">
+                                  <td align="center" bgcolor="#2a2317" class="anim" style="border-radius:999px;mso-padding-alt:15px 44px;border:1px solid #b3a07c;background-image:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 45%),linear-gradient(110deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);background-size:100% 100%,220% 100%;animation:kf-shimmer 4.5s ease-in-out infinite;">
                                     <a href="https://5gv4mwqjmf-max.github.io/wedding-website/open-invitation.html" target="_blank" rel="noopener" style="display:inline-block;padding:15px 44px;font-family:'Great Vibes','Brush Script MT',cursive;font-size:23px;letter-spacing:1px;color:#f9f0dc;text-decoration:none;text-shadow:0 1px 1px rgba(28,23,18,.4);">View Our Website</a>
                                   </td>
                                 </tr>
@@ -129,7 +129,7 @@
                             </td></tr>
 
                             <!-- Floral flourish -->
-                            <tr><td align="center" style="padding:14px 0 0;font-family:Georgia,serif;font-size:16px;color:#a67c1e;letter-spacing:10px;">&#10087; &#10086; &#10087;</td></tr>
+                            <tr><td align="center" style="padding:14px 0 0;font-family:Georgia,serif;font-size:16px;color:#b3a07c;letter-spacing:10px;">&#10087; &#10086; &#10087;</td></tr>
                           </td></tr>
                         </table>
                       </td></tr>
@@ -140,8 +140,8 @@
             </table>
           </td></tr>
         </table>
-        <div style="max-width:600px;margin:16px auto 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#5a4a3a;">
-          Keshava &amp; Cayla &middot; <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="color:#6d1a24;">Wedding Website</a>
+        <div style="max-width:600px;margin:16px auto 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#6c6248;">
+          Keshava &amp; Cayla &middot; <a href="https://5gv4mwqjmf-max.github.io/wedding-website/" target="_blank" rel="noopener" style="color:#37513f;">Wedding Website</a>
         </div>
       </td></tr>
     </table>
