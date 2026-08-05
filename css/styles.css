@@ -1789,12 +1789,12 @@ body.scrolled .site-nav {
   .apple-reveal {
     animation: heading-ink linear both;
     animation-timeline: view();
-    /* Round 68: finish the reveal by entry 38% so headings are fully
-       settled BEFORE reaching the reading zone — no motion while read. */
-    animation-range: entry 0% entry 38%;
+    /* Round 69: finish by entry 25% — headings settle almost immediately
+       on entry, well before the reading zone. */
+    animation-range: entry 0% entry 25%;
   }
   @keyframes heading-ink {
-    from { opacity: 0; transform: translateY(10px); filter: blur(1px); }
+    from { opacity: 0; transform: translateY(8px); filter: blur(0); }
     to   { opacity: 1; transform: none; filter: blur(0); }
   }
 }
