@@ -21,6 +21,23 @@
   @keyframes kf-breathe { 0%, 100% { opacity: 1; } 50% { opacity: .85; } }
   @keyframes kf-glint { 0%, 72% { opacity: 0; } 78% { opacity: 1; } 90% { opacity: 0; } 100% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .anim, .anim2, .anim3, .paper, .foil-glow { animation: none !important; } }
+  /* Round 66: mobile-safe sizing (email clients + phone browsers).
+     The 612px fixed card overflowed 28px on phones; scale type + padding
+     down so the invitation reads cleanly at 320-414px. */
+  @media (max-width: 600px) {
+    .paper td[style*="padding:30px 34px 24px;"], table table table td[style*="padding:30px 34px 24px;"] {
+      padding: 18px 14px 14px !important;
+    }
+    td[style*="font-size:110px"], div[style*="font-size:110px"] { font-size: 56px !important; }
+    span[style*="font-size:36px"] { font-size: 30px !important; }
+    div[style*="font-size:70px"] { font-size: 48px !important; }
+    div[style*="font-size:22px"] { font-size: 17px !important; }
+    div[style*="font-size:20px"] { font-size: 16px !important; }
+    div[style*="font-size:25px"] { font-size: 21px !important; }
+    td[style*="padding:30px 34px"] { padding: 18px 14px !important; }
+    a[style*="padding:15px 46px"] { padding: 12px 28px !important; font-size: 19px !important; }
+    table[width="150"] { width: 110px !important; }
+  }
   .paper {
     background-color: #fcf8ef;
     background-image:

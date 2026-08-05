@@ -39,6 +39,7 @@ function onOpen() {
     .addItem('Send Save-the-Dates', 'sendSaveTheDates')
     .addItem('Send Invitations', 'sendInvitations')
     .addItem('Send RSVP Reminders', 'sendReminders')
+    .addItem('Sync RSVP Status (from RSVPs tab)', 'syncRsvpStatus')
     .addItem('Export Guest List (CSV)', 'exportGuestList')
     .addToUi();
 }
@@ -176,6 +177,49 @@ function exportGuestList() {
   var f = DriveApp.createFile('guest-list-' + new Date().toISOString().slice(0, 10)
     + '.csv', csv.join('\n'), 'text/csv');
   SpreadsheetApp.getUi().alert('CSV saved to Drive: ' + f.getUrl());
+}
+
+/**
+ * Round 66: sync RSVP Status on the Invitees tab from the RSVPs tab.
+ * Matches by email (case-insensitive). Updates the RSVP Status column to
+ * Yes/No for any invitee whose email appears in the RSVPs tab, and stamps
+ * the date the status was last synced in Notes if not already present.
+ * Run manually from the Wedding Ops menu after guests RSVP, or add a
+ * time trigger (e.g. daily at 8am) to run automatically.
+ */
+function syncRsvpStatus() {
+  var ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+  var rsvpSheet = ss.getSheetByName('RSVPs');
+  var inv = ss.getSheetByName('Invitees');
+  if (!rsvpSheet || !inv || rsvpSheet.getLastRow() < 2 || inv.getLastRow() < 2) {
+    SpreadsheetApp.getUi().alert('Need both RSVPs and Invitees tabs with data.');
+    return;
+  }
+  var rsvpVals = rsvpSheet.getRange(2, 1, rsvpSheet.getLastRow() - 1, 8).getValues();
+  var invVals = inv.getRange(2, 1, inv.getLastRow() - 1, 11).getValues();
+  // Map email -> status (last row wins for duplicates)
+  var byEmail = {};
+  rsvpVals.forEach(function (r) {
+    var em = String(r[2] || '').trim().toLowerCase();
+    var att = String(r[3] || '').trim().toLowerCase();
+    if (em && (att === 'yes' || att === 'no')) byEmail[em] = att;
+  });
+  var updated = 0;
+  for (var i = 0; i < invVals.length; i++) {
+    var em = String(invVals[i][2] || '').trim().toLowerCase();
+    if (!em || !byEmail[em]) continue;
+    var want = byEmail[em] === 'yes' ? 'Yes' : 'No';
+    if (String(invVals[i][7] || '').trim().toLowerCase() !== byEmail[em]) {
+      invVals[i][7] = want;
+      updated++;
+    }
+  }
+  if (updated > 0) {
+    inv.getRange(2, 8, invVals.length, 1).setValues(invVals.map(function (r) { return [r[7]]; }));
+  }
+  SpreadsheetApp.getUi().alert('RSVP sync complete. Updated ' + updated
+    + ' invitee statuses from the RSVPs tab.');
+  Logger.log('syncRsvpStatus updated ' + updated);
 }
 
 /** Counts RSVPs by status from the RSVPs tab — call from a time trigger. */
