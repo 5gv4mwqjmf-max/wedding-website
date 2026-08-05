@@ -1106,9 +1106,12 @@ html, body {
 }
 .marquee-track {
   display: flex;
-  min-width: max-content;
-  animation: marquee-scroll 34s linear infinite;
-  will-change: transform;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 .5em;
+  /* Round 71: ticker scroll animation removed — static strip (user:
+     ambient motion across sections reads as too much) */
+  animation: none;
 }
 .hero {
   overflow: hidden;  /* petals/tilt can't push past viewport */
@@ -1297,13 +1300,15 @@ body::after {
   100% { transform: translateY(-110vh) translateX(40px) rotate(340deg); opacity: 0; }
 }
 
-/* ---------- Alive: marquee shimmer ---------- */
+/* ---------- Alive: marquee shimmer (Round 71: static) ---------- */
 .marquee { position: relative; }
 .marquee::after {
-  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.14) 50%, transparent 60%);
-  transform: translateX(-120%);
-  animation: shimmer 5.5s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: none; /* shimmer sweep removed — continuous glint too much */
 }
 @keyframes shimmer {
   0% { transform: translateX(-120%); }
@@ -1311,13 +1316,10 @@ body::after {
   100% { transform: translateX(120%); }
 }
 
-/* ---------- Alive: gallery tiles gradient shift ---------- */
+/* ---------- Alive: gallery tiles gradient shift (Round 71: static) ---------- */
 .gallery-tile {
-  animation: tile-breathe 9s ease-in-out infinite;
+  /* animation removed — continuous zoom read as "too much" */
 }
-.gallery-tile:nth-child(2) { animation-delay: -2s; }
-.gallery-tile:nth-child(3) { animation-delay: -4s; }
-.gallery-tile:nth-child(4) { animation-delay: -6s; }
 .gallery-tile:nth-child(5) { animation-delay: -3s; }
 .gallery-tile:nth-child(6) { animation-delay: -7s; }
 @keyframes tile-breathe {
@@ -1337,7 +1339,10 @@ body::after {
   0%, 100% { opacity: .6; }
   50% { opacity: 1; }
 }
-.gold-rule { animation: line-glow 4.5s ease-in-out infinite; }
+.gold-rule {
+  /* Round 71: line-glow pulse removed — static divider */
+}
+.gold-rule { animation: none; }
 
 /* Reduced motion: kill the decorative animation layer */
 @media (prefers-reduced-motion: reduce) {
@@ -1693,13 +1698,11 @@ html.pm-ready .head-reveal.in {
   background-size: 100% 170px, 100% 170px;
 }
 
-/* Ambient "living" gallery cards — a perfect grid of six with a slow
-   staggered breathe (Round 61: cards with animation going on) */
+/* Ambient "living" gallery cards — Round 71: breathing animation
+   removed, cards are static (user: continuous motion too much) */
 .gallery-photo-grid .gp-item {
-  animation: card-breathe 7s ease-in-out infinite;
+  /* animation removed */
 }
-.gallery-photo-grid .gp-item:nth-child(2n) { animation-delay: -2.3s; }
-.gallery-photo-grid .gp-item:nth-child(3n) { animation-delay: -4.1s; }
 @keyframes card-breathe {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
