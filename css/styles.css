@@ -1720,6 +1720,34 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
   .settle, .gold-rule { animation: none; opacity: 1; transform: none; }
 }
 
+/* ===== Round 76 — manifesto word reveal (universal, gentle).
+   JS (scroll-life.js) splits the manifesto into .mw spans and toggles
+   .on as the pinned section scrolls. Words dim at .5 — always readable,
+   no blur, no zoom. text-reveal class gates the dim state so no-JS or
+   reduced-motion users see plain full-strength text. ===== */
+html.text-reveal .manifesto-type .mw {
+  opacity: .5;
+  transform: translateY(4px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+html.text-reveal .manifesto-type .mw.on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Round 76 — heading reveal fallback for browsers without CSS
+   scroll-timelines (old Safari/iPhone). JS adds .in via IO. ===== */
+html.js-scroll-fallback .gentle-reveal {
+  animation: none;
+  opacity: .55;
+  transform: translateY(6px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+html.js-scroll-fallback .gentle-reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
 /* ===== Round 75 — universal fallback for browsers without CSS
    scroll-timelines (older Safari/iPhone). JS (scroll-life.js) adds
    html.js-scroll-fallback and drives the same effects with IO + rAF.
