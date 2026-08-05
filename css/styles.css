@@ -1653,7 +1653,7 @@ body.scrolled .hero { transition: transform .1s linear; }
 }
 
 /* Manifesto word reveal — dim state only when JS is ready (progressive enhancement) */
-html.pm-ready .manifesto-type .mw { opacity: .12; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+html.pm-ready .manifesto-type .mw { opacity: .5; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
 html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
 
 /* Magnetic buttons + photo-tile 3D tilt (desktop pointer only, JS sets state) */
@@ -1789,10 +1789,12 @@ body.scrolled .site-nav {
   .apple-reveal {
     animation: heading-ink linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 55%;
+    /* Round 68: finish the reveal by entry 38% so headings are fully
+       settled BEFORE reaching the reading zone — no motion while read. */
+    animation-range: entry 0% entry 38%;
   }
   @keyframes heading-ink {
-    from { opacity: 0; transform: translateY(16px); filter: blur(2px); }
+    from { opacity: 0; transform: translateY(10px); filter: blur(1px); }
     to   { opacity: 1; transform: none; filter: blur(0); }
   }
 }

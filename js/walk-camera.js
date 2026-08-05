@@ -66,16 +66,19 @@
 
       var scale, tilt, blur = 0;
       if (light) {
-        scale = 1 - 0.06 * Math.abs(p - 0.5) * 2;
+        scale = 1 - 0.03 * Math.abs(p - 0.5) * 2;
         tilt = 0;
       } else {
-        scale = 1 - 0.14 * Math.abs(p - 0.5) * 2;
-        tilt = (0.5 - p) * 22; // +11deg approaching (look up at the room), -11deg receding
-        // Cinematic depth-of-field (Round 60): rooms blur as they recede,
-        // sharp at eye height. Round 62: much subtler (max 1.2px, starts
-        // later so mid-approach stays crisp).
+        // Round 68 "read-first": halved depth (0.14 -> 0.07 scale,
+        // 22 -> 12 deg tilt, blur 1.2 -> 0.7px, parallax 70 -> 40px)
+        // so sections are effectively still while in the reading zone;
+        // motion reads as a whisper at the periphery only.
+        scale = 1 - 0.07 * Math.abs(p - 0.5) * 2;
+        tilt = (0.5 - p) * 12; // +6deg approaching, -6deg receding
+        // Cinematic depth-of-field: rooms blur as they recede, sharp at
+        // eye height. Round 68: max 0.7px, starts only at the far edges.
         var blurAmt = Math.abs(p - 0.5) * 2; // 0 center -> 1 at edges
-        blur = blurAmt > 0.1 ? Math.min(1.2, (blurAmt - 0.1) * 1.6) : 0;
+        blur = blurAmt > 0.25 ? Math.min(0.7, (blurAmt - 0.25) * 1.2) : 0;
       }
 
       var transform = "perspective(1100px) rotateX(" + tilt.toFixed(2) + "deg) scale(" + scale.toFixed(4) + ")";
@@ -94,7 +97,7 @@
         var depth = 1;
         if (w.classList.contains("photo-wrap")) depth = 0.86;
         else if (w.classList.contains("tile-text")) depth = 1.14;
-        var off = (0.5 - p) * 70 * (depth - 1);
+        var off = (0.5 - p) * 40 * (depth - 1);
         w.style.transform = off === 0 ? "" : "translateY(" + off.toFixed(1) + "px)";
       }
     }
