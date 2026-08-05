@@ -47,62 +47,30 @@
 </header>
 <main id="main" tabindex="-1">
   <div class="grain" aria-hidden="true"></div>
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO — Round 77 Hart Studio editorial opener ============ -->
   <section class="hero" id="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-sky-poster.jpg" aria-hidden="true">
-      <source src="images/hero-sky.mp4" type="video/mp4">
-    </video>
-    <div class="petals" aria-hidden="true"></div>
     <div class="hero-inner">
+      <p class="hero-eyebrow">One Day &middot; Two Traditions</p>
       <h1 class="hero-names" aria-label="Keshava and Cayla">
         <span class="hero-word">Keshava</span>
-        <span class="hero-word script">&amp; Cayla</span>
+        <span class="hero-amp">&amp;</span>
+        <span class="hero-word">Cayla</span>
       </h1>
-      <p class="hero-date">Saturday, December 11, 2027 · Briscoe Manor · Richmond, TX</p>
-    </div>
-    <div class="hero-mark draw-scroll" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" fill="none">
-        <!-- Round 70 logo pass: single sage ring + brighter ink rings read
-             over the full-bleed sunset; letters are ALL Great Vibes (a
-             coherent script monogram, per wedding-logo research) with an
-             ivory halo so they lift off the sky. -->
-        <defs>
-          <filter id="logo-halo" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
-            <feFlood flood-color="#f7f1e4" flood-opacity=".75" result="c"/>
-            <feComposite in="c" in2="b" operator="in" result="d"/>
-            <feMerge><feMergeNode in="d"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <g class="spin-ring">
-          <circle cx="200" cy="220" r="150" stroke="#4a6f5c" stroke-width="1.4" opacity="0.8"/>
-          <circle cx="200" cy="220" r="138" stroke="#b3a07c" stroke-width="0.8" opacity="0.6" stroke-dasharray="2 6"/>
-        </g>
-        <g stroke="#4a6f5c" stroke-width="1.1" opacity="0.7">
-          <g transform="rotate(0 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(30 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(60 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(90 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(120 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(150 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(180 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(210 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(240 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(270 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(300 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-          <g transform="rotate(330 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
-        </g>
-        <path d="M120 380 L120 300 Q120 220 200 220 Q280 220 280 300 L280 380" stroke="#4a6f5c" stroke-width="1.6" opacity="0.85"/>
-        <path d="M132 380 L132 304 Q132 232 200 232 Q268 232 268 304 L268 380" stroke="#b3a07c" stroke-width="0.8" opacity="0.6"/>
-        <g filter="url(#logo-halo)">
-          <text x="200" y="322" text-anchor="middle" font-family="Great Vibes, cursive" font-size="42" fill="#2a2317">K</text>
-          <text x="200" y="350" text-anchor="middle" font-family="Great Vibes, cursive" font-size="26" fill="#37513f">&amp;</text>
-          <text x="200" y="384" text-anchor="middle" font-family="Great Vibes, cursive" font-size="38" fill="#2a2317">C</text>
-        </g>
-        <path d="M96 380 L304 380" stroke="#4a6f5c" stroke-width="1.2" opacity="0.6"/>
-      </svg>
+      <p class="hero-script-line">one beautiful beginning</p>
+      <p class="hero-date">Saturday, December 11, 2027 &middot; Briscoe Manor &middot; Richmond, TX</p>
+      <p class="hero-scroll-hint" aria-hidden="true">Scroll &darr;</p>
     </div>
   </section>
+
+  <!-- Editorial opener photograph (replaces the sunset video, Hart-style) -->
+  <figure class="hero-image-wrap">
+    <picture>
+      <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.webp 1600w" type="image/webp">
+      <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.jpg 1600w" type="image/jpeg">
+      <img src="images/welcome-couple-800.jpg" alt="Keshava and Cayla" decoding="async" width="1600" height="1200">
+    </picture>
+  </figure>
+  <p class="hero-image-caption">Keshava &amp; Cayla &middot; Richmond, Texas</p>
 
   <!-- Marquee strip (with live countdown — Round 46) -->
   <div class="marquee" aria-hidden="true">
@@ -133,24 +101,22 @@
   </section>
 
   <!-- Welcome -->
-  <section class="photo-tile light" id="welcome">
-    <div class="photo-wrap">
-      <picture>
-        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.webp 1600w" type="image/webp">
-        <source media="(min-width: 761px)" srcset="images/welcome-couple-1600.jpg 1600w" type="image/jpeg">
-        <img class="photo-responsive" src="images/welcome-couple-800.jpg" alt="Keshava and Cayla" loading="lazy" decoding="async" width="800" height="600">
-      </picture>
-    </div>
-    <div class="tile-text">
-      <p class="eyebrow">Welcome</p>
-      <h2>Namaste, and <span class="script">welcome</span></h2>
-      <p>
-        One day that weaves Indian tradition with modern elegance —
+  <!-- Round 77: Welcome converted to a Hart-style editorial personal note
+       (text-only; the couple photo now opens the site above) -->
+  <section class="section welcome-note" id="welcome">
+    <div class="wrap-narrow center">
+      <p class="ed-num-line"><span class="ed-num">&mdash;</span>Welcome</p>
+      <h2 class="ed-title gentle-reveal">Namaste, and <em>welcome</em></h2>
+      <hr class="gold-rule">
+      <p class="ed-intro">
+        One day that weaves Indian tradition with modern elegance &mdash;
         a Saturday in December: the Barat, the puja, lunch, chai,
         a Western ceremony, and dancing into the night.
         We can&rsquo;t wait to celebrate with you.
       </p>
-      <a class="btn btn-maroon" href="#timeline">See the Day</a>
+      <p class="welcome-actions" style="margin-top:var(--s4);">
+        <a class="btn btn-maroon" href="#timeline">See the Day</a>
+      </p>
     </div>
   </section>
 
@@ -278,10 +244,10 @@
   <!-- ============ THE WEEKEND ============ -->
   <section class="section cream" id="weekend">
     <div class="wrap-narrow center">
-      <p class="eyebrow">The Full Weekend</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(30px,5vw,46px);color:var(--ink);">Four Days of <span class="script" style="color:var(--maroon);">Celebration</span></h2>
+      <p class="ed-num-line"><span class="ed-num">01</span>The Full Weekend</p>
+      <h2 class="ed-title gentle-reveal">Four Days of <em>Celebration</em></h2>
       <hr class="gold-rule">
-      <p class="intro-copy">The wedding is one day — the celebration is a whole weekend. Here&rsquo;s how it unfolds.</p>
+      <p class="ed-intro">The wedding is one day — the celebration is a whole weekend. Here&rsquo;s how it unfolds.</p>
     </div>
     <div class="wrap" style="margin-top:var(--s5);">
       <div class="weekend-day reveal pop">
@@ -312,7 +278,7 @@
 
   <!-- ============ TRAVEL ============ -->
   <section class="section" id="travel">
-    <div class="center"><p class="eyebrow">Getting Here</p><h2 class="gentle-reveal" style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Travel &amp; <span class="script">Stay</span></h2><hr class="gold-rule"></div>
+    <div class="center"><p class="ed-num-line"><span class="ed-num">02</span>Getting Here</p><h2 class="ed-title gentle-reveal">Travel &amp; <em>Stay</em></h2><hr class="gold-rule"></div>
     <div class="grid grid-3 reveal" style="margin-top:var(--s5);">
       <article class="card reveal pop settle">
         <p class="meta">By Air</p>
@@ -350,7 +316,7 @@
 
   <section class="section cream" id="stay">
     <div class="wrap">
-      <div class="center"><p class="eyebrow">Where to Stay</p><h2 class="gentle-reveal" style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Accommodations</h2><hr class="gold-rule"></div>
+      <div class="center"><p class="ed-num-line"><span class="ed-num">03</span>Where to Stay</p><h2 class="ed-title gentle-reveal"><em>Accommodations</em></h2><hr class="gold-rule"></div>
       <div class="grid grid-2 reveal" style="margin-top:var(--s5);">
         <article class="card reveal pop settle">
           <span class="hotel-tag">Recommended</span>
@@ -380,10 +346,10 @@
   <!-- ============ STORY ============ -->
   <section class="section" id="story" style="padding-top:var(--s8);">
     <div class="wrap-narrow center">
-      <p class="eyebrow">The Couple</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Our <span class="script" style="color:var(--maroon);">Story</span></h2>
+      <p class="ed-num-line"><span class="ed-num">04</span>The Couple</p>
+      <h2 class="ed-title gentle-reveal">Our <em>Story</em></h2>
       <hr class="gold-rule">
-      <p class="intro-copy">Two families, two traditions, one story we can&rsquo;t wait to share with you.</p>
+      <p class="ed-intro">Two families, two traditions, one story we can&rsquo;t wait to share with you.</p>
     </div>
     <div class="wrap-narrow" style="margin-top:var(--s5);">
       <div class="story-block reveal pop settle">
@@ -420,8 +386,8 @@
   <!-- ============ GALLERY ============ -->
   <section class="section cream" id="gallery">
     <div class="wrap-narrow center">
-      <p class="eyebrow">Through Our Eyes</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">The <span class="script" style="color:var(--maroon);">Gallery</span></h2>
+      <p class="ed-num-line"><span class="ed-num">05</span>Through Our Eyes</p>
+      <h2 class="ed-title gentle-reveal">The <em>Gallery</em></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Share your photos with our hashtag <strong style="color:var(--maroon);">[#Hashtag]</strong> — we&rsquo;ll add the best ones here as the day unfolds.</p>
     </div>
@@ -440,8 +406,8 @@
   <!-- ============ FAQ ============ -->
   <section class="section" id="faq">
     <div class="wrap-narrow center">
-      <p class="eyebrow">Good to Know</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">FAQ</h2>
+      <p class="ed-num-line"><span class="ed-num">06</span>Good to Know</p>
+      <h2 class="ed-title gentle-reveal"><em>FAQ</em></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Everything our guests ask us most — answered in one place.</p>
     </div>
@@ -494,8 +460,8 @@
   <!-- ============ RSVP ============ -->
   <section class="section cream" id="rsvp">
     <div class="wrap-narrow center">
-      <p class="eyebrow">Will you join us?</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">RSVP</h2>
+      <p class="ed-num-line"><span class="ed-num">07</span>Will you join us?</p>
+      <h2 class="ed-title gentle-reveal"><em>RSVP</em></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Please let us know by <strong style="color:var(--maroon);">November 13, 2027</strong> so we can plan the celebration around you.</p>
     </div>
@@ -559,8 +525,8 @@
       </div>
     </div>
     <div class="wrap-narrow center">
-      <p class="eyebrow">Digital Guestbook</p>
-      <h2 style="font-size:clamp(30px,5vw,46px);color:var(--maroon-deep);">Write to Keshava &amp; <span class="script">Cayla</span></h2>
+      <p class="ed-num-line"><span class="ed-num">08</span>Digital Guestbook</p>
+      <h2 class="ed-title gentle-reveal">Write to Keshava &amp; <em>Cayla</em></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Share a wish, a memory, or a little advice for the happy couple. Your message will appear on the guestbook wall at the reception.</p>
     </div>
@@ -600,8 +566,8 @@
   <!-- ============ CONTACT ============ -->
   <section class="section cream" id="contact">
     <div class="wrap-narrow center">
-      <p class="eyebrow">Get in Touch</p>
-      <h2 class="gentle-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">Say <span class="script" style="color:var(--maroon);">Hello</span></h2>
+      <p class="ed-num-line"><span class="ed-num">09</span>Get in Touch</p>
+      <h2 class="ed-title gentle-reveal">Say <em>Hello</em></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Questions, well-wishes, or anything in between — send us a note and we&rsquo;ll get back to you.</p>
     </div>
@@ -634,7 +600,7 @@
     <div class="wrap-narrow">
       <div class="arch">
         <p class="eyebrow">Join us</p>
-        <h2 class="gentle-reveal" style="font-size:clamp(30px,5vw,46px);color:var(--ink);">Be part of our story</h2>
+        <h2 class="ed-title gentle-reveal">Be part of <em>our story</em></h2>
         <p class="intro-copy" style="font-size:17px;">A weekend of henna, haldi, ceremony, chai, and dancing — we can&rsquo;t wait to celebrate with you.</p>
         <p class="final-cta-actions">
           <a class="btn btn-maroon" href="#rsvp">RSVP</a>

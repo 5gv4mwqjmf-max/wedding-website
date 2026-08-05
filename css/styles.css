@@ -1430,6 +1430,150 @@ body.scrolled .hero { transition: transform .1s linear; }
   /* Fallback: no animation in non-supporting browsers (harmless) */
 }
 
+/* ===== Round 77 — Hart Studio EDITORIAL redesign =====
+   Typography-first hero on flat ivory (Hart template language): giant
+   Cormorant serif names, uppercase tracked eyebrows, italic-serif accent,
+   numbered section heads, generous whitespace. The sunset VIDEO hero is
+   replaced by this editorial opener (user: full redesign incl. hero).
+   Text-safe: no blur/zoom; JS scroll-life handles the reveals. */
+
+/* --- Editorial hero --- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: var(--s7) var(--s4) var(--s5);
+}
+.hero::before, .hero::after { display: none; } /* sunset overlay + bloom retired */
+.hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; }
+.hero-video { display: none; } /* R77: sunset video replaced by editorial type */
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .42em;
+  color: var(--maroon);
+  margin: 0 auto var(--s4);
+}
+.hero-names {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(52px, 10.5vw, 152px);
+  line-height: .96;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0;
+}
+.hero-names .hero-amp {
+  font-style: italic;
+  font-weight: 400;
+  font-size: .62em;
+  color: var(--maroon);
+  display: inline-block;
+  padding: 0 .12em;
+}
+.hero-script-line {
+  font-family: var(--font-script);
+  font-size: clamp(26px, 3.4vw, 42px);
+  color: var(--maroon-deep);
+  margin: var(--s3) 0 0;
+}
+.hero-date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  color: rgba(42, 35, 23, .72);
+  margin: var(--s5) 0 0;
+}
+.hero-scroll-hint {
+  font-family: var(--font-body);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  color: rgba(42, 35, 23, .45);
+  margin: var(--s6) 0 0;
+}
+
+/* Editorial opener photograph (below the type hero, Hart-style full-bleed) */
+.hero-image-wrap { width: 100%; overflow: hidden; }
+.hero-image-wrap img {
+  width: 100%;
+  height: clamp(420px, 62vh, 720px);
+  object-fit: cover;
+  display: block;
+  filter: saturate(.92) brightness(1.02);
+}
+.hero-image-caption {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .32em;
+  color: rgba(42, 35, 23, .55);
+  text-align: center;
+  padding: var(--s3) var(--s4);
+  background: var(--ivory);
+}
+
+/* --- Editorial numbered section heads (Hart "01 · Section" pattern) --- */
+.ed-head { text-align: center; }
+.ed-num-line {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .42em;
+  color: var(--maroon);
+  margin: 0;
+}
+.ed-num-line .ed-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0;
+  color: var(--gold);
+  margin-right: .8em;
+}
+.ed-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 6vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: var(--s3) 0 0;
+}
+.ed-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--maroon-deep);
+}
+.ed-head .gold-rule { margin: var(--s4) auto 0; }
+.ed-intro {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(42, 35, 23, .78);
+  max-width: 560px;
+  margin: var(--s4) auto 0;
+}
+
+@media (max-width: 760px) {
+  .hero-names { font-size: clamp(44px, 13vw, 72px); }
+  .hero-eyebrow { letter-spacing: .3em; font-size: 10px; }
+  .hero-date { letter-spacing: .22em; }
+  .ed-num-line { letter-spacing: .3em; }
+}
+
 /* CSS view() timeline reveal — progressive enhancement for Chrome.
    NOTE (Round 56): .section removed from this selector — walk-camera.js
    owns section entry motion now; the two systems fought (CSS animations
@@ -1627,7 +1771,9 @@ body.scrolled .hero { transition: transform .1s linear; }
 .manifesto-chip { left: 7%; top: 14%; }
 
 /* Foil catch-light on hero names — gold glint sweeps through, resting ink (contrast preserved) */
-.hero-names { animation: hero-foil 5.5s ease-in-out 1.2s infinite; }
+/* R77: hero foil shimmer retired with the sunset hero — editorial type
+   is flat and static (Hart Studio language). Keyframe kept for history. */
+.hero-names { animation: none; }
 @keyframes hero-foil {
   0%, 100% { text-shadow: 0 2px 14px rgba(42,35,23,.10), 0 0 0 rgba(179,160,124,0); }
   10% { text-shadow: 0 2px 14px rgba(42,35,23,.10), 0 0 22px rgba(179,160,124,.40), 0 0 5px rgba(227,213,180,.55); }
