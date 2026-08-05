@@ -352,6 +352,13 @@ hr.gold-rule { margin: var(--s4) auto; }
     mask-size: 100% 100%;
   }
 }
+@media (max-width: 860px) {
+  /* Mobile: no mask — the video fills edge-to-edge, full bleed */
+  .hero-video {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
 .hero::before {
   content: "";
   position: absolute;
