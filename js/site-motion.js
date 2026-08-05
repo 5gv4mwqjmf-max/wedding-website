@@ -24,6 +24,23 @@
     vidIO.observe(heroVideo);
   }
 
+  // --- Round 67: nav depth feedback ---
+  // Solid ivory nav gains a soft shadow once you leave the hero —
+  // motion as feedback (Apple pattern), rAF-throttled passive listener.
+  var navPending = false;
+  function updateNavScrolled() {
+    var on = (window.scrollY || window.pageYOffset) > 24;
+    document.body.classList.toggle("scrolled", on);
+    navPending = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (navPending) return;
+    navPending = true;
+    if (window.requestAnimationFrame) window.requestAnimationFrame(updateNavScrolled);
+    else setTimeout(updateNavScrolled, 32);
+  }, { passive: true });
+  updateNavScrolled();
+
   // --- Scroll-drawn SVG paths (SuperHi/Lusion technique) ---
   // Any path with class "draw-path" draws itself as the page scrolls past
   // its container, and reverses when scrolling back up.
