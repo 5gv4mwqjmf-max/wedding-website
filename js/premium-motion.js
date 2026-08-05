@@ -15,68 +15,10 @@
   var mqNarrow = window.matchMedia("(max-width: 760px)");
 
   // ---------- 1. Manifesto word reveal ----------
+  // Round 70: disabled — user asked to remove all scroll effects from the
+  // homepage. The manifesto renders as plain, always-visible text.
   var manifesto = document.getElementById("manifesto");
-  var mWords = [];
-  if (manifesto && !mqReduced.matches) {
-    var typeEl = manifesto.querySelector(".manifesto-type");
-    if (typeEl) {
-      // Split text nodes into word spans, preserving the .script span
-      var nodes = Array.prototype.slice.call(typeEl.childNodes);
-      typeEl.innerHTML = "";
-      var walk = function (node) {
-        if (node.nodeType === 3) {
-          var parts = node.textContent.split(/(\s+)/);
-          parts.forEach(function (part) {
-            if (!part) return;
-            if (/^\s+$/.test(part)) {
-              typeEl.appendChild(document.createTextNode(part));
-            } else {
-              var w = document.createElement("span");
-              w.className = "mw";
-              w.textContent = part;
-              typeEl.appendChild(w);
-              mWords.push(w);
-            }
-          });
-        } else if (node.nodeType === 1) {
-          var clone = node.cloneNode(false);
-          Array.prototype.slice.call(node.childNodes).forEach(walk);
-          typeEl.appendChild(clone);
-        }
-      };
-      nodes.forEach(walk);
-      // Re-select words inside the clone (script spans)
-      mWords = Array.prototype.slice.call(typeEl.querySelectorAll(".mw"));
-      if (mWords.length) document.documentElement.classList.add("pm-ready");
-
-      var ticking = false;
-      var update = function () {
-        ticking = false;
-        var r = manifesto.getBoundingClientRect();
-        var vh = window.innerHeight || document.documentElement.clientHeight;
-        // 0 = section entering, 1 = section fully passed
-        var total = r.height + vh;
-        var p = (vh - r.top) / total;
-        p = Math.min(1, Math.max(0, p));
-        // words activate across the pinned journey 0.05 -> 0.72
-        var t = Math.min(1, Math.max(0, (p - 0.05) / 0.67));
-        var active = Math.floor(t * mWords.length);
-        for (var i = 0; i < mWords.length; i++) {
-          if (i <= active) mWords[i].classList.add("on");
-          else mWords[i].classList.remove("on");
-        }
-      };
-      var onScroll = function () {
-        if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll);
-      update();
-    }
-  } else if (manifesto && mqReduced.matches) {
-    // reduced motion: keep everything visible, no splitting
-    document.documentElement.classList.remove("pm-ready");
-  }
+  if (manifesto) document.documentElement.classList.remove("pm-ready");
 
   // ---------- 2. Magnetic buttons (desktop pointer only) ----------
   if (mqFine.matches && !mqReduced.matches && !mqNarrow.matches) {
@@ -109,7 +51,9 @@
   }
 
   // ---------- 4. Movie-title clip-path reveal on section heads ----------
-  // (Round 60 — desktop pointer only; h2s wipe in like a film title card)
+  // Round 70: DISABLED — scroll-linked (IntersectionObserver). Homepage is
+  // now static-on-scroll per user request. Kept for reference only.
+  /*
   if (mqFine.matches && !mqReduced.matches && !mqNarrow.matches && "IntersectionObserver" in window) {
     var heads = document.querySelectorAll(".section-head h2, .photo-tile .tile-text h2");
     heads.forEach(function (h) {
@@ -135,6 +79,7 @@
       headIO.observe(host);
     });
   }
+  */
 
   // ---------- 3. Photo-tile 3D tilt (desktop pointer only) ----------
   if (mqFine.matches && !mqReduced.matches && !mqNarrow.matches) {

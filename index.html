@@ -54,25 +54,31 @@
     </video>
     <div class="petals" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="hero-kicker">Together with their families</p>
       <h1 class="hero-names" aria-label="Keshava and Cayla">
         <span class="hero-word">Keshava</span>
         <span class="hero-word script">&amp; Cayla</span>
       </h1>
       <p class="hero-date">Saturday, December 11, 2027 · Briscoe Manor · Richmond, TX</p>
-      <div class="hero-actions">
-        <a class="btn btn-maroon" href="#rsvp">RSVP</a>
-      </div>
     </div>
-    <span class="floating-chip hero-chip" aria-hidden="true"><span class="chip-dot"></span>Dec · 11 · 2027</span>
     <div class="hero-mark draw-scroll" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" fill="none">
+        <!-- Round 70 logo pass: single sage ring + brighter ink rings read
+             over the full-bleed sunset; letters are ALL Great Vibes (a
+             coherent script monogram, per wedding-logo research) with an
+             ivory halo so they lift off the sky. -->
+        <defs>
+          <filter id="logo-halo" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
+            <feFlood flood-color="#f7f1e4" flood-opacity=".75" result="c"/>
+            <feComposite in="c" in2="b" operator="in" result="d"/>
+            <feMerge><feMergeNode in="d"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
         <g class="spin-ring">
-          <circle cx="200" cy="220" r="150" stroke="#4a6f5c" stroke-width="1.4" opacity="0.55" pathLength="1" class="draw-path"/>
-          <circle cx="200" cy="220" r="138" stroke="#4a6f5c" stroke-width="0.8" opacity="0.4" stroke-dasharray="2 6" pathLength="1"/>
-          <circle cx="200" cy="220" r="120" stroke="#22251f" stroke-width="0.9" opacity="0.5" pathLength="1" class="draw-path"/>
+          <circle cx="200" cy="220" r="150" stroke="#4a6f5c" stroke-width="1.4" opacity="0.8"/>
+          <circle cx="200" cy="220" r="138" stroke="#b3a07c" stroke-width="0.8" opacity="0.6" stroke-dasharray="2 6"/>
         </g>
-        <g stroke="#4a6f5c" stroke-width="1.1" opacity="0.5">
+        <g stroke="#4a6f5c" stroke-width="1.1" opacity="0.7">
           <g transform="rotate(0 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(30 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(60 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
@@ -86,22 +92,14 @@
           <g transform="rotate(300 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
           <g transform="rotate(330 200 220)"><path d="M200 110 Q216 150 200 180 Q184 150 200 110Z"/></g>
         </g>
-        <g stroke="#22251f" stroke-width="1" opacity="0.45">
-          <g transform="rotate(0 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(45 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(90 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(135 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(180 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(225 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(270 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
-          <g transform="rotate(315 200 220)"><path d="M200 150 Q212 185 200 215 Q188 185 200 150Z"/></g>
+        <path d="M120 380 L120 300 Q120 220 200 220 Q280 220 280 300 L280 380" stroke="#4a6f5c" stroke-width="1.6" opacity="0.85"/>
+        <path d="M132 380 L132 304 Q132 232 200 232 Q268 232 268 304 L268 380" stroke="#b3a07c" stroke-width="0.8" opacity="0.6"/>
+        <g filter="url(#logo-halo)">
+          <text x="200" y="322" text-anchor="middle" font-family="Great Vibes, cursive" font-size="42" fill="#2a2317">K</text>
+          <text x="200" y="350" text-anchor="middle" font-family="Great Vibes, cursive" font-size="26" fill="#37513f">&amp;</text>
+          <text x="200" y="384" text-anchor="middle" font-family="Great Vibes, cursive" font-size="38" fill="#2a2317">C</text>
         </g>
-        <path d="M120 380 L120 300 Q120 220 200 220 Q280 220 280 300 L280 380" stroke="#4a6f5c" stroke-width="1.6" opacity="0.7" pathLength="1" class="draw-path"/>
-        <path d="M132 380 L132 304 Q132 232 200 232 Q268 232 268 304 L268 380" stroke="#22251f" stroke-width="0.8" opacity="0.4" pathLength="1"/>
-        <text x="200" y="330" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="44" fill="#22251f" opacity="0.85">K</text>
-        <text x="200" y="356" text-anchor="middle" font-family="Great Vibes, cursive" font-size="30" fill="#4a6f5c" opacity="0.85">&amp;</text>
-        <text x="200" y="384" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="40" fill="#22251f" opacity="0.85">C</text>
-        <path d="M96 380 L304 380" stroke="#4a6f5c" stroke-width="1.2" opacity="0.55"/>
+        <path d="M96 380 L304 380" stroke="#4a6f5c" stroke-width="1.2" opacity="0.6"/>
       </svg>
     </div>
   </section>
@@ -284,7 +282,7 @@
   <section class="section cream" id="weekend">
     <div class="wrap-narrow center">
       <p class="eyebrow">The Full Weekend</p>
-      <h2 class="apple-reveal" style="font-size:clamp(30px,5vw,46px);color:var(--ink);">Four Days of <span class="script" style="color:var(--maroon);">Celebration</span></h2>
+      <h2 style="font-size:clamp(30px,5vw,46px);color:var(--ink);">Four Days of <span class="script" style="color:var(--maroon);">Celebration</span></h2>
       <hr class="gold-rule">
       <p class="intro-copy">The wedding is one day — the celebration is a whole weekend. Here&rsquo;s how it unfolds.</p>
     </div>
@@ -355,7 +353,7 @@
 
   <section class="section cream" id="stay">
     <div class="wrap">
-      <div class="center"><p class="eyebrow">Where to Stay</p><h2 class="apple-reveal" style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Accommodations</h2><hr class="gold-rule"></div>
+      <div class="center"><p class="eyebrow">Where to Stay</p><h2 style="font-size:clamp(28px,4.5vw,42px);color:var(--maroon-deep);">Accommodations</h2><hr class="gold-rule"></div>
       <div class="grid grid-2 reveal" style="margin-top:var(--s5);">
         <article class="card reveal pop">
           <span class="hotel-tag">Recommended</span>
@@ -418,7 +416,7 @@
   <section class="section cream" id="gallery">
     <div class="wrap-narrow center">
       <p class="eyebrow">Through Our Eyes</p>
-      <h2 class="apple-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">The <span class="script" style="color:var(--maroon);">Gallery</span></h2>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">The <span class="script" style="color:var(--maroon);">Gallery</span></h2>
       <hr class="gold-rule">
       <p class="intro-copy">Share your photos with our hashtag <strong style="color:var(--maroon);">[#Hashtag]</strong> — we&rsquo;ll add the best ones here as the day unfolds.</p>
     </div>
@@ -492,7 +490,7 @@
   <section class="section cream" id="rsvp">
     <div class="wrap-narrow center">
       <p class="eyebrow">Will you join us?</p>
-      <h2 class="apple-reveal" style="font-size:clamp(32px,5vw,50px);color:var(--ink);">RSVP</h2>
+      <h2 style="font-size:clamp(32px,5vw,50px);color:var(--ink);">RSVP</h2>
       <hr class="gold-rule">
       <p class="intro-copy">Please let us know by <strong style="color:var(--maroon);">November 13, 2027</strong> so we can plan the celebration around you.</p>
     </div>
@@ -671,7 +669,6 @@
 <script src="js/guestbook.js"></script>
 <button class="scroll-top" aria-label="Back to top" title="Back to top">↑</button>
 <script src="js/site-motion.js"></script>
-<script src="js/walk-camera.js"></script>
 <script src="js/premium-motion.js"></script>
 <script>
 (function(){
@@ -699,8 +696,9 @@
     });
   }
 
-  // Scroll reveal
-  var io = new IntersectionObserver(function(entries){
+  // Scroll reveal (Round 70: DISABLED — homepage is static; all content
+  // is visible by default via CSS, no scroll-linked hiding)
+  /*
     entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.12 });
   var revealEls = document.querySelectorAll('.reveal');
@@ -711,6 +709,7 @@
       if (r.top < window.innerHeight * 0.9) el.classList.add('in');
     });
   });
+  */
 
   // Active nav highlight (scrollspy)
   var sections = document.querySelectorAll('main section[id]');
