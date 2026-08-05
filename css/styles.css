@@ -1665,10 +1665,14 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
   .gentle-reveal {
     animation: gentle-settle linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 20%;
+    /* Round 76b: use the COVER range (spans the full viewport travel,
+       not the tiny entry range) so the reveal is visible as the heading
+       climbs from the bottom edge toward the reading zone. entry 70%
+       was still done 50px off the bottom — users never saw it. */
+    animation-range: cover 0% cover 60%;
   }
   @keyframes gentle-settle {
-    from { opacity: 0.55; transform: translateY(6px); }
+    from { opacity: 0.35; transform: translateY(8px); }
     to   { opacity: 1; transform: none; }
   }
 }
@@ -1739,9 +1743,9 @@ html.text-reveal .manifesto-type .mw.on {
    scroll-timelines (old Safari/iPhone). JS adds .in via IO. ===== */
 html.js-scroll-fallback .gentle-reveal {
   animation: none;
-  opacity: .55;
-  transform: translateY(6px);
-  transition: opacity .5s ease, transform .5s ease;
+  opacity: .35;
+  transform: translateY(8px);
+  transition: opacity .6s ease, transform .6s ease;
 }
 html.js-scroll-fallback .gentle-reveal.in {
   opacity: 1;
