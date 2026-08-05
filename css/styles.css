@@ -1393,6 +1393,13 @@ body.scrolled .hero { transition: transform .1s linear; }
 @media (prefers-reduced-motion: no-preference) {
   .hero.tilt { transform: perspective(900px) rotateX(var(--tilt, 0deg)) scale(1.02); }
 }
+/* Round 65: the scale(1.02) overflowed the hero 4px each side on mobile
+   (tilt is 0 there but the scale still applied) — clipped "Cayla" at the
+   right edge on narrow phones. Kill the transform entirely under 860px. */
+@media (max-width: 860px) {
+  .hero.tilt { transform: none; }
+  .hero { overflow-x: clip; }
+}
 
 /* ---------- Pop-out reveals (elements pop up with spring) ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
