@@ -1657,6 +1657,25 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
 .hero { }
 .manifesto { position: relative; }
 
+/* ===== Round 73 — gentle heading settle (scroll life, whisper level).
+   Opacity .55->1 + 6px rise, finishing by entry 20% — fully settled
+   LONG before the reading zone. Only animates opacity/transform so each
+   heading keeps its own color. Hover/ambient untouched. ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .gentle-reveal {
+    animation: gentle-settle linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 20%;
+  }
+  @keyframes gentle-settle {
+    from { opacity: 0.55; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gentle-reveal { animation: none; }
+}
+
 /* ===== Round 60 — cinematic effects (Viktor Oddy catalog: 3D + movie feel) ===== */
 
 /* Movie-title clip-path wipe on section heads (desktop; JS adds .in) */
