@@ -331,6 +331,26 @@ hr.gold-rule { margin: var(--s4) auto; }
   object-fit: cover;
   z-index: 0;
   filter: saturate(.92) brightness(1.02);
+  /* Round 64: masked video chip — the hero sky plays through a
+     cinematic pill shape, like the Kling O1 + Fable "masking videos"
+     effect from kaolti. The mask-away area stays warm cream so the
+     composite feels intentional, not broken. */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='800' viewBox='0 0 1920 800' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1920' height='800' fill='white'/%3E%3Crect x='0' y='0' width='1920' height='800' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='800' viewBox='0 0 1920 800' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1920' height='800' fill='white'/%3E%3Crect x='0' y='0' width='1920' height='800' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  transition: -webkit-mask-image .1s, mask-image .1s;
+}
+@media (min-width: 861px) {
+  /* Desktop: the video is masked to a centered pill — the sky shows
+     through the pill, the rest of the hero is solid warm cream (from
+     .hero::before). Like a cutout floating in the page. */
+  .hero-video {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='800' viewBox='0 0 1920 800' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1920' height='800' fill='white'/%3E%3Crect x='60' y='60' width='1800' height='680' rx='50' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg width='1920' height='800' viewBox='0 0 1920 800' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1920' height='800' fill='white'/%3E%3Crect x='60' y='60' width='1800' height='680' rx='50' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
 }
 .hero::before {
   content: "";
