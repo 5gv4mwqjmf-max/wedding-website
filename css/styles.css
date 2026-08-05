@@ -354,7 +354,7 @@ hr.gold-rule { margin: var(--s4) auto; }
   .hero-mark { display: none; }
 }
 
-/* ---------- Stats strip (credibility / at-a-glance) ---------- */
+/* ---------- Stats strip (editorial at-a-glance, R78 Hart language) ---------- */
 .stats {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -363,27 +363,35 @@ hr.gold-rule { margin: var(--s4) auto; }
 .stats .wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--s4);
-  padding: var(--s5) var(--s4);
+  gap: 0;
+  padding: var(--s6) var(--s4);
 }
-.stat { text-align: center; }
+.stat {
+  text-align: center;
+  padding: 0 var(--s4);
+}
+.stat + .stat {
+  border-left: 1px solid var(--line);
+}
 .stat .stat-num {
   font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 52px);
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 68px);
   color: var(--maroon);
   line-height: 1;
   display: block;
 }
 .stat .stat-label {
-  margin-top: 8px;
-  font-size: 12px;
-  letter-spacing: .18em;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 @media (max-width: 640px) {
-  .stats .wrap { grid-template-columns: 1fr; gap: var(--s4); }
+  .stats .wrap { grid-template-columns: 1fr; gap: var(--s4); padding: var(--s5) var(--s4); }
+  .stat + .stat { border-left: 0; border-top: 1px solid var(--line); padding-top: var(--s4); }
 }
 
 /* ---------- Offer stack (what guests get) ---------- */
@@ -1152,20 +1160,20 @@ html, body {
   .gb-count-stat .stat-num { font-size: 36px; }
 }
 
-/* ---------- Marquee (kinetic strip) ---------- */
+/* ---------- Marquee (editorial announcement band, R78) ---------- */
 .marquee {
   overflow: hidden;
   background: var(--ink);
   color: var(--ivory);
-  padding: 18px 0;
+  padding: 20px 0;
   border-top: 1px solid rgba(74,111,92,.4);
   border-bottom: 1px solid rgba(74,111,92,.4);
   white-space: nowrap;
 }
 .marquee span {
   font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: .14em;
+  font-size: 19px;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--ivory);
   padding: 0 28px;
@@ -1202,8 +1210,9 @@ html, body {
 }
 .marquee .cd-num {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
   color: var(--ivory);
   line-height: 1;
   display: inline;
@@ -1572,6 +1581,21 @@ body.scrolled .hero { transition: transform .1s linear; }
   .hero-eyebrow { letter-spacing: .3em; font-size: 10px; }
   .hero-date { letter-spacing: .22em; }
   .ed-num-line { letter-spacing: .3em; }
+  /* R78 mobile editorial parity: tighter section rhythm, smaller type
+     accents, hero image scaled to the small screen */
+  .hero { min-height: auto; padding: var(--s8) var(--s4) var(--s6); }
+  .hero-script-line { margin-top: var(--s3); }
+  .hero-image-wrap img { height: clamp(300px, 58vh, 480px); }
+  .hero-image-caption { padding: var(--s2) var(--s3) var(--s4); font-size: 10px; letter-spacing: .26em; }
+  .section { padding: var(--s6) 0; }
+  .section-tight { padding: var(--s5) 0; }
+  .ed-title { font-size: clamp(32px, 9vw, 48px); }
+  .ed-intro { font-size: 16px; line-height: 1.6; }
+  .ed-num-line .ed-num { font-size: 14px; }
+  .manifesto { height: 160vh; }
+  .manifesto-type { font-size: clamp(36px, 11vw, 58px); }
+  .manifesto-note { font-size: 15px; }
+  .stat .stat-num { font-size: 44px; }
 }
 
 /* CSS view() timeline reveal — progressive enhancement for Chrome.
@@ -1644,11 +1668,13 @@ body.scrolled .hero { transition: transform .1s linear; }
   color: var(--ink);
   margin: var(--s3) 0 0;
 }
-.manifesto-type .script {
-  font-family: var(--font-script);
-  font-size: 1.18em;
+.manifesto-type em {
+  font-style: italic;
+  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: 1em;
   color: var(--maroon-deep);
-  line-height: 1.15;
+  line-height: 1.08;
 }
 .manifesto-note {
   max-width: 540px;
@@ -1657,18 +1683,13 @@ body.scrolled .hero { transition: transform .1s linear; }
 }
 @media (max-width: 760px) {
   .manifesto { height: 160vh; }
-  .manifesto-type { font-size: clamp(38px, 12vw, 64px); }
+  .manifesto-type { font-size: clamp(36px, 11vw, 58px); }
+  .manifesto-note { font-size: 15px; }
 }
 
-.hero-date {
-  margin: 14px 0 0;
-  font-family: var(--font-body);
-  font-size: 15px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--maroon-deep);
-  animation: fade-up 800ms 340ms ease both;
-}
+/* R77 editorial .hero-date is defined in the Round 77 hero block;
+   the old sunset-era .hero-date rule (15px / .18em / fade-up entrance)
+   was removed. */
 
 .tile-time {
   font-family: var(--font-body);
