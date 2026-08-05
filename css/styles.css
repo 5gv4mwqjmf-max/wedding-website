@@ -1720,6 +1720,35 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
   .settle, .gold-rule { animation: none; opacity: 1; transform: none; }
 }
 
+/* ===== Round 75 — universal fallback for browsers without CSS
+   scroll-timelines (older Safari/iPhone). JS (scroll-life.js) adds
+   html.js-scroll-fallback and drives the same effects with IO + rAF.
+   The CSS below REPLACES the native animation with a transition that
+   JS toggles via .in. Reduced-motion users get nothing (JS returns). */
+html.js-scroll-fallback .settle {
+  animation: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+html.js-scroll-fallback .settle.in {
+  opacity: 1;
+  transform: none;
+}
+html.js-scroll-fallback .gold-rule {
+  animation: none;
+  transform: scaleX(0);
+  opacity: .3;
+  transition: transform .8s cubic-bezier(.22,1,.36,1), opacity .8s ease;
+}
+html.js-scroll-fallback .gold-rule.in {
+  transform: scaleX(1);
+  opacity: 1;
+}
+html.js-scroll-fallback .scroll-progress {
+  animation: none;
+}
+
 /* ===== Round 60 — cinematic effects (Viktor Oddy catalog: 3D + movie feel) ===== */
 
 /* Movie-title clip-path wipe on section heads (desktop; JS adds .in) */
