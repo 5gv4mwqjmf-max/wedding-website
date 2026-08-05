@@ -1661,62 +1661,20 @@ html.pm-ready .manifesto-type .mw.on { opacity: 1; transform: none; }
    Opacity .55->1 + 6px rise, finishing by entry 20% — fully settled
    LONG before the reading zone. Only animates opacity/transform so each
    heading keeps its own color. Hover/ambient untouched. ===== */
-@media (prefers-reduced-motion: no-preference) {
-  .gentle-reveal {
-    animation: gentle-settle linear both;
-    animation-timeline: view();
-    /* Round 76b: use the COVER range (spans the full viewport travel,
-       not the tiny entry range) so the reveal is visible as the heading
-       climbs from the bottom edge toward the reading zone. entry 70%
-       was still done 50px off the bottom — users never saw it. */
-    animation-range: cover 0% cover 60%;
-  }
-  @keyframes gentle-settle {
-    from { opacity: 0.35; transform: translateY(8px); }
-    to   { opacity: 1; transform: none; }
-  }
-}
+/* ===== Round 76c — heading reveal is JS-driven ONLY (see
+   html.js-scroll-fallback rules below). The CSS view() timeline variant
+   was removed because WebKit/Safari interprets the range inverted vs
+   Chromium, and without JS it left headings at the hidden start state.
+   Default: fully visible. JS adds dim state + .in. ===== */
 @media (prefers-reduced-motion: reduce) {
   .gentle-reveal { animation: none; }
 }
 
 /* ===== Round 74 — more scroll life, TEXT-SAFE (user: no blur, no text
    zoom, ever). Allowed vocabulary: fade, small slides (<=10px), scaleX
-   on decorative rules, parallax on photos, progress bar. All settle
-   BEFORE the reading zone (entry <=25%). Reduced-motion kills all. ===== */
-@media (prefers-reduced-motion: no-preference) {
-  /* Gold rules draw themselves open as each section arrives */
-  .gold-rule {
-    animation: rule-draw linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 22%;
-    transform-origin: center;
-  }
-  @keyframes rule-draw {
-    from { transform: scaleX(0); opacity: .3; }
-    to   { transform: scaleX(1); opacity: 1; }
-  }
-  /* Content settle: fade + 10px rise ONLY (no scale, no blur) */
-  .settle {
-    animation: settle-in linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 25%;
-  }
-  @keyframes settle-in {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: none; }
-  }
-  /* gentle cascade for grids/lists */
-  .gp-item:nth-child(2), .faq-item:nth-child(2), .card:nth-child(2) { animation-range: entry 3% entry 28%; }
-  .gp-item:nth-child(3), .faq-item:nth-child(3) { animation-range: entry 6% entry 31%; }
-  .gp-item:nth-child(4), .faq-item:nth-child(4) { animation-range: entry 9% entry 34%; }
-  .gp-item:nth-child(5), .faq-item:nth-child(5) { animation-range: entry 12% entry 37%; }
-  .gp-item:nth-child(6), .faq-item:nth-child(6) { animation-range: entry 15% entry 40%; }
-  .gp-item:nth-child(7), .faq-item:nth-child(7) { animation-range: entry 18% entry 43%; }
-  .gp-item:nth-child(8), .faq-item:nth-child(8) { animation-range: entry 21% entry 46%; }
-  .faq-item:nth-child(9) { animation-range: entry 24% entry 49%; }
-  .faq-item:nth-child(10) { animation-range: entry 27% entry 52%; }
-}
+   on decorative rules, parallax on photos, progress bar. Effects are
+   JS-driven (scroll-life.js toggles .in); these defaults are visible
+   so no-JS/reduced-motion users see plain content. ===== */
 @media (prefers-reduced-motion: reduce) {
   .settle { animation: none; }
 }

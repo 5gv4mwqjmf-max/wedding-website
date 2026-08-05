@@ -1,16 +1,17 @@
-/* Universal scroll-life (Round 75/76).
-   Two jobs:
-   A) Manifesto word reveal — pure JS, runs on EVERY browser (no CSS
-      scroll-timeline dependency). R57 signature text effect rebuilt:
-      words dim at .5 opacity (always readable), light up to 1 as the
-      pinned section scrolls past; 4px rise only — no blur, no zoom.
-   B) Universal fallback for CSS scroll-timeline effects (gold-rule
-      draw, content settle, heading reveal, progress bar). CSS
-      animation-timeline: view()/scroll() only exists in Chrome/Edge
-      115+ and Safari 26+. When missing, this re-implements the same
-      effects with IntersectionObserver + rAF.
-   Modern browsers: part A runs, part B returns early (CSS keeps the
-   work). Old Safari/iPhone: both parts drive everything via JS.
+/* Universal scroll-life (Round 76c — deterministic across browsers).
+   WebKit/Safari interprets CSS animation-timeline view()/scroll() ranges
+   INVERTED vs Chromium (verified in Playwright WebKit: heading at center
+   = .35 start state, settle = opacity 0). So ALL scroll effects are now
+   JS-driven via IntersectionObserver + rAF — one code path, identical
+   on every browser. CSS keeps only the transition states (gated by
+   html.js-scroll-fallback), JS toggles .in.
+   Effects:
+   1. Manifesto word reveal — words dim .5, light to 1 progressively
+      as the pinned section scrolls (pure JS, always readable, no blur)
+   2. Heading reveal (.gentle-reveal) — fade .35->1 + 8px rise via IO
+   3. Content settle (.settle) — fade 0->1 + 10px rise via IO
+   4. Gold-rule draw — scaleX 0->1 via IO
+   5. Progress bar — rAF scaleX
    Guardrails: reduced-motion disables everything; passive listeners;
    no-JS safe; one-scroll-system-per-element. */
 (function () {
@@ -20,9 +21,10 @@
   if (mqReduced.matches) return;
 
   var root = document.documentElement;
+  root.classList.add("js-scroll-fallback");
   var vh = window.innerHeight || document.documentElement.clientHeight;
 
-  // ================= A. manifesto word reveal (universal) =================
+  // ---------- 1. manifesto word reveal ----------
   var manifesto = document.getElementById("manifesto");
   var typeEl = manifesto && manifesto.querySelector(".manifesto-type");
   if (typeEl) {
@@ -76,51 +78,54 @@
     }
   }
 
-  // ================= B. universal fallback for CSS timeline effects =================
-  var hasView = CSS.supports && CSS.supports("animation-timeline: view()");
-  var hasScroll = CSS.supports && CSS.supports("animation-timeline: scroll()");
-  if (hasView && hasScroll) return; // modern browser: CSS handles the rest
-
-  root.classList.add("js-scroll-fallback");
-
-  // B1. content settle + gold-rule draw + heading reveal via IO
-  if (!hasView && "IntersectionObserver" in window) {
-    var reveal = function (els, cls) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add(cls);
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -15% 0px" });
-      els.forEach(function (el) { io.observe(el); });
-    };
-    var settles = Array.prototype.slice.call(document.querySelectorAll(".settle"));
-    if (settles.length) reveal(settles, "in");
-    var rules = Array.prototype.slice.call(document.querySelectorAll(".gold-rule"));
-    if (rules.length) reveal(rules, "in");
-    var heads = Array.prototype.slice.call(document.querySelectorAll(".gentle-reveal"));
-    if (heads.length) reveal(heads, "in");
-  }
-
-  // B2. progress bar via rAF
-  if (!hasScroll) {
-    var bar = document.querySelector(".scroll-progress");
-    if (bar) {
-      var tickB = false;
-      var update = function () {
-        tickB = false;
-        var max = (document.documentElement.scrollHeight - vh) || 1;
-        var p = Math.min(1, Math.max(0, (window.scrollY || window.pageYOffset) / max));
-        bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
-      };
-      var onScrollB = function () {
-        if (!tickB) { tickB = true; window.requestAnimationFrame(update); }
-      };
-      window.addEventListener("scroll", onScrollB, { passive: true });
-      window.addEventListener("resize", function () { vh = window.innerHeight || document.documentElement.clientHeight; update(); });
-      update();
+  // ---------- 2. heading / settle / gold-rule reveal via rAF position
+  // check (deterministic in EVERY engine — IO callbacks are async and
+  // get skipped on fast scrolls in WebKit). ----------
+  var revealEls = [];
+  var pushEls = function (sel) {
+    Array.prototype.slice.call(document.querySelectorAll(sel)).forEach(function (el) {
+      revealEls.push(el);
+    });
+  };
+  pushEls(".settle");
+  pushEls(".gold-rule");
+  pushEls(".gentle-reveal");
+  var revealed = 0;
+  var tickR = false;
+  var checkReveal = function () {
+    tickR = false;
+    var limit = vh * 0.9; // reveal once the element is 90% up from the bottom
+    for (var i = 0; i < revealEls.length; i++) {
+      var el = revealEls[i];
+      if (el.classList.contains("in")) continue;
+      if (el.getBoundingClientRect().top < limit) {
+        el.classList.add("in");
+        revealed++;
+      }
     }
+  };
+  var onScrollR = function () {
+    if (!tickR) { tickR = true; window.requestAnimationFrame(checkReveal); }
+  };
+  window.addEventListener("scroll", onScrollR, { passive: true });
+  window.addEventListener("resize", function () { vh = window.innerHeight || document.documentElement.clientHeight; checkReveal(); });
+  checkReveal();
+
+  // ---------- 3. progress bar via rAF ----------
+  var bar = document.querySelector(".scroll-progress");
+  if (bar) {
+    var tickB = false;
+    var update = function () {
+      tickB = false;
+      var max = (document.documentElement.scrollHeight - vh) || 1;
+      var p = Math.min(1, Math.max(0, (window.scrollY || window.pageYOffset) / max));
+      bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+    };
+    var onScrollB = function () {
+      if (!tickB) { tickB = true; window.requestAnimationFrame(update); }
+    };
+    window.addEventListener("scroll", onScrollB, { passive: true });
+    window.addEventListener("resize", function () { vh = window.innerHeight || document.documentElement.clientHeight; update(); });
+    update();
   }
 })();
