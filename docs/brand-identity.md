@@ -63,12 +63,20 @@ the hero overlay is the peach sunset gradient.
 
 ## 6. Signature experiences
 
-1. **Walk-through scroll** (`js/walk-camera.js`) — rooms zoom/tilt as you
-   walk past; manifesto word-reveal; magnetic CTAs; photo 3D tilt
-2. **Sky video hero** — golden-hour loop + peach overlay + foil-glint names
+1. **Editorial ivory typography hero** (Round 77) — giant Cormorant serif
+   names, uppercase tracked eyebrow, italic serif accent word, small-caps
+   date, full-bleed couple photo below the type with a small-caps caption.
+   Fallback CSS .settle + JS .gentle-reveal; NO blurred/zoomed text.
+2. **Gentle JS scroll life** (`js/gentle-scroll.js` / `js/scroll-life.js`) —
+   whisper-level effects only (<=6-12px drift, opacity dim >=.5, no blur/
+   no zoom on text), JS-driven so they work inverted-safe on iOS 26 Safari.
+   Scroll effects on the homepage are effectively ZERO (R70) — hover/
+   pointer effects (magnetic, tilt, foil) are safe; ambient auto-anim
+   (ticker/breathing) is banned (R71).
 3. **Envelope unboxing** (`open-invitation.html`) — the paperless-post moment
 4. **Marquee countdown** — ink band with live days/hrs/mins/secs
-5. Film grain + floating chips — premium texture, restrained
+5. **Numbered editorial section heads** — italic gold `01-09` + uppercase
+   labels; film grain + floating chips retained as restrained premium texture.
 
 ## 7. Non-negotiables (violations = rework)
 
@@ -80,4 +88,4 @@ the hero overlay is the peach sunset gradient.
 - One primary CTA everywhere: RSVP
 - Never generate text inside images (decoration only)
 
-_Last verified: Round 58 (2026-08-03). Update when the identity evolves._
+_Last verified: Round 78 (2026-08-05). Update when the identity evolves._
