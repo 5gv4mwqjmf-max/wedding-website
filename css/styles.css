@@ -1,6 +1,12 @@
 /* ============================================================
-   Keshava & [Bride] — Fusion Wedding Design System
-   Ivory / Maroon / Gold / Saffron / Forest
+   Keshava & Cayla — Fusion Wedding Design System
+   LIVE palette (R46 warming + R53 sage swap) — verified 2026-09-13:
+     ivory #f7f1e4 / cream #f1e7d5 / paper #fcf8ef
+     ink #2a2317 / ink-soft #6c6248
+     sage #4a6f5c (token --maroon) / sage-deep #37513f (--maroon-deep)
+     sand-gold #b3a07c / gold-light #e3d5b4
+   NO saffron / forest / brick-red — those are pre-R53 and BANNED
+   (see SKILL.md Pitfalls: run the old-palette grep before committing).
    Display: Cormorant Garamond · Script: Great Vibes · Body: Outfit
    ============================================================ */
 
