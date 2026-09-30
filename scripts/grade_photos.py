@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-Wedding photo color grader — matches the site's muted black/white/red
-palette: warm off-white #f7f4f0, soft black #1b1b1b, brick red #a23a2f.
+Wedding photo color grader — matches the site's live warm sage/sand
+palette: cream #f6f4ef, soft black #22251f, sage green #4a6f5c (the accent
+token is still named --maroon; the pre-2026 black/white/red palette is
+retired).
 
 The grade (consistent with the luxury research — uniform treatment):
   1. WARMTH   — push midtones/highlights toward warm cream (the site bg)
   2. MUTE     — pull saturation down ~18% (muted, editorial, not candy)
-  3. SOFT BLACKS — lift shadows so blacks sit near #1b1b1b, not pure 0
-  4. BRICK TINT — warm red cast in shadows to echo the #a23a2f accent
+  3. SOFT BLACKS — lift shadows so blacks sit near #22251f, not pure 0
+  4. SAGE TINT — subtle green cast in shadows to echo the #4a6f5c accent
   5. GENTLE S-CURVE — subtle contrast for the premium print feel
 
 Usage:
@@ -55,12 +57,12 @@ def grade(arr):
     gray = np.tile(lum[..., None], (1, 1, 3))
     arr = gray + (arr - gray) * 0.82
 
-    # 3. Soft blacks: lift shadows toward #1b1b1b (no pure black)
+    # 3. Soft blacks: lift shadows toward #22251f (no pure black)
     low_mask = np.clip(1.0 - lum / 0.45, 0, 1)[..., None]
     lift = 0.10
     arr = arr + lift * (SOFT_BLACK / 255.0 - arr) * low_mask
 
-    # 4. Brick tint: warm red cast in shadows (echoes #a23a2f)
+    # 4. Sage tint: green cast in shadows (echoes #4a6f5c)
     brick_shift = np.array([-0.010, 0.020, 0.006], dtype=np.float32)  # sage tint in shadows
     arr = arr + brick_shift[None, None, :] * low_mask
 

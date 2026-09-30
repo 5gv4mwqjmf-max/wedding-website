@@ -39,10 +39,11 @@ python3 scripts/grade_photos.py --dir images/raw/ --out images/
 ```
 
 The grader (scripts/grade_photos.py) applies the site's exact palette:
-- Warmth: midtones/highlights pushed toward cream #f7f4f0
+- Warmth: midtones/highlights pushed toward cream #f6f4ef
 - Mute: saturation pulled ~18% (editorial, not candy)
-- Soft blacks: shadows lifted toward #1b1b1b (no crushed blacks)
-- Brick tint: warm red cast in shadows echoing #a23a2f
+- Soft blacks: shadows lifted toward #22251f (no crushed blacks)
+- Sage tint: cool-warm cast in shadows echoing #4a6f5c (the live accent;
+  brick red #a23a2f is retired)
 - S-curve: gentle contrast for the premium print feel
 
 It outputs JPEG (q90) + WebP (q82) at 800/1600/2400 widths automatically,
