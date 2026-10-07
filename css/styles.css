@@ -626,7 +626,9 @@ hr.gold-rule { margin: var(--s4) auto; }
   .btn { width: 100%; }
   .hero-actions .btn { width: 100%; }
   .site-nav .wrap { padding: 0 var(--s3); }
-  .scroll-top { right: 14px; bottom: 14px; width: 52px; height: 52px; }
+  /* .scroll-top mobile sizing lives NEXT TO its base rule (~line 1244), not
+     here: an equal-specificity rule in an earlier block loses to the later
+     base rule, so a copy here was silently dead (found 2026-10-07). */
 }
 
 /* ---------- Gallery (CSS grid, varied tiles) ---------- */
@@ -1270,6 +1272,12 @@ html, body {
 }
 @media (prefers-reduced-motion: reduce) {
   .scroll-top { transition: none; }
+}
+/* On phones the sticky RSVP bar owns the bottom of the viewport, so the
+   back-to-top control sits ABOVE it (bar top ≈ bottom:60px). Placed after the
+   base rule on purpose — same specificity, so order decides. */
+@media (max-width: 760px) {
+  .scroll-top { right: 14px; bottom: 74px; width: 52px; height: 52px; }
 }
 
 /* ---------- Alive: paper grain texture (WithJoy 'textured' category) ---------- */

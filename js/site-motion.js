@@ -166,6 +166,12 @@
   }
 
   // --- Scroll-to-top button ---
+  // NOTE (2026-10-07): a SECOND, JS-injected scroll-to-top control used to be
+  // appended here (a div with a retired #f6f4ef icon colour and no keyboard
+  // access). It rendered on top of this one, so phones showed two stacked
+  // round buttons, and the lower one sat over the sticky RSVP bar. The markup
+  // button below (index.html .scroll-top) is the single control - do not add
+  // a second one here.
   var topBtn = document.querySelector(".scroll-top");
   if (topBtn) {
     var onScroll = function () {
@@ -178,31 +184,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
     onScroll();
-  }
-  // --- Scroll-to-top button (mobile UX: one tap back to top) ---
-  var scrollBtn = document.createElement("div");
-  scrollBtn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>';
-  scrollBtn.setAttribute("aria-label", "Scroll to top");
-  Object.assign(scrollBtn.style, {
-    position: "fixed", bottom: "72px", right: "16px", zIndex: "99",
-    width: "48px", height: "48px", borderRadius: "50%",
-    background: "rgba(74,111,92,.9)", color: "#f6f4ef",
-    display: "flex", alignItems: "center", justifyContent: "center",
-    cursor: "pointer", opacity: "0", transform: "translateY(16px)",
-    transition: "opacity .3s ease, transform .3s ease",
-    boxShadow: "0 2px 8px rgba(0,0,0,.2)"
-  });
-  scrollBtn.onclick = function() { window.scrollTo({top: 0, behavior: "smooth"}); };
-  document.body.appendChild(scrollBtn);
-  window.addEventListener("scroll", function() {
-    if (window.scrollY > 400) {
-      scrollBtn.style.opacity = "1"; scrollBtn.style.transform = "translateY(0)";
-    } else {
-      scrollBtn.style.opacity = "0"; scrollBtn.style.transform = "translateY(16px)";
-    }
-  }, {passive: true});
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    scrollBtn.style.display = "none";
   }
   // --- Continuous-scroll parallax: photo tiles drift subtly on scroll ---
   if (window.innerWidth > 760 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
