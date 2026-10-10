@@ -17,8 +17,11 @@
  *      - Who has access: Anyone
  *      - Deploy, COPY THE URL (looks like
  *        https://script.google.com/macros/s/.../exec)
- *   4. Paste that URL into rsvp.html, guestbook.html, contact.html at the
- *      SCRIPT_URL constant in each page's <script> block.
+ *   4. Paste that URL into the SCRIPT_URL constant in TWO files:
+ *      - index.html (TWO constants: the RSVP form and the Contact form)
+ *      - js/guestbook.js (one constant)
+ *      The rsvp/contact/guestbook .html files are redirect stubs with NO
+ *      forms -- editing them does nothing.
  *   5. Commit + push. Done.
  *
  * ENDPOINTS (POST JSON):
