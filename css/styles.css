@@ -22,7 +22,9 @@
   --gold: #b3a07c;         /* warm sand-gold (from photo golds) */
   --gold-light: #e3d5b4;   /* light sand on dark */
   --saffron: #967a52;      /* warm tan accent */
-  --terracotta: #8a734f;   /* script accent */
+  --terracotta: #7a6438;   /* script accent — darkened R85: #8a734f scored
+                              4.26:1 on --paper where the 13px w600 .meta /
+                              .gb-from labels need 4.5:1 (WCAG AA) */
   --forest: #2b251b;       /* warm charcoal */
   --ink: #2a2317;          /* warm near-black (sunset-cohesive) */
   --ink-soft: #6c6248;     /* warm muted brown text */
@@ -1524,7 +1526,7 @@ body.scrolled .hero { transition: transform .1s linear; }
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .5em;
-  color: rgba(42, 35, 23, .45);
+  color: rgba(42, 35, 23, .72);   /* R85: was .45 = 2.67:1 against AA */
   margin: var(--s6) 0 0;
 }
 
@@ -1542,7 +1544,7 @@ body.scrolled .hero { transition: transform .1s linear; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .32em;
-  color: rgba(42, 35, 23, .55);
+  color: rgba(42, 35, 23, .72);   /* R85: was .55 = 3.49:1 against AA */
   text-align: center;
   padding: var(--s3) var(--s4);
   background: var(--ivory);

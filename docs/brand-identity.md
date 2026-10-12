@@ -33,8 +33,15 @@ site is the invitation opening, not an information terminal.
 | `--gold` | #b3a07c | DECORATIVE only — borders, rules, chips, foil glint |
 | `--gold-light` | #e3d5b4 | Marquee `<em>` accents, soft glints |
 
-Rules: gold/sage never carry small text; ink + maroon-deep carry text;
-the hero overlay is the peach sunset gradient.
+Rules: ink + maroon-deep carry body text; **sage** is fine for small
+uppercase kickers and labels (--maroon #4a6f5c measures 5.02:1 on --ivory,
+AA-pass, and is live on .hero-eyebrow / .ed-num-line / .gb-field label);
+**GOLD is decorative only** — borders, rules, chips, foil glint — and must
+NOT carry text you need to read (--gold #b3a07c is 2.27:1 on ivory / 2.08:1
+on cream). The one live exception is the numbered section heads "01-09":
+the gold numeral is decorative and the label text beside it carries the
+meaning. The hero overlay is the peach sunset gradient (`.hero::before`,
+still live behind the R77 editorial type).
 
 ## 3. Typography
 
@@ -51,7 +58,10 @@ the hero overlay is the peach sunset gradient.
 - **Monogram: `K&C`** in Great Vibes — used on the wax seal, evite seal,
   favicon (`images/brand-mark.html` → favicon-64.png, apple-touch-icon.png),
   404, and any future print. **Never `K&B`** (stale pre-Cayla initial).
-- **Temple-door arch + mandala linework** — hero SVG mark, cards, motifs.
+- **Temple-door arch + mandala linework** — cards, motifs. The old hero SVG
+  mark (`assets/hero-mandala.svg`) was retired with the R70/R77 editorial hero:
+  it is kept on-brand and publicly served by Pages, but **nothing references
+  it — do not re-add it to the hero.**
 - Ornaments: restrained gold flourishes (❦ ❧) — email stationery only.
 
 ## 5. Voice
@@ -88,4 +98,7 @@ the hero overlay is the peach sunset gradient.
 - One primary CTA everywhere: RSVP
 - Never generate text inside images (decoration only)
 
-_Last verified: Round 78 (2026-08-05). Update when the identity evolves._
+_Last verified: **Round 85** (2026-10-12) — hero caption + scroll hint and
+`--terracotta` darkened to clear WCAG AA (measured with
+`scripts/contrast_audit.py`); the gold numbered heads recorded as a deliberate
+decorative exception. Update when the identity evolves._
