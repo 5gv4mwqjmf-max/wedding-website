@@ -53,6 +53,14 @@ still live behind the R77 editorial type).
 - Scale discipline: 2-tier h2 (photo-tile 52 / section-head 46), no inline
   size drift, `text-wrap: balance` headings.
 
+**Naming a family obliges you to load it.** Every shipped page that sets
+`font-family` to a hosted family must carry the Google Fonts `<link>` block
+(copy it from `index.html`). `404.html` declared Great Vibes for its ornament
+while loading nothing, so guests arriving on a dead link saw a system
+fallback instead of the brand script (fixed R86, 2026-10-13 —
+`asset_link_check.py` §11 now FAILs any page that names a family without a
+font provider).
+
 ## 4. Marks
 
 - **Monogram: `K&C`** in Great Vibes — used on the wax seal, evite seal,
@@ -98,7 +106,7 @@ still live behind the R77 editorial type).
 - One primary CTA everywhere: RSVP
 - Never generate text inside images (decoration only)
 
-_Last verified: **Round 85** (2026-10-12) — hero caption + scroll hint and
-`--terracotta` darkened to clear WCAG AA (measured with
-`scripts/contrast_audit.py`); the gold numbered heads recorded as a deliberate
-decorative exception. Update when the identity evolves._
+_Last verified: **Round 86** (2026-10-13) — `404.html` now loads the webfonts
+it declares (§3 rule + `asset_link_check.py` §11); R85's hero caption / scroll
+hint / `--terracotta` AA fixes and the gold-head exception still stand. Update
+when the identity evolves._
