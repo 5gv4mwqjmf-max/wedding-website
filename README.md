@@ -192,6 +192,8 @@ Excel, replace the example rows with your guests, and save as CSV.
 3. Open evite.html in Chrome → Select All → Copy
 4. Paste into Butter (or Gmail for small sends)
 5. Send Save-the-Dates first → wait 2-3 weeks → send Invitations
-6. Monitor RSVPs on the website (`/rsvp.html` redirects to the RSVP
-   section) — guests click through from the email button
+6. Monitor RSVPs on the website (`/wedding-website/#rsvp` — the site root
+   plus the RSVP anchor; do NOT route through the `rsvp.html` stub, which
+   costs a hop and paints a legacy page) — guests click through from the
+   email button
 ```
