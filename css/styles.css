@@ -1742,9 +1742,10 @@ body.scrolled .hero { transition: transform .1s linear; }
     will-change: transform;
     transition: transform .6s ease-out;
   }
-  .photo-tile .photo-wrap.is-parallax img {
-    transform: scale(1.06) translateY(var(--parallax, 0px));
-  }
+  /* (.photo-tile .photo-wrap.is-parallax img) removed 2026-10-15 (R88): the
+     ONLY thing that ever added .is-parallax / --parallax was a duplicate
+     desktop parallax block in js/site-motion.js, while gentle-scroll.js was
+     already drifting the same wraps. Do not re-add it here. */
   /* Gentle rise when a section enters viewport */
   section { animation: none; }
   .reveal.in { animation: sectionIn .7s cubic-bezier(.22,1,.36,1) both; }

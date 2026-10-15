@@ -185,23 +185,13 @@
     });
     onScroll();
   }
-  // --- Continuous-scroll parallax: photo tiles drift subtly on scroll ---
-  if (window.innerWidth > 760 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var parallaxEls = document.querySelectorAll(".photo-tile .photo-wrap");
-    var updateParallax = function() {
-      var vh = window.innerHeight;
-      parallaxEls.forEach(function(wrap) {
-        var r = wrap.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        var progress = (r.top + r.height / 2 - vh / 2) / (vh / 2); // -1..1
-        var drift = Math.max(-14, Math.min(14, progress * 14));
-        wrap.style.setProperty("--parallax", drift + "px");
-        wrap.classList.add("is-parallax");
-      });
-    };
-    window.addEventListener("scroll", updateParallax, { passive: true });
-    window.addEventListener("resize", updateParallax);
-    window.addEventListener("load", function() { setTimeout(updateParallax, 150); });
-  }
-
+  // --- Continuous-scroll parallax: REMOVED 2026-10-15 (R88) ---
+  // NOTE: this block drove a SECOND, desktop-only photo parallax by setting
+  // --parallax (+/-14px) on .photo-tile .photo-wrap and adding .is-parallax,
+  // while gentle-scroll.js (the sanctioned R73 implementation, documented
+  // ceiling 12px desktop / 6px mobile) was ALREADY translating the same wraps
+  // (+/-12px). The two composed on the same element: up to 26px of drift,
+  // 2.2x the approved ceiling. It also survived R70, which removed every
+  // scroll-position-driven effect from the homepage. gentle-scroll.js owns
+  // photo parallax - do NOT re-add a parallax block here.
 })();
